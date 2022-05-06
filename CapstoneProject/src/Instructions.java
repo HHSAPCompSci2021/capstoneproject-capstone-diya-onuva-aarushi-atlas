@@ -2,16 +2,16 @@ import java.awt.Image;
 
 import processing.core.PApplet;
 
-public class Introduction extends PApplet{
+public class Instructions {
 
 	Image image;
 	
-	public Introduction()
+	public Instructions()
 	{
 		
 	}
 	
-	public void mouseClicked()
+	public void draw (PApplet draw)
 	{
 		
 	}
