@@ -7,14 +7,20 @@ public class DrawingSurface extends PApplet {
 	boolean showIntro;
 	
 	public DrawingSurface() {
-		showIntro = true;
+		showIntro = false;
 		intro = new Introduction("src/fileData/IntroTree.jpeg");
 		menu = new Menu("src/fileData/MenuMap.jpeg");
 	}
 	
 	public void draw() {
-		if (showIntro) intro.draw(this);
-		else menu.draw(this);
+		if (showIntro) 
+		{
+			intro.draw(this);
+		}
+		else 
+		{
+			menu.draw(this);
+		}
 	}
 	
 	public void switchToMenu() {

@@ -7,15 +7,17 @@ public class Menu {
 	DrawingMode drawing;
 	int highScore;
 	Instructions inst;
-	String back;
+	String image;
 	
-	public Menu(String b)
+	public Menu(String i)
 	{
-		back = b;
+		image = i;
 	}
 	
-	public void draw(PApplet draw) {
+	public void draw(PApplet draw) 
+	{
 		
+		draw.image(draw.loadImage(image), 0, 0, 1000, 751);
 	}
 	
 	public int getHighScore()

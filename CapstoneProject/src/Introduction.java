@@ -13,6 +13,7 @@ public class Introduction {
 	
 	public void draw(PApplet draw) {
 		
+		draw.image(draw.loadImage(image), 0, 0);
 	}
 	
 	public void mouseClicked()
