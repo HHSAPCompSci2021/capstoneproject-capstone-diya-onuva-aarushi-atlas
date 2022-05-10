@@ -1,3 +1,4 @@
+import processing.core.PApplet;
 
 public class Menu {
 
@@ -6,9 +7,14 @@ public class Menu {
 	DrawingMode drawing;
 	int highScore;
 	Instructions inst;
+	String back;
 	
-	public Menu()
+	public Menu(String b)
 	{
+		back = b;
+	}
+	
+	public void draw(PApplet draw) {
 		
 	}
 	
