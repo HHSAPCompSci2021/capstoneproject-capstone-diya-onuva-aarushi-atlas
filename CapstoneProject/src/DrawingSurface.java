@@ -7,8 +7,8 @@ public class DrawingSurface extends PApplet {
 	boolean showIntro;
 	
 	public DrawingSurface() {
-		showIntro = false;
-		intro = new Introduction("src/fileData/IntroTree.jpeg");
+		showIntro = true;
+		intro = new Introduction("src/fileData/IntroTree.png");
 		menu = new Menu("src/fileData/MenuMap.jpeg");
 	}
 	
