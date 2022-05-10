@@ -4,7 +4,7 @@ public class DrawingSurface extends PApplet {
 	
 	Introduction intro;
 	Menu menu;
-	boolean showIntro;
+	static boolean showIntro;
 	
 	public DrawingSurface() {
 		showIntro = true;
@@ -23,7 +23,7 @@ public class DrawingSurface extends PApplet {
 		}
 	}
 	
-	public void switchToMenu() {
+	public static void switchToMenu() {
 		showIntro = false;
 	}
 }
