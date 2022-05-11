@@ -23,14 +23,14 @@ public class DrawingSurface extends PApplet {
 	}
 	
 	public void draw() {
-		background(bg);
 		if (showIntro) 
 		{
+			background(bg);
 			intro.draw(this);
 		}
 		else 
 		{
-			bg = loadImage("src/fileData/map.png");
+			background(0);
 			menu.draw(this);
 		}
 	}
