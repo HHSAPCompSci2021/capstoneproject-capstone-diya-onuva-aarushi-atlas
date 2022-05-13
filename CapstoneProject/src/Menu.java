@@ -5,8 +5,7 @@ import processing.core.PConstants;
 import processing.core.PFont;
 
 
-public class Menu extends Screen {
-
+public class Menu {
 	private StudyMode study;
 	private QuizMode quiz;
 	private DrawingMode drawing;
@@ -66,7 +65,7 @@ public class Menu extends Screen {
 		draw.text("Quiz Mode", draw.width/2, draw.height/2 + 10);
 		draw.text("Draw Mode", draw.width/2, draw.height/2 + 110);
 		
-		
+		mode = 0;
 		
 		//click on Study
 		if(draw.mousePressed && draw.mouseX <= (draw.width/2 + 175) && (draw.width/2 - 175) <= draw.mouseX && draw.mouseY <= (draw.height/2 - 75) && (draw.height/2 - 125) <= draw.mouseY)
@@ -113,16 +112,33 @@ public class Menu extends Screen {
 			drawing.draw();
 //			surface.switchScreen(ScreenSwitcher.DRAW_SCREEN);
 //			draw.background(255);
-//			drawing.draw(draw);
+//			drawing.draw();
 //			switch screen implementation
 		}
+		
+		
+		
 		
 		//click on Instructions
 		if(draw.mousePressed && draw.mouseX <= 75 && 25 <= draw.mouseX && draw.mouseY <= 75 && 25 <= draw.mouseY)
 		{
+			mode = 4;
 			pressed = true;
 			inst.draw(draw);
 		}
+		
+//		if(activeMode == 1) {
+//			study.draw(draw);
+//		}
+//		if(activeMode == 2) {
+//			quiz.draw(draw);
+//		}
+//		if(activeMode == 3) {
+//			drawing.draw();
+//		}
+//		if(activeMode == 4) {
+//			inst.draw(draw);
+//		}
 		
 	}
 	
