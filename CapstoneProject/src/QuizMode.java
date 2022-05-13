@@ -73,9 +73,14 @@ public class QuizMode extends Screen{
 
 	public void draw(PApplet draw) 
 	{
-		draw.background(255, 255, 102);
+		draw.background(255, 255, 224);
 		
 		draw.textSize(30);
-		draw.text("MAIN MENU", draw.width/2, draw.height/2 - 170);
+		draw.text("QUIZ MODE", draw.width/2, draw.height/2 - 300);
+		
+		draw.textSize(12);
+		int rand = (int) (Math.random() * countries.size() + 1);
+		
+		draw.text("What is the capitol of " + countries.get(rand), draw.width/2, draw.height/2);
 	}
 }
