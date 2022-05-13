@@ -22,6 +22,7 @@ public class Menu {
 	
 	public Menu()
 	{
+		inst = new Instructions();
 		showStudy = false;
 		showQuiz = false;
 		showDraw = false;
@@ -35,6 +36,12 @@ public class Menu {
 		draw.rect(draw.width/2, draw.height/2 - 100, 350, 50); //Study
 		draw.rect(draw.width/2, draw.height/2, 350, 50); //Quiz
 		draw.rect(draw.width/2, draw.height/2 + 100, 350, 50); //Draw
+		
+		draw.fill(0, 185, 35);
+		draw.rect(50, 50, 50, 50); //Instructions
+		draw.fill(0);
+		draw.textSize(40);
+		draw.text("?", 50, 60);
 		
 		draw.fill(0);
 		myFont = draw.createFont("Times New Roman", 18);
@@ -85,6 +92,13 @@ public class Menu {
 //			draw.background(255);
 //			drawing.draw(draw);
 //			switch screen implementation
+		}
+		
+		//click on Instructions
+		if(draw.mousePressed && draw.mouseX <= 75 && 25 <= draw.mouseX && draw.mouseY <= 75 && 25 <= draw.mouseY)
+		{
+			pressed = true;
+			inst.draw(draw);
 		}
 		
 	}

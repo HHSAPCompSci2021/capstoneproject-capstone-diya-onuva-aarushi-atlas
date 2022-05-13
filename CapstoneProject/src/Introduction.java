@@ -78,7 +78,7 @@ public class Introduction {
 		draw.text("ATLAS", draw.width/2, draw.height/10);
 		
 		pressed = false;
-		if (num > 0) num-=0.0015;
+		if (num > 0) num-=0.0075;
 	}
 	
 }
