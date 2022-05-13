@@ -1,11 +1,40 @@
 import java.awt.Color;
 
-public class DrawingMode {
+import processing.core.PApplet;
 
+public class DrawingMode {
+	
+	private int curX, curY, oldX, oldY;
 	Color color;
 	
 	public DrawingMode()
 	{
+		
+	}
+	
+	public void draw (PApplet draw) {
+		
+		
+	}
+	
+	public void clear() {
+		
+		
+	}
+	
+	public void red() {
+		
+	}
+	
+	public void black() {
+		
+	}
+	
+	public void green() {
+		
+	}
+	
+	public void blue() {
 		
 	}
 	

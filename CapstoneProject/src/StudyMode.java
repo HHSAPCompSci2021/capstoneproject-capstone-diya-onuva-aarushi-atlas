@@ -11,6 +11,8 @@ public class StudyMode {
 	
 	public void draw(PApplet draw)
 	{
+//		draw.background(255);
+//		draw.rect(40, 40, 100, 100);
 		
 	}
 }

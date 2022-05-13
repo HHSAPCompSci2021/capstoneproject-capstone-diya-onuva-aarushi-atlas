@@ -5,18 +5,26 @@ import processing.core.PFont;
 
 public class Menu {
 
-	StudyMode study;
-	QuizMode quiz;
-	DrawingMode drawing;
-	int highScore;
-	Instructions inst;
-	PFont myFont;
+	private StudyMode study;
+	private QuizMode quiz;
+	private DrawingMode drawing;
+	private int highScore;
+	private Instructions inst;
+	private PFont myFont;
 	boolean pressed;
 	private int mode;
-//	Rect rect1;
+	private boolean clicked;
+	static boolean showStudy;
+	static boolean showQuiz;
+	static boolean showDraw;
+	private DrawingSurface surface;
+	
 	
 	public Menu()
 	{
+		showStudy = false;
+		showQuiz = false;
+		showDraw = false;
 		
 	}
 	
@@ -31,11 +39,75 @@ public class Menu {
 		draw.fill(0);
 		myFont = draw.createFont("Times New Roman", 18);
 		draw.textFont(myFont);
+		draw.textSize(30);
+		draw.text("MAIN MENU", draw.width/2, draw.height/2 - 170);
+		
 		draw.textSize(18);
 		
 		draw.text("Study Mode", draw.width/2, draw.height/2 - 90);
 		draw.text("Quiz Mode", draw.width/2, draw.height/2 + 10);
 		draw.text("Draw Mode", draw.width/2, draw.height/2 + 110);
+		
+		//click on Study
+		if(draw.mousePressed && draw.mouseX <= (draw.width/2 + 175) && (draw.width/2 - 175) <= draw.mouseX && draw.mouseY <= (draw.height/2 - 75) && (draw.height/2 - 125) <= draw.mouseY)
+		{
+			mode = 1;
+			pressed = true;
+			draw.fill(0, 185, 35);
+			draw.rect(draw.width/2, draw.height/2 - 100, 350, 50);
+			showStudy = true;
+//			draw.background(255);
+//			study.draw(draw);
+//			switch screen implementation
+		}
+				
+		//click on Quiz
+		if(draw.mousePressed && draw.mouseX <= (draw.width/2 + 175) && (draw.width/2 - 175) <= draw.mouseX && draw.mouseY <= (draw.height/2 + 25) && (draw.height/2 - 25) <= draw.mouseY)
+		{
+			mode = 2;
+			pressed = true;
+			draw.fill(0, 185, 35);
+			draw.rect(draw.width/2, draw.height/2, 350, 50);
+			showQuiz = true;
+//			draw.background(255);
+//			quiz.draw(draw);
+//			switch screen implementation
+			}
+				
+		//click on Draw
+		if(draw.mousePressed && draw.mouseX <= (draw.width/2 +175) && (draw.width/2 - 175) <= draw.mouseX && draw.mouseY <= (draw.height/2 + 125) && (draw.height/2 + 75) <= draw.mouseY)
+		{
+			mode = 3;
+			pressed = true;
+			draw.fill(0, 185, 35);
+			draw.rect(draw.width/2, draw.height/2 + 100, 350, 50);
+			showDraw = true;
+//			draw.background(255);
+//			drawing.draw(draw);
+//			switch screen implementation
+		}
+		
+	}
+	
+	public int getHighScore()
+	{
+		return highScore;
+	}
+	
+	public String getMode()
+	{
+		if (mode == 1)
+			return "Study Mode";
+		if (mode == 2)
+			return "Quiz Mode";
+		if (mode == 3)
+			return "Draw Mode";
+		else
+			return "No mode selected";
+	}
+	
+	public void mousePressed(PApplet draw)
+	{
 		
 		//click on Study
 		if(draw.mousePressed && draw.mouseX <= (draw.width/2 + 175) && (draw.width/2 - 175) <= draw.mouseX && draw.mouseY <= (draw.height/2 - 75) && (draw.height/2 - 125) <= draw.mouseY)
@@ -66,56 +138,5 @@ public class Menu {
 			draw.rect(draw.width/2, draw.height/2 + 100, 350, 50);
 //			switch screen implementation
 		}
-		
-	}
-	
-	public int getHighScore()
-	{
-		return highScore;
-	}
-	
-	public String getMode()
-	{
-		if (mode == 1)
-			return "Study Mode";
-		if (mode == 2)
-			return "Quiz Mode";
-		if (mode == 3)
-			return "Draw Mode";
-		else
-			return "No mode selected";
-	}
-	
-	public void mousePressed(PApplet draw)
-	{
-//		//click on Study
-//		if(draw.mousePressed && draw.mouseX <= (draw.width/2 + 175) && (draw.width/2 - 175) <= draw.mouseX && draw.mouseY <= (draw.height/2 - 75) && (draw.height/2 - 125) <= draw.mouseY)
-//		{
-//			mode = 1;
-//			pressed = true;
-//			draw.fill(0, 185, 35);
-//			draw.rect(draw.width/2, draw.height/2 - 100, 350, 50);
-////			switch screen implementation
-//		}
-//				
-//		//click on Quiz
-//		if(draw.mousePressed && draw.mouseX <= (draw.width/2 + 175) && (draw.width/2 - 175) <= draw.mouseX && draw.mouseY <= (draw.height/2 + 25) && (draw.height/2 - 25) <= draw.mouseY)
-//		{
-//			mode = 2;
-//			pressed = true;
-//			draw.fill(0, 185, 35);
-//			draw.rect(draw.width/2, draw.height/2, 350, 50);
-////			switch screen implementation
-//			}
-//				
-//		//click on Draw
-//		if(draw.mousePressed && draw.mouseX <= (draw.width/2 +175) && (draw.width/2 - 175) <= draw.mouseX && draw.mouseY <= (draw.height/2 + 125) && (draw.height/2 + 75) <= draw.mouseY)
-//		{
-//			mode = 3;
-//			pressed = true;
-//			draw.fill(0, 185, 35);
-//			draw.rect(draw.width/2, draw.height/2 + 100, 350, 50);
-////			switch screen implementation
-//		}
 	}
 }
