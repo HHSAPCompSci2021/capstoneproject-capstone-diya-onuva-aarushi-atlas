@@ -12,8 +12,8 @@ public class StudyMode extends Screen {
 	
 	public void draw(PApplet draw)
 	{
-//		draw.background(255);
-//		draw.rect(40, 40, 100, 100);
+		draw.background(255);
+		draw.rect(40, 40, 100, 100);
 		
 	}
 }

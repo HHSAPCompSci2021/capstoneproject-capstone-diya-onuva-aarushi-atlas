@@ -24,17 +24,13 @@ public class Menu extends Screen {
 	final static int drawMode = 3;
 	final static int instructions = 4;
 	static int activeMode;
-//	static boolean showQuiz;
-//	static boolean showDraw;
-//	static boolean showInstructions;
-	
 	
 	public Menu()
 	{
 		inst = new Instructions();
-//		showStudy = false;
-//		showQuiz = false;
-//		showDraw = false;
+		study = new StudyMode();
+		quiz = new QuizMode();
+		drawing = new DrawingMode();
 		studyBtn = new Rectangle(1000/2, 751/2 - 50, 350, 50);
 		quizBtn = new Rectangle (1000/2, 751/2, 350, 50);
 		drawingBtn = new Rectangle (1000/2, 751/2 + 50, 350, 50);
@@ -75,6 +71,7 @@ public class Menu extends Screen {
 		//click on Study
 		if(draw.mousePressed && draw.mouseX <= (draw.width/2 + 175) && (draw.width/2 - 175) <= draw.mouseX && draw.mouseY <= (draw.height/2 - 75) && (draw.height/2 - 125) <= draw.mouseY)
 		{
+			Menu.switchActiveScreen(1);
 			activeMode = 1;
 			mode = 1;
 			pressed = true;
@@ -83,6 +80,8 @@ public class Menu extends Screen {
 //			draw.background(255);
 //			study.draw(draw);
 //			switch screen implementation
+			Menu.switchActiveScreen(1);
+			study.draw(draw);
 //			surface.switchScreen(ScreenSwitcher.STUDY_SCREEN);
 		}
 				
@@ -94,6 +93,8 @@ public class Menu extends Screen {
 			draw.fill(0, 185, 35);
 			draw.rect(draw.width/2, draw.height/2, 350, 50);
 
+			Menu.switchActiveScreen(2);
+			quiz.draw(draw);
 //			draw.background(255);
 //			quiz.draw(draw);
 //			switch screen implementation
@@ -108,6 +109,8 @@ public class Menu extends Screen {
 			draw.fill(0, 185, 35);
 			draw.rect(draw.width/2, draw.height/2 + 100, 350, 50);
 
+			Menu.switchActiveScreen(3);
+			drawing.draw();
 //			surface.switchScreen(ScreenSwitcher.DRAW_SCREEN);
 //			draw.background(255);
 //			drawing.draw(draw);
