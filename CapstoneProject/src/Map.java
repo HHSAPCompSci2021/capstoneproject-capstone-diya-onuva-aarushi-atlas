@@ -95,7 +95,7 @@ public class Map {
 		else if(r==255 && g==255 && b==174) return "Zambia";
 		else if(r==250 && g==221 && b==188) return "Eswatini";
 		else if(r==114 && g==25 && b==168) return "Djibouti";
-		else if(r==140 && g==25 && b==255) return "Lesotho";
+		else if(r==141 && g==25 && b==255) return "Lesotho";
 		else if(r==255 && g==25 && b==145) return "Botswana";
 		else if(r==255 && g==103 && b==25) return "Namibia";
 		else if(r==150 && g==25 && b==25) return "Central African Republic";
@@ -263,5 +263,9 @@ public class Map {
 		}
 		
 		return false;
+	}
+	
+	public String getRGB() {
+		return r+", " +g+", "+b;
 	}
 }
