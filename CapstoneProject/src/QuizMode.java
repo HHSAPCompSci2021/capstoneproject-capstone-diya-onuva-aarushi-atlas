@@ -8,11 +8,17 @@ public class QuizMode extends Screen{
 	ArrayList<String> unlocked;
 	ArrayList<String> countries;
 	private DrawingSurface surface;
+	int rand;
 	
 	public QuizMode ()
 	{
 		countries = new ArrayList<String>();
-		
+		addCountries();
+		rand = (int) (Math.random() * countries.size() + 1);
+	}
+	
+	public void addCountries()
+	{
 		countries.add("The Gambia");
 		countries.add("Liberia");
 		countries.add("Benin");
@@ -65,12 +71,11 @@ public class QuizMode extends Screen{
 		countries.add("Sierra Leone");
 		countries.add("Côte D'Ivore");
 	}
-	
 	public void keyPressed ()
 	{
 		
 	}
-
+	
 	public void draw(PApplet draw) 
 	{
 		draw.background(255, 255, 224);
@@ -79,7 +84,6 @@ public class QuizMode extends Screen{
 		draw.text("QUIZ MODE", draw.width/2, draw.height/2 - 300);
 		
 		draw.textSize(12);
-		int rand = (int) (Math.random() * countries.size() + 1);
 		
 		draw.text("What is the capitol of " + countries.get(rand), draw.width/2, draw.height/2);
 	}
