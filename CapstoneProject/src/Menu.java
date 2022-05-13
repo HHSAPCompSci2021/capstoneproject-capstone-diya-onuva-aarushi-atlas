@@ -1,9 +1,11 @@
+import java.awt.Rectangle;
+
 import processing.core.PApplet;
 import processing.core.PConstants;
 import processing.core.PFont;
 
 
-public class Menu {
+public class Menu extends Screen {
 
 	private StudyMode study;
 	private QuizMode quiz;
@@ -14,23 +16,36 @@ public class Menu {
 	boolean pressed;
 	private int mode;
 	private boolean clicked;
-	static boolean showStudy;
-	static boolean showQuiz;
-	static boolean showDraw;
 	private DrawingSurface surface;
+	private Rectangle studyBtn, quizBtn, drawingBtn;
+	final static int menu = 0;
+	final static int studyMode = 1;
+	final static int quizMode = 2;
+	final static int drawMode = 3;
+	final static int instructions = 4;
+	static int activeMode;
+//	static boolean showQuiz;
+//	static boolean showDraw;
+//	static boolean showInstructions;
 	
 	
 	public Menu()
 	{
 		inst = new Instructions();
-		showStudy = false;
-		showQuiz = false;
-		showDraw = false;
+//		showStudy = false;
+//		showQuiz = false;
+//		showDraw = false;
+		studyBtn = new Rectangle(1000/2, 751/2 - 50, 350, 50);
+		quizBtn = new Rectangle (1000/2, 751/2, 350, 50);
+		drawingBtn = new Rectangle (1000/2, 751/2 + 50, 350, 50);
 		
 	}
 	
 	public void draw(PApplet draw) 
 	{
+		
+		draw.background(255,255,255);
+		
 		draw.fill(130, 185, 35);
 		
 		draw.rect(draw.width/2, draw.height/2 - 100, 350, 50); //Study
@@ -55,17 +70,20 @@ public class Menu {
 		draw.text("Quiz Mode", draw.width/2, draw.height/2 + 10);
 		draw.text("Draw Mode", draw.width/2, draw.height/2 + 110);
 		
+		
+		
 		//click on Study
 		if(draw.mousePressed && draw.mouseX <= (draw.width/2 + 175) && (draw.width/2 - 175) <= draw.mouseX && draw.mouseY <= (draw.height/2 - 75) && (draw.height/2 - 125) <= draw.mouseY)
 		{
+			activeMode = 1;
 			mode = 1;
 			pressed = true;
 			draw.fill(0, 185, 35);
 			draw.rect(draw.width/2, draw.height/2 - 100, 350, 50);
-			showStudy = true;
 //			draw.background(255);
-//			study.draw(draw);
+			study.draw(draw);
 //			switch screen implementation
+//			surface.switchScreen(ScreenSwitcher.STUDY_SCREEN);
 		}
 				
 		//click on Quiz
@@ -75,10 +93,11 @@ public class Menu {
 			pressed = true;
 			draw.fill(0, 185, 35);
 			draw.rect(draw.width/2, draw.height/2, 350, 50);
-			showQuiz = true;
+
 //			draw.background(255);
 //			quiz.draw(draw);
 //			switch screen implementation
+			surface.switchScreen(ScreenSwitcher.QUIZ_SCREEN);
 			}
 				
 		//click on Draw
@@ -88,7 +107,8 @@ public class Menu {
 			pressed = true;
 			draw.fill(0, 185, 35);
 			draw.rect(draw.width/2, draw.height/2 + 100, 350, 50);
-			showDraw = true;
+
+			surface.switchScreen(ScreenSwitcher.DRAW_SCREEN);
 //			draw.background(255);
 //			drawing.draw(draw);
 //			switch screen implementation
@@ -106,6 +126,10 @@ public class Menu {
 	public int getHighScore()
 	{
 		return highScore;
+	}
+	
+	public static void switchActiveScreen(int x) {
+		activeMode = x;
 	}
 	
 	public String getMode()

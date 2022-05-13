@@ -10,7 +10,7 @@ public class QuizMode extends Screen{
 	
 	public QuizMode()
 	{
-		super(1000, 751);
+		
 	}
 	
 	public void keyPressed()

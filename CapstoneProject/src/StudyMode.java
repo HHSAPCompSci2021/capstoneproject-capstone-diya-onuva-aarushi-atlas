@@ -7,7 +7,7 @@ public class StudyMode extends Screen {
 	
 	public StudyMode()
 	{
-		super(1000, 751);
+		
 	}
 	
 	public void draw(PApplet draw)

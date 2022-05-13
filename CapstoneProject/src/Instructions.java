@@ -10,7 +10,7 @@ import javax.swing.JLabel;
 
 import processing.core.PApplet;
 
-public class Instructions {
+public class Instructions extends Screen {
 
 	String image;
 	
