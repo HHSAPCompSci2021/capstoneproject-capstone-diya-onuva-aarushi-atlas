@@ -137,11 +137,6 @@ public class Map {
 		
 	}
 	
-	public void draw(PApplet draw)
-	{
-		
-	}
-	
 	public String nearC(PApplet draw, int x, int y) {
 		if(x<0 || y<0 || x > draw.width || y > draw.height) return null;
 		if (curr == coords.length) return null;
