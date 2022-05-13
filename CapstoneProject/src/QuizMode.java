@@ -2,7 +2,7 @@ import java.util.ArrayList;
 
 import processing.core.PApplet;
 
-public class QuizMode extends Screen{
+public class QuizMode extends Map{
 
 	int score;
 	ArrayList<String> unlocked;
