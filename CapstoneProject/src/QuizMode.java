@@ -8,17 +8,18 @@ public class QuizMode extends Screen{
 	ArrayList<String> unlocked;
 	private DrawingSurface surface;
 	
-	public QuizMode()
+	public QuizMode ()
 	{
 		
 	}
 	
-	public void keyPressed()
+	public void keyPressed ()
 	{
 		
 	}
 
-	public void draw(PApplet draw) {
+	public void draw (PApplet draw) 
+	{
 		
 	}
 }
