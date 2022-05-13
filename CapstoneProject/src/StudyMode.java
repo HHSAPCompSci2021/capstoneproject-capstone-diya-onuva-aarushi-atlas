@@ -1,12 +1,13 @@
 import processing.core.PApplet;
 
-public class StudyMode {
+public class StudyMode extends Screen {
 
 	String current;
+	private DrawingSurface surface;
 	
 	public StudyMode()
 	{
-		
+		super(1000, 751);
 	}
 	
 	public void draw(PApplet draw)

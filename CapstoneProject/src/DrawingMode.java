@@ -2,14 +2,17 @@ import java.awt.Color;
 
 import processing.core.PApplet;
 
-public class DrawingMode {
+public class DrawingMode extends Screen {
 	
 	private int curX, curY, oldX, oldY;
-	Color color;
+	Color color; 
+	private DrawingSurface surface;
+	
+	
 	
 	public DrawingMode()
 	{
-		
+		super(1000, 751);
 	}
 	
 	public void draw (PApplet draw) {
