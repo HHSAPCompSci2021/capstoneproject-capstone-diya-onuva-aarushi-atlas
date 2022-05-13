@@ -81,7 +81,7 @@ public class Menu extends Screen {
 			draw.fill(0, 185, 35);
 			draw.rect(draw.width/2, draw.height/2 - 100, 350, 50);
 //			draw.background(255);
-			study.draw(draw);
+//			study.draw(draw);
 //			switch screen implementation
 //			surface.switchScreen(ScreenSwitcher.STUDY_SCREEN);
 		}
@@ -97,7 +97,7 @@ public class Menu extends Screen {
 //			draw.background(255);
 //			quiz.draw(draw);
 //			switch screen implementation
-			surface.switchScreen(ScreenSwitcher.QUIZ_SCREEN);
+//			surface.switchScreen(ScreenSwitcher.QUIZ_SCREEN);
 			}
 				
 		//click on Draw
@@ -108,7 +108,7 @@ public class Menu extends Screen {
 			draw.fill(0, 185, 35);
 			draw.rect(draw.width/2, draw.height/2 + 100, 350, 50);
 
-			surface.switchScreen(ScreenSwitcher.DRAW_SCREEN);
+//			surface.switchScreen(ScreenSwitcher.DRAW_SCREEN);
 //			draw.background(255);
 //			drawing.draw(draw);
 //			switch screen implementation
