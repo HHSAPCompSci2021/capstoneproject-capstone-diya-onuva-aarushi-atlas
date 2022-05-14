@@ -171,7 +171,59 @@ public class Map {
 	 * returns null
 	 */
 	public String getCapital(String s) {
-		return s;
+		
+		if (s.equalsIgnoreCase("The Gambia") || s.equalsIgnoreCase("Gambia")) return "Banjul";
+		else if (s.equalsIgnoreCase("Liberia")) return "Monrovia";
+		else if (s.equalsIgnoreCase("Benin")) return "Porto-Novo";
+		else if (s.equalsIgnoreCase("Egypt")) return "Cairo";
+		else if (s.equalsIgnoreCase("Zimbabwe")) return "Harare";
+		else if (s.equalsIgnoreCase("Ghana")) return "Accra";
+		else if (s.equalsIgnoreCase("Gabon")) return "Libreville";
+		else if (s.equalsIgnoreCase("South Africa")) return "Cape Town and Pretoria and Bloemfontien";
+		else if (s.equalsIgnoreCase("Eritrea")) return "Asmara";
+		else if (s.equalsIgnoreCase("Sengal")) return "Dakar";
+		else if (s.equalsIgnoreCase("Burkina Faso")) return "Ouagadougou";
+		else if (s.equalsIgnoreCase("Somalia")) return "Mogadishu";
+		else if (s.equalsIgnoreCase("Mozambique")) return "Maputo";
+		else if (s.equalsIgnoreCase("The Comoros") || s.equalsIgnoreCase("Comoros")) return "Moroni";
+		else if (s.equalsIgnoreCase("Madagascar")) return "Antananarivo";
+		else if (s.equalsIgnoreCase("Angola")) return "Luanda";
+		else if (s.equalsIgnoreCase("Uganda")) return "Kampala";
+		else if(s.equalsIgnoreCase("Morocco")) return "Rabat";
+		else if(s.equalsIgnoreCase("Western Sahara")) return "Laayoune";
+		else if(s.equalsIgnoreCase("Algeria")) return "Algiers";
+		else if(s.equalsIgnoreCase("Libya")) return "Tripoli";
+		else if(s.equalsIgnoreCase("Sudan")) return "Khaartoum";
+		else if(s.equalsIgnoreCase("Tunisia")) return "Tunis";
+		else if(s.equalsIgnoreCase("Ethiopia")) return "Addis Ababa";
+		else if(s.equalsIgnoreCase("Kenya")) return "Nairobi";
+		else if(s.equalsIgnoreCase("Tanzania")) return "Dodoma";
+		else if(s.equalsIgnoreCase("Malawi")) return "Lilongwe";
+		else if(s.equalsIgnoreCase("Zambia")) return "Lusaka";
+		else if(s.equalsIgnoreCase("Eswatini")) return "Mbabane and Lobamba";
+		else if(s.equalsIgnoreCase("Djibouti")) return "Djibouti";
+		else if(s.equalsIgnoreCase("Lesotho")) return "Maseru";
+		else if(s.equalsIgnoreCase("Botswana")) return "Gaborone";
+		else if(s.equalsIgnoreCase("Namibia")) return "Windhoek";
+		else if(s.equalsIgnoreCase("Central African Republic") || s.equalsIgnoreCase("African Republic")) return "Bangui";
+		else if(s.equalsIgnoreCase("Republic of the Congo") || s.equalsIgnoreCase("Congo Republic")) return "Brazzaville";
+		else if(s.equalsIgnoreCase("Equatorial Guinea")) return "Malabo";
+		else if(s.equalsIgnoreCase("Democratic Republic of the Congo")) return "Kinshas";
+		else if(s.equalsIgnoreCase("Cameroon")) return "Yaoundé";
+		else if(s.equalsIgnoreCase("Rwanda")) return "Kigali";
+		else if(s.equalsIgnoreCase("Burundi")) return "Gitega";
+		else if(s.equalsIgnoreCase("Chad")) return "N'Djamena";
+		else if(s.equalsIgnoreCase("Niger")) return "Niamey";
+		else if(s.equalsIgnoreCase("Mali")) return "Bamako";
+		else if(s.equalsIgnoreCase("Mauritania")) return "Nouakchott";
+		else if(s.equalsIgnoreCase("Guinea")) return "Conakry";
+		else if(s.equalsIgnoreCase("Nigeria")) return "Abuja";
+		else if(s.equalsIgnoreCase("Togo")) return "Lomé";
+		else if(s.equalsIgnoreCase("South Sudan")) return "Juba";
+		else if(s.equalsIgnoreCase("Guinea-Bissau")) return "Bissau";
+		else if(s.equalsIgnoreCase("Sierra Leone")) return "Freetown";
+		else if(s.equalsIgnoreCase("Côte D'Ivore")) return "Yamoussoukro";
+		else return null;
 		
 	}
 	
@@ -202,7 +254,7 @@ public class Map {
 	
 	/**
 	 * Returns a <code>String</code> of the current RGB values in this <code>Map</code>
-	 * @returna a <code>String</code> of the current RGB values in this <code>Map</code>
+	 * @return a <code>String</code> of the current RGB values in this <code>Map</code>
 	 */
 	public String getRGB() {
 		return r + ", " + g + ", " + b;
