@@ -4,8 +4,15 @@ import processing.core.PApplet;
 import processing.core.PConstants;
 import processing.core.PFont;
 
+/**
+ * 
+ * @author aarushigupta
+ * Has a StudyMode, QuizMode, highscore, Instructions, PFont, if pressed, int for mode
+ * Serves to act as a menu where the user can navigate to different features within the game (study, quiz, and draw mode as well as the instructions)
+ *
+ */
 
-public class Menu extends Screen {
+public class Menu{
 
 	private StudyMode study;
 	private QuizMode quiz;
@@ -31,12 +38,16 @@ public class Menu extends Screen {
 		study = new StudyMode();
 		quiz = new QuizMode();
 		drawing = new DrawingMode();
-		studyBtn = new Rectangle(1000/2, 751/2 - 50, 350, 50);
-		quizBtn = new Rectangle (1000/2, 751/2, 350, 50);
-		drawingBtn = new Rectangle (1000/2, 751/2 + 50, 350, 50);
+//		studyBtn = new Rectangle(1000/2, 751/2 - 50, 350, 50);
+//		quizBtn = new Rectangle (1000/2, 751/2, 350, 50);
+//		drawingBtn = new Rectangle (1000/2, 751/2 + 50, 350, 50);
 		
 	}
 	
+	/**
+	 * Draws the chosen Mode
+	 * @param draw
+	 */
 	public void draw(PApplet draw) 
 	{
 		
@@ -48,6 +59,11 @@ public class Menu extends Screen {
 		
 	}
 	
+	/**
+	 * Monitors the screen switch by using the user's mouse pressed position
+	 * @param draw
+	 * @post pressed changes value to its opposite once clicked on, and active screen switches determining where the click was
+	 */
 	public void menuDraw(PApplet draw) {
 		if(draw.mousePressed && draw.mouseX <= (draw.width/2 + 175) && (draw.width/2 - 175) <= draw.mouseX && draw.mouseY <= (draw.height/2 - 75) && (draw.height/2 - 125) <= draw.mouseY)
 		{
@@ -144,15 +160,29 @@ public class Menu extends Screen {
 		pressed = false;
 	}
 	
+	/**
+	 * gets the high score of the game
+	 * 
+	 * @return high score
+	 */
 	public int getHighScore()
 	{
 		return highScore;
 	}
 	
+	/**
+	 * changes the Active Screen
+	 * @param x
+	 * @post sets activeMode to the x value passed
+	 */
 	public static void switchActiveScreen(int x) {
 		activeMode = x;
 	}
 	
+	/**
+	 * To say which mode the user is currently in
+	 * @return a string with what mode is currently selected
+	 */
 	public String getMode()
 	{
 		if (mode == 1)
