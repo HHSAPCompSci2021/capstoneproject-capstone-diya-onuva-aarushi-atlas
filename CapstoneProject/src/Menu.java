@@ -22,9 +22,6 @@ public class Menu{
 	private PFont myFont;
 	boolean pressed;
 	private int mode;
-	private boolean clicked;
-	private DrawingSurface surface;
-	private Rectangle studyBtn, quizBtn, drawingBtn;
 	private final static int menu = 0;
 	private final static int studyMode = 1;
 	private final static int quizMode = 2;
