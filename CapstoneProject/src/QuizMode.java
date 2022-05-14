@@ -7,7 +7,7 @@ import processing.core.PApplet;
  * @author diya
  *
  */
-public class QuizMode extends Screen{
+public class QuizMode extends Map{
 
 	private int score;
 	private ArrayList<String> unlocked;

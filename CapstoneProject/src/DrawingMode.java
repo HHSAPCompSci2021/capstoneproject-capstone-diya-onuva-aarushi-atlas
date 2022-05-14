@@ -14,13 +14,12 @@ import javax.swing.JComponent;
 import processing.core.PApplet;
 
 /**
- * 
- * @author aarushigupta
- * 
  * Serves to act as the draw feature for the class which is an interactive tool allowing the user to draw on a white board with four color options
  * Has an image and a Graphics2D
+ * 
+ * @author Aarushi Gupta
  */
-public class DrawingMode extends Screen {
+public class DrawingMode{
 
 	public DrawingMode() {
 	

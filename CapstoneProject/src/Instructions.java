@@ -15,7 +15,7 @@ import processing.core.PApplet;
  * @author diya
  *
  */
-public class Instructions extends Screen {
+public class Instructions{
 
 	String image;
 	

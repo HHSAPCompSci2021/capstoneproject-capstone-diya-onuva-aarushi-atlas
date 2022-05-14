@@ -6,10 +6,11 @@ import processing.core.PFont;
 
 /**
  * 
- * @author aarushigupta
  * Has a StudyMode, QuizMode, highscore, Instructions, PFont, if pressed, int for mode
  * Serves to act as a menu where the user can navigate to different features within the game (study, quiz, and draw mode as well as the instructions)
  *
+ * @author Aarushi Gupta
+ * 
  */
 
 public class Menu{
