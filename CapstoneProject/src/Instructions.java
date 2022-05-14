@@ -10,15 +10,27 @@ import javax.swing.JLabel;
 
 import processing.core.PApplet;
 
+/**
+ * Creates a pop out window with instructions on the game.
+ * @author diya
+ *
+ */
 public class Instructions extends Screen {
 
 	String image;
 	
+	/**
+	 * Sets default settings
+	 */
 	public Instructions()
 	{
 		
 	}
 	
+	/**
+	 * draws text and button on the new window
+	 * @param draw of PApplet
+	 */
 	public void draw (PApplet draw)
 	{
 		JFrame jFrame = new JFrame();

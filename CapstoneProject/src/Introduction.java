@@ -4,11 +4,19 @@ import java.awt.Robot;
 import processing.core.PApplet;
 import processing.core.PConstants;
 
+/**
+ * The introduction screen for the program, which contains the Play button
+ * @author diya
+ *
+ */
 public class Introduction {
 
-	float textSize, bWidth, bHeight, num;
-	boolean pressed;
+	private float textSize, bWidth, bHeight, num;
+	private boolean pressed;
 	
+	/**
+	 * Sets default settings
+	 */
 	public Introduction()
 	{
 		textSize = 45;
@@ -18,6 +26,10 @@ public class Introduction {
 		pressed = false;
 	}
 	
+	/**
+	 * Draws the blue background and play button
+	 * @param draw given PApplet
+	 */
 	public void draw(PApplet draw) 
 	{
 		if(num <= 0 && draw.mousePressed && draw.mouseX <= draw.width/2 + bWidth/2 && draw.mouseX >= draw.width/2 - bWidth/2 && draw.mouseY <= draw.height*0.4f + bHeight/2 && draw.mouseY >= draw.height*0.4f - bHeight/2) 

@@ -2,14 +2,22 @@ import java.util.ArrayList;
 
 import processing.core.PApplet;
 
+/**
+ * Creates multiple choice questions for the user to interact with
+ * @author diya
+ *
+ */
 public class QuizMode extends Screen{
 
-	int score;
-	ArrayList<String> unlocked;
-	ArrayList<String> countries;
+	private int score;
+	private ArrayList<String> unlocked;
+	private ArrayList<String> countries;
 	private DrawingSurface surface;
-	int rand;
+	private int rand;
 	
+	/**
+	 * populates countries arraylist, and sets default settings
+	 */
 	public QuizMode ()
 	{
 		countries = new ArrayList<String>();
@@ -17,6 +25,9 @@ public class QuizMode extends Screen{
 		rand = (int) (Math.random() * countries.size() + 1);
 	}
 	
+	/**
+	 * adds countries to the countries arraylist
+	 */
 	public void addCountries()
 	{
 		countries.add("The Gambia");
@@ -71,11 +82,19 @@ public class QuizMode extends Screen{
 		countries.add("Sierra Leone");
 		countries.add("Côte D'Ivore");
 	}
+	
+	/**
+	 * detects when key is pressed
+	 */
 	public void keyPressed ()
 	{
 		
 	}
 	
+	/**
+	 * Draws the question and title
+	 * @param draw
+	 */
 	public void draw(PApplet draw) 
 	{
 		draw.background(255, 255, 224);
@@ -85,6 +104,6 @@ public class QuizMode extends Screen{
 		
 		draw.textSize(12);
 		
-		draw.text("What is the capitol of " + countries.get(rand), draw.width/2, draw.height/2);
+		draw.text("What is the capitol of " + countries.get(rand) + "?", draw.width/2, draw.height/2);
 	}
 }
