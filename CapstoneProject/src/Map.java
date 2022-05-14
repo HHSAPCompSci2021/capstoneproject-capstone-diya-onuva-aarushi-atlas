@@ -3,14 +3,23 @@ import java.util.ArrayList;
 
 import processing.core.PApplet;
 
+/** A <code>Map</code> returns information to identify the country and return
+ * additional information on the specific country.
+ * 
+ * @author Onuva Ekram
+*/
+
 public class Map {
 
-	int r, g, b, curr;
-	double xStart, width, yStart, height;
+	private int r, g, b, curr;
+	private double xStart, width, yStart, height;
 	private int[][] coords;
 	
-	public Map()
-	{
+	
+	/**
+	 * Creates a new <code>Map</code> with a sensitivity of 5 pixels and default map settings
+	 */
+	public Map() {
 		coords = new int[5][2];
 		curr = 0;
 		r = 0;
@@ -23,8 +32,15 @@ public class Map {
 		height = 591;
 	}
 	
-	public Map(double x, double y, double w, double h)
-	{
+	/**
+	 * Creates a new <code>Map</code> with a sensitivity of 5 pixels and sets map settings with
+	 * given information
+	 * @param x top-left x-coordinate of map
+	 * @param y top-left y-coordinate of map
+	 * @param w width of map (pixels)
+	 * @param h height of map (pixels)
+	 */
+	public Map(double x, double y, double w, double h) {
 		coords = new int[5][2];
 		curr = 0;
 		r = 0;
@@ -37,8 +53,36 @@ public class Map {
 		height = h;
 	}
 	
-	public String getCountry(PApplet draw, int x, int y)
-	{
+	/**
+	 * Creates a new <code>Map</code> with a sensitivity of 5 pixels and sets map settings with
+	 * given information
+	 * @param x top-left x-coordinate of map
+	 * @param y top-left y-coordinate of map
+	 * @param w width of map (pixels)
+	 * @param h height of map (pixels)
+	 * @param sense sensitivity of mouse (pixels)
+	 */
+	public Map(double x, double y, double w, double h, int sense) {
+		coords = new int[sense][2];
+		curr = 0;
+		r = 0;
+		g = 0;
+		b = 0;
+		
+		xStart = x;
+		yStart = y;
+		width = w;
+		height = h;
+	}
+	
+	/**
+	 * Returns the name of the country located at (x,y) in PApplet draw; returns null otherwise
+	 * @param draw given PApplet
+	 * @param x given x-coordinate
+	 * @param y given y-coordinate
+	 * @return existing country at (x,y); null otherwise
+	 */
+	public String getCountry(PApplet draw, int x, int y) {
 		
 		r = PApplet.round(draw.red(draw.color(draw.get(x, y))));
 		g = PApplet.round(draw.green(draw.color(draw.get(x, y))));
@@ -53,7 +97,7 @@ public class Map {
 		
 	}
 	
-	public String findCountry(int x, int y) {
+	private String findCountry(int x, int y) {
 		
 		if (r==255 && g==25 && b==25) {
 			if (x < (width/12)+xStart) return "The Gambia";
@@ -119,25 +163,52 @@ public class Map {
 		else return null;
 	}
 	
-	public String getCapital(String s)
-	{
+	/**
+	 * Returns the capital of the given country; if given country is not in Africa
+	 * or in the list of countries recorded in this <code>Map</code>, returns null
+	 * @param s given country
+	 * @return capital of given country, if country does not exist in <code>Map</code>,
+	 * returns null
+	 */
+	public String getCapital(String s) {
 		return s;
 		
 	}
 	
-	public ArrayList<String> getPics(String s)
-	{
+	/**
+	 * Returns pictures of the given country in an <code>ArrayList</code>; if given country 
+	 * is not in Africa or in the list of countries recorded in this <code>Map</code>, returns
+	 * an empty <code>ArrayList</code>
+	 * @param s given country
+	 * @return an <code>ArrayList</code> of pictures of given country, if country does not exist in <code>Map</code>,
+	 * returns an empty <code>ArrayList</code>
+	 */
+	public ArrayList<String> getPics(String s) {
 		return null;
 		
 	}
 	
-	public String getRInfo(String s)
-	{
+	/**
+	 * Returns random information on the given country; if given country is not in Africa
+	 * or in the list of countries recorded in this <code>Map</code>, returns null
+	 * @param s given country
+	 * @return random information of given country, if country does not exist in <code>Map</code>,
+	 * returns null
+	 */
+	public String getRInfo(String s) {
 		return s;
 		
 	}
 	
-	public String nearC(PApplet draw, int x, int y) {
+	/**
+	 * Returns a <code>String</code> of the current RGB values in this <code>Map</code>
+	 * @returna a <code>String</code> of the current RGB values in this <code>Map</code>
+	 */
+	public String getRGB() {
+		return r + ", " + g + ", " + b;
+	}
+	
+	private String nearC(PApplet draw, int x, int y) {
 		if(x<0 || y<0 || x > draw.width || y > draw.height) return null;
 		if (curr == coords.length) return null;
 		if(foundSameIndex(x, y))return null;		
@@ -171,7 +242,7 @@ public class Map {
 		return null;
 	}
 	
-	public String nearNorth(PApplet draw, int x, int y) {
+	private String nearNorth(PApplet draw, int x, int y) {
 		if(y<0) return null;
 		if (curr == coords.length) return null;
 		
@@ -190,7 +261,7 @@ public class Map {
 		return n;
 	}
 	
-	public String nearSouth(PApplet draw, int x, int y) {
+	private String nearSouth(PApplet draw, int x, int y) {
 		if(y > draw.height) return null;
 		if (curr == coords.length) return null;
 		
@@ -209,7 +280,7 @@ public class Map {
 		return s;
 	}
 	
-	public String nearEast(PApplet draw, int x, int y) {
+	private String nearEast(PApplet draw, int x, int y) {
 		if(x > draw.width) return null;
 		if (curr == coords.length) return null;
 		
@@ -228,7 +299,7 @@ public class Map {
 		return e;
 	}
 	
-	public String nearWest(PApplet draw, int x, int y) {
+	private String nearWest(PApplet draw, int x, int y) {
 		if(x<0) return null;
 		if (curr == coords.length) return null;
 		
@@ -247,8 +318,7 @@ public class Map {
 		return w;
 	}
 	
-	@SuppressWarnings("null")
-	public void reset() {
+	private void reset() {
 		for (int i = 0; i < coords.length; i++) {
 			for (int j = 0; j < coords[i].length; j++) {
 				coords[i][j] = -1;
@@ -256,7 +326,7 @@ public class Map {
 		}
 	}
 	
-	public boolean foundSameIndex(int x, int y) {
+	private boolean foundSameIndex(int x, int y) {
 		
 		for(int i = 0; i < coords.length; i++) {
 			if (coords[i][0] == x && coords[i][1] == y) return true;
@@ -265,7 +335,4 @@ public class Map {
 		return false;
 	}
 	
-	public String getRGB() {
-		return r+", " +g+", "+b;
-	}
 }
