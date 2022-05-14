@@ -21,18 +21,7 @@ public class DrawingSurface extends PApplet{
 	 */
 	public DrawingSurface() {
 		showIntro = true;
-		screens = new ArrayList<Screen>();
 		
-		DrawingMode drawM = new DrawingMode();
-//		Instructions instructM = new Instructions();
-		QuizMode quizM = new QuizMode();
-		StudyMode studyM = new StudyMode();
-		
-		screens.add(drawM);
-//		screens.add(instructM);
-//		screens.add(quizM);
-//		screens.add(studyM);
-
 		intro = new Introduction();
 		menu = new Menu();
 		
