@@ -21,9 +21,6 @@ public class DrawingSurface extends PApplet{
 	 */
 	public DrawingSurface() {
 		showIntro = true;
-		
-<<<<<<< Updated upstream
-=======
 		screens = new ArrayList<Screen>();
 		
 		DrawingMode drawM = new DrawingMode();
@@ -35,8 +32,7 @@ public class DrawingSurface extends PApplet{
 //		screens.add(instructM);
 //		screens.add(quizM);
 //		screens.add(studyM);
-		
->>>>>>> Stashed changes
+
 		intro = new Introduction();
 		menu = new Menu();
 		
