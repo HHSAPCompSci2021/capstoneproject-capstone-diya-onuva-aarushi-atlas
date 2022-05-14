@@ -25,12 +25,12 @@ public class Menu{
 	private boolean clicked;
 	private DrawingSurface surface;
 	private Rectangle studyBtn, quizBtn, drawingBtn;
-	final static int menu = 0;
-	final static int studyMode = 1;
-	final static int quizMode = 2;
-	final static int drawMode = 3;
-	final static int instructions = 4;
-	static int activeMode;
+	private final static int menu = 0;
+	private final static int studyMode = 1;
+	private final static int quizMode = 2;
+	private final static int drawMode = 3;
+	private final static int instructions = 4;
+	private static int activeMode;
 	
 	public Menu()
 	{
