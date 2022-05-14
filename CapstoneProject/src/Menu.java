@@ -89,7 +89,8 @@ public class Menu{
 		//click on Instructions
 		if(draw.mousePressed && draw.mouseX <= 75 && 25 <= draw.mouseX && draw.mouseY <= 75 && 25 <= draw.mouseY)
 		{
-			switchActiveScreen(3);
+//			switchActiveScreen(3);
+			inst.draw(draw);
 			pressed = true;
 			
 		}
