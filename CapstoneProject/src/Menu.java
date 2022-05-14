@@ -54,7 +54,7 @@ public class Menu{
 		if (activeMode == 0) menuDraw(draw);
 		else if (activeMode == 1) study.draw(draw);
 		else if (activeMode == 2) quiz.draw(draw);
-		else if (activeMode == 3) drawing.draw();
+		else if (activeMode == 3) drawing.draw(draw);
 		else inst.draw(draw);
 		
 	}
