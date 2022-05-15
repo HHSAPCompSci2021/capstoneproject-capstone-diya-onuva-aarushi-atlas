@@ -179,7 +179,7 @@ public class Map {
 		else if (s.equalsIgnoreCase("Zimbabwe")) return "Harare";
 		else if (s.equalsIgnoreCase("Ghana")) return "Accra";
 		else if (s.equalsIgnoreCase("Gabon")) return "Libreville";
-		else if (s.equalsIgnoreCase("South Africa")) return "Cape Town and Pretoria and Bloemfontien";
+		else if (s.equalsIgnoreCase("South Africa")) return "Cape Town, Pretoria, Bloemfontien";
 		else if (s.equalsIgnoreCase("Eritrea")) return "Asmara";
 		else if (s.equalsIgnoreCase("Sengal")) return "Dakar";
 		else if (s.equalsIgnoreCase("Burkina Faso")) return "Ouagadougou";
@@ -208,7 +208,7 @@ public class Map {
 		else if(s.equalsIgnoreCase("Central African Republic") || s.equalsIgnoreCase("African Republic")) return "Bangui";
 		else if(s.equalsIgnoreCase("Republic of the Congo") || s.equalsIgnoreCase("Congo Republic")) return "Brazzaville";
 		else if(s.equalsIgnoreCase("Equatorial Guinea")) return "Malabo";
-		else if(s.equalsIgnoreCase("Democratic Republic of the Congo")) return "Kinshas";
+		else if(s.equalsIgnoreCase("Democratic Republic of the Congo")) return "Kinshasa";
 		else if(s.equalsIgnoreCase("Cameroon")) return "Yaoundé";
 		else if(s.equalsIgnoreCase("Rwanda")) return "Kigali";
 		else if(s.equalsIgnoreCase("Burundi")) return "Gitega";

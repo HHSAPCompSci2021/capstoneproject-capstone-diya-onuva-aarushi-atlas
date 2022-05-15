@@ -1,7 +1,6 @@
 import java.awt.Rectangle;
 
 import processing.core.PApplet;
-import processing.core.PConstants;
 import processing.core.PFont;
 
 /**
@@ -62,7 +61,8 @@ public class Menu{
 	 * @param draw
 	 * @post pressed changes value to its opposite once clicked on, and active screen switches determining where the click was
 	 */
-	public void menuDraw(PApplet draw) {
+	public void menuDraw(PApplet draw) 
+	{
 		if(draw.mousePressed && draw.mouseX <= (draw.width/2 + 175) && (draw.width/2 - 175) <= draw.mouseX && draw.mouseY <= (draw.height/2 - 75) && (draw.height/2 - 125) <= draw.mouseY)
 		{
 			switchActiveScreen(1);
