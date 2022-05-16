@@ -273,10 +273,9 @@ public class Map {
 		catch (IOException e) {
 			return null;
 		}
-		int n = Integer.parseInt(info.substring(info.length()-1));
+		int n = Integer.parseInt(info.substring(info.length()-2, info.length()-1)) - 1;
 		int r = (int) (Math.random()*n)+1;
-		info = info.substring(0, info.length()-1);
-		String rInfo = info.substring(info.indexOf(r+". ")+3, info.indexOf((r+1)+".")-1);
+		String rInfo = info.substring(info.indexOf(r+". ")+3, info.indexOf((r+1)+"."));
 		return rInfo;
 		
 	}
@@ -430,7 +429,6 @@ public class Map {
 				FileReader fr = new FileReader(inputFile);
 				scan = new Scanner(fr);
 
-				System.out.println("hi");
 				while (scan.hasNextLine()) {
 					String line = scan.nextLine();
 					fileData.append(line);
