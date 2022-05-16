@@ -26,7 +26,7 @@ public class StudyMode extends Map {
 	{
 		draw.background(255);
 		
-		draw.image(draw.loadImage("src/fileData/map.png"), draw.width/2 - 300, draw.height/2 - (591f/2));
+		draw.image(draw.loadImage("fileData/map.png"), draw.width/2 - 300, draw.height/2 - (591f/2));
 		
 		if (draw.mousePressed) {
 			System.out.println(getCountry(draw, draw.mouseX, draw.mouseY));

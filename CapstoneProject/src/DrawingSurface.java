@@ -38,7 +38,7 @@ public class DrawingSurface extends PApplet{
 	 * Completes PApplet setup
 	 */
 	public void setup() {
-		bg = loadImage("src/fileData/IntroTree.png");
+		bg = loadImage("fileData/IntroTree.png");
 	}
 	
 	/**

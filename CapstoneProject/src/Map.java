@@ -1,5 +1,9 @@
 import java.awt.Image;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 import processing.core.PApplet;
 
@@ -14,6 +18,7 @@ public class Map {
 	private int r, g, b, curr;
 	private double xStart, width, yStart, height;
 	private int[][] coords;
+	private final static String lineSeparator = System.getProperty("line.separator");
 	
 	
 	/**
@@ -261,7 +266,18 @@ public class Map {
 	 * returns null
 	 */
 	public String getRInfo(String s) {
-		return s;
+		String info;
+		try {
+			info = readFile("fileData/Country Info/"+s);
+		} 
+		catch (IOException e) {
+			return null;
+		}
+		int n = Integer.parseInt(info.substring(info.length()-1));
+		int r = (int) (Math.random()*n)+1;
+		info = info.substring(0, info.length()-1);
+		String rInfo = info.substring(info.indexOf(r+". ")+3, info.indexOf((r+1)+".")-1);
+		return rInfo;
 		
 	}
 	
@@ -399,5 +415,35 @@ public class Map {
 		
 		return false;
 	}
+	
+	// This method takes a file name as an argument. 
+		// It then returns the data contained in the file as a String.
+		public String readFile(String inputFile) throws IOException {
+			StringBuffer fileData = new StringBuffer();
+			
+			Scanner scan = null;
+			if(!(new File(inputFile).exists())) {
+				System.out.println(inputFile + " does not exist. Quitting.");
+				//System.exit(1);
+			}
+			try {
+				FileReader fr = new FileReader(inputFile);
+				scan = new Scanner(fr);
+
+				System.out.println("hi");
+				while (scan.hasNextLine()) {
+					String line = scan.nextLine();
+					fileData.append(line);
+					fileData.append(lineSeparator);
+				}
+				fileData.replace(0, fileData.length(), fileData.substring(0, fileData.length()-1));
+			} finally {
+				if (scan != null)
+					scan.close();
+			}
+			
+			return fileData.toString();
+		}
+		
 	
 }
