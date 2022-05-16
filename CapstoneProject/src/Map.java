@@ -241,6 +241,19 @@ public class Map {
 	}
 	
 	/**
+	 * Returns general location of the given country; if given country 
+	 * is not in Africa or in the list of countries recorded in this <code>Map</code>, returns
+	 * null
+	 * @param s given country
+	 * @return general location of given country, if country does not exist in <code>Map</code>,
+	 * returns null
+	 */
+	public String getLocation(String s) {
+		return null;
+		
+	}
+	
+	/**
 	 * Returns random information on the given country; if given country is not in Africa
 	 * or in the list of countries recorded in this <code>Map</code>, returns null
 	 * @param s given country
