@@ -12,7 +12,7 @@ import processing.core.PFont;
  * 
  */
 
-public class Menu{
+public class Menu {
 
 	private StudyMode study;
 	private QuizMode quiz;
@@ -28,6 +28,7 @@ public class Menu{
 	private final static int drawMode = 3;
 	private final static int instructions = 4;
 	private static int activeMode;
+	private static boolean yes;
 	
 	public Menu()
 	{
@@ -35,6 +36,7 @@ public class Menu{
 		study = new StudyMode();
 		quiz = new QuizMode();
 		drawing = new DrawingMode();
+		yes = true;
 //		studyBtn = new Rectangle(1000/2, 751/2 - 50, 350, 50);
 //		quizBtn = new Rectangle (1000/2, 751/2, 350, 50);
 //		drawingBtn = new Rectangle (1000/2, 751/2 + 50, 350, 50);
@@ -63,8 +65,11 @@ public class Menu{
 	 */
 	public void menuDraw(PApplet draw) 
 	{
+		if(yes)
+		draw.background(100, 40, 35);
 		if(draw.mousePressed && draw.mouseX <= (draw.width/2 + 175) && (draw.width/2 - 175) <= draw.mouseX && draw.mouseY <= (draw.height/2 - 75) && (draw.height/2 - 125) <= draw.mouseY)
 		{
+			yes = false;
 			switchActiveScreen(1);
 			pressed = true;
 			//draw.fill(0, 185, 35);
@@ -81,6 +86,7 @@ public class Menu{
 		//click on Draw
 		if(draw.mousePressed && draw.mouseX <= (draw.width/2 +175) && (draw.width/2 - 175) <= draw.mouseX && draw.mouseY <= (draw.height/2 + 125) && (draw.height/2 + 75) <= draw.mouseY)
 		{
+			yes = false;
 			switchActiveScreen(3);
 			pressed = true;
 			//draw.fill(0, 185, 35);

@@ -13,6 +13,7 @@ public class DrawingSurface extends PApplet{
 	
 	private static Introduction intro;
 	private static Menu menu;
+//	private static DrawingMode drawing;
 	private static boolean showIntro;
 	private PImage bg;
 	
@@ -24,6 +25,7 @@ public class DrawingSurface extends PApplet{
 		
 		intro = new Introduction();
 		menu = new Menu();
+//		drawing = new DrawingMode();
 		
 	}
 	
@@ -54,7 +56,7 @@ public class DrawingSurface extends PApplet{
 		}
 		else 
 		{
-			background(255, 255, 255);
+//			background(255, 255, 255);
 			menu.draw(this);
 		}
 	}
