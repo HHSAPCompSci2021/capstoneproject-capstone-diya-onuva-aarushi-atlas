@@ -14,15 +14,12 @@ public class DrawingSurface extends PApplet{
 	
 	private static Introduction intro;
 	private static Menu menu;
-<<<<<<< Updated upstream
 //	private static DrawingMode drawing;
-=======
 	private static QuizMode quiz;
 	private static DrawingMode draw;
 	private static StudyMode study;
 	private static Instructions instruct;
 	
->>>>>>> Stashed changes
 	private static boolean showIntro;
 	private PImage bg;
 	private int activeScreen;
@@ -36,14 +33,10 @@ public class DrawingSurface extends PApplet{
 		
 		intro = new Introduction();
 		menu = new Menu();
-<<<<<<< Updated upstream
-//		drawing = new DrawingMode();
-=======
 		quiz = new QuizMode();
 		draw = new DrawingMode();
 		study = new StudyMode();
 		instruct = new Instructions();
->>>>>>> Stashed changes
 		
 	}
 	
