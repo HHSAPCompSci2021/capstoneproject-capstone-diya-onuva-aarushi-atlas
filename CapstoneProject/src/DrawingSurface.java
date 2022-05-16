@@ -1,3 +1,4 @@
+import java.awt.Point;
 import java.util.ArrayList;
 
 import processing.core.PApplet;
@@ -13,9 +14,19 @@ public class DrawingSurface extends PApplet{
 	
 	private static Introduction intro;
 	private static Menu menu;
+<<<<<<< Updated upstream
 //	private static DrawingMode drawing;
+=======
+	private static QuizMode quiz;
+	private static DrawingMode draw;
+	private static StudyMode study;
+	private static Instructions instruct;
+	
+>>>>>>> Stashed changes
 	private static boolean showIntro;
 	private PImage bg;
+	private int activeScreen;
+	private ArrayList<Integer> screens;
 	
 	/**
 	 * Creates and initializes <code>Introduction</code> and <code>Menu</code> screens
@@ -25,7 +36,14 @@ public class DrawingSurface extends PApplet{
 		
 		intro = new Introduction();
 		menu = new Menu();
+<<<<<<< Updated upstream
 //		drawing = new DrawingMode();
+=======
+		quiz = new QuizMode();
+		draw = new DrawingMode();
+		study = new StudyMode();
+		instruct = new Instructions();
+>>>>>>> Stashed changes
 		
 	}
 	
@@ -59,6 +77,21 @@ public class DrawingSurface extends PApplet{
 //			background(255, 255, 255);
 			menu.draw(this);
 		}
+		
+		
+		
+	}
+	
+	public void mousePressed() {
+//		if (mouseButton == LEFT) {
+//			Point click = new Point(mouseX,mouseY);
+//			float dimension = height;
+//			Point cellCoord = board.clickToIndex(click,0,0,dimension,dimension);
+//			if (cellCoord != null) {
+//				board.toggleCell(cellCoord.x, cellCoord.y);
+//				prevToggle = cellCoord;
+//			}
+//		} 
 	}
 	
 	/**
@@ -67,6 +100,10 @@ public class DrawingSurface extends PApplet{
 	 */
 	public static void switchToMenu() {
 		showIntro = false;
+	}
+	
+	public void switchScreen(int i) {
+		activeScreen = screens.get(i);
 	}
 
 }

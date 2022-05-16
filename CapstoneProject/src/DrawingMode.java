@@ -22,17 +22,31 @@ import processing.core.PApplet;
  */
 public class DrawingMode extends Frame implements MouseListener{
 
+<<<<<<< Updated upstream
 	public DrawingMode() {
 	 yes = true;
 	}
+=======
+	
+>>>>>>> Stashed changes
 
 	private Image image;
 	private Graphics2D g2;
 	private boolean clicked;
 	private Rectangle rect;
+<<<<<<< Updated upstream
 	private static boolean yes;
+=======
+	private DrawingSurface surface;
+	
+>>>>>>> Stashed changes
 	private int curX, curY, oldX, oldY;
 	Color color;
+	
+	public DrawingMode() {
+	
+		
+	}
 	
 	/**
 	 * draws the drawing mode
