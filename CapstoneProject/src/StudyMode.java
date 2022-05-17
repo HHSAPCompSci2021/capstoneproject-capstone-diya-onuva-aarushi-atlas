@@ -1,4 +1,7 @@
+import java.awt.Dimension;
+
 import javax.swing.JOptionPane;
+import javax.swing.UIManager;
 
 import processing.core.PApplet;
 
@@ -36,15 +39,15 @@ public class StudyMode extends Map {
 		if (draw.mousePressed && !pressed) {
 			pressed = true;
 			current = getCountry(draw, draw.mouseX, draw.mouseY);
-			int answer = JOptionPane.showConfirmDialog(null, current + "\nCapital: " + getCapital(current) + "\nFun Fact: " + getRInfo(current) + "\n More fun facts?");
+			int answer = JOptionPane.showConfirmDialog(null, current + "\nCapital: " + getCapital(current) + "\nFun Fact: " + getRInfo(current) + "\nMore fun facts?", current, JOptionPane.YES_NO_OPTION);
 			if (answer == JOptionPane.YES_OPTION) facts = true;
-			if (answer == JOptionPane.CANCEL_OPTION || answer == JOptionPane.NO_OPTION || answer == JOptionPane.CLOSED_OPTION) facts = false;
+			if (answer == JOptionPane.NO_OPTION || answer == JOptionPane.CLOSED_OPTION) facts = false;
 		}
 		else if (!draw.mousePressed) pressed = false;
 		if (facts) {
-			int answer = JOptionPane.showConfirmDialog(null, current + "\nCapital: " + getCapital(current) + "\nFun Fact: " + getRInfo(current) + "\nMore fun facts?");
+			int answer = JOptionPane.showConfirmDialog(null, current + "\nCapital: " + getCapital(current) + "\nFun Fact: " + getRInfo(current) + "\nMore fun facts?", current, JOptionPane.YES_NO_OPTION);
 			if (answer == JOptionPane.YES_OPTION) facts = true;
-			if (answer == JOptionPane.CANCEL_OPTION || answer == JOptionPane.NO_OPTION || answer == JOptionPane.CLOSED_OPTION) facts = false;
+			if (answer == JOptionPane.NO_OPTION || answer == JOptionPane.CLOSED_OPTION) facts = false;
 		}
 		
 	}
