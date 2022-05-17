@@ -48,6 +48,7 @@ public class QuizMode extends Screen{
 	public void draw(PApplet draw) 
 	{
 		draw.background(255, 255, 224);
+		map.changeSettings(draw.width/2 - 200, draw.height/2 - (591f/2) + 150, 450, 500);
 		
 		draw.textSize(30);
 		draw.fill(0, 0, 0);
@@ -55,30 +56,188 @@ public class QuizMode extends Screen{
 		
 		draw.textSize(20);
 		
+		draw.fill(169, 169, 169);
+		draw.rect(900, 700, 50, 50); //Next button
+		
 		if (qRandomizer == 1)
 		{
+			draw.fill(0, 0, 0);
 			draw.text("What is the capital of " + countries.get(correct) + "?", draw.width/2, draw.height/2 - 200);
 		}
 		else if (qRandomizer == 2)
 		{
+			draw.fill(0, 0, 0);
 			draw.text("What region of Africa is " + countries.get(correct) + " located?", draw.width/2, draw.height/2 - 200);
 		}
 		else if (qRandomizer == 3)
 		{
-			draw.text("Which picture represents " + countries.get(correct) + "?", draw.width/2, draw.height/2 - 200);
+			draw.fill(0, 0, 0);
+			draw.text("Where is " + countries.get(correct) + " located on the map featured below?", draw.width/2, draw.height/2 - 200);
 		}
 		
-		draw.fill(135, 206, 250);
-		draw.rect(draw.width/2, draw.height/2 - 100, 350, 50);//A
-		draw.rect(draw.width/2, draw.height/2, 350, 50); //B
-		draw.rect(draw.width/2, draw.height/2 + 100, 350, 50); //C
-		draw.rect(draw.width/2, draw.height/2 + 200, 350, 50);//D
+		if (qRandomizer == 3)
+		{
+			draw.image(draw.loadImage("fileData/map.png"), draw.width/2 - 200, draw.height/2 - (591f/2) + 150, 450, 500);
+		}
+		else
+		{
+			draw.fill(135, 206, 250);
+			draw.rect(draw.width/2, draw.height/2 - 100, 350, 50);//A
+			draw.rect(draw.width/2, draw.height/2, 350, 50); //B
+			draw.rect(draw.width/2, draw.height/2 + 100, 350, 50); //C
+			draw.rect(draw.width/2, draw.height/2 + 200, 350, 50);//D
+			
+			if (qRandomizer == 1)
+			{
+				randomizeCapital(draw);
+			}
+			else if (qRandomizer == 2)
+			{
+				randomizeLocation(draw);
+			}
+			
+			//click on A
+			if(draw.mousePressed && draw.mouseX <= (draw.width/2 + 175) && (draw.width/2 - 175) <= draw.mouseX && draw.mouseY <= (draw.height/2 - 75) && (draw.height/2 - 125) <= draw.mouseY)
+			{
+				draw.fill(0, 191, 255);
+				draw.rect(draw.width/2, draw.height/2 - 100, 350, 50);
+				
+				if (qRandomizer == 1)
+				{
+					if (ansRandomizer == 1)
+					{
+						draw.fill(51, 255, 51);
+						draw.textSize(50);
+						draw.text("Correct!", draw.width/2 - 400, draw.height/2 - 300);
+					}
+				}
+				else if (qRandomizer == 2)
+				{
+					if (ansRandomizer == 1)
+					{
+						draw.fill(51, 255, 51);
+						draw.textSize(50);
+						draw.text("Correct!", draw.width/2 - 400, draw.height/2 - 300);
+					}
+				}
+				else if (qRandomizer == 3)
+				{
+					if (ansRandomizer == 1)
+					{
+//						draw.fill(51, 255, 51);
+//						draw.textSize(50);
+//						draw.text("Correct!", draw.width/2 - 400, draw.height/2 - 300);
+					}
+				}
+			}
+					
+			//click on B
+			else if(draw.mousePressed && draw.mouseX <= (draw.width/2 + 175) && (draw.width/2 - 175) <= draw.mouseX && draw.mouseY <= (draw.height/2 + 25) && (draw.height/2 - 25) <= draw.mouseY)
+			{
+				draw.fill(0, 191, 255);
+				draw.rect(draw.width/2, draw.height/2, 350, 50); //Quiz
+				
+				if (qRandomizer == 1)
+				{
+					if (ansRandomizer == 2)
+					{
+						draw.fill(51, 255, 51);
+						draw.textSize(50);
+						draw.text("Correct!", draw.width/2 - 400, draw.height/2 - 300);
+					}
+				}
+				else if (qRandomizer == 2)
+				{
+					if (ansRandomizer == 2)
+					{
+						draw.fill(51, 255, 51);
+						draw.textSize(50);
+						draw.text("Correct!", draw.width/2 - 400, draw.height/2 - 300);
+					}
+				}
+				else if (qRandomizer == 3)
+				{
+					if (ansRandomizer == 2)
+					{
+//						draw.fill(51, 255, 51);
+//						draw.textSize(50);
+//						draw.text("Correct!", draw.width/2 - 400, draw.height/2 - 300);
+					}
+				}
+			}
+					
+			//click on C
+			else if(draw.mousePressed && draw.mouseX <= (draw.width/2 +175) && (draw.width/2 - 175) <= draw.mouseX && draw.mouseY <= (draw.height/2 + 125) && (draw.height/2 + 75) <= draw.mouseY)
+			{
+				draw.fill(0, 191, 255);
+				draw.rect(draw.width/2, draw.height/2 + 100, 350, 50); //Draw
+				
+				if (qRandomizer == 1)
+				{
+					if (ansRandomizer == 3)
+					{
+						draw.fill(51, 255, 51);
+						draw.textSize(50);
+						draw.text("Correct!", draw.width/2 - 400, draw.height/2 - 300);
+					}
+				}
+				else if (qRandomizer == 2)
+				{
+					if (ansRandomizer == 3)
+					{
+						draw.fill(51, 255, 51);
+						draw.textSize(50);
+						draw.text("Correct!", draw.width/2 - 400, draw.height/2 - 300);
+					}
+				}
+				else if (qRandomizer == 3)
+				{
+					if (ansRandomizer == 3)
+					{
+//						draw.fill(51, 255, 51);
+//						draw.textSize(50);
+//						draw.text("Correct!", draw.width/2 - 400, draw.height/2 - 300);
+					}
+				}
+			}
+			
+			//click on D
+			else if(draw.mousePressed && draw.mouseX <= (draw.width/2 +175) && (draw.width/2 - 175) <= draw.mouseX && draw.mouseY <= (draw.height/2 + 225) && (draw.height/2 + 175) <= draw.mouseY)
+			{
+				draw.fill(0, 191, 255);
+				draw.rect(draw.width/2, draw.height/2 + 200, 350, 50); //Draw
+				
+				if (qRandomizer == 1)
+				{
+					if (ansRandomizer == 4)
+					{
+						draw.fill(51, 255, 51);
+						draw.textSize(50);
+						draw.text("Correct!", draw.width/2 - 400, draw.height/2 - 300);
+					}
+				}
+				else if (qRandomizer == 2)
+				{
+					if (ansRandomizer == 4)
+					{
+						draw.fill(51, 255, 51);
+						draw.textSize(50);
+						draw.text("Correct!", draw.width/2 - 400, draw.height/2 - 300);
+					}
+				}
+				else if (qRandomizer == 3)
+				{
+					if (ansRandomizer == 4)
+					{
+//						draw.fill(51, 255, 51);
+//						draw.textSize(50);
+//						draw.text("Correct!", draw.width/2 - 400, draw.height/2 - 300);
+					}
+				}
+				
+			}
+		}
 		
-		draw.fill(169, 169, 169);
-		draw.rect(900, 700, 50, 50); //Next button
-		
-		draw.fill(169, 169, 169);
-		draw.rect(900, 700, 50, 50);
 		
 		if (qRandomizer == 1)
 		{
@@ -90,162 +249,7 @@ public class QuizMode extends Screen{
 		}
 		else if (qRandomizer == 3)
 		{
-			randomizeImages(draw);
-		}
-		
-		//click on A
-		if(draw.mousePressed && draw.mouseX <= (draw.width/2 + 175) && (draw.width/2 - 175) <= draw.mouseX && draw.mouseY <= (draw.height/2 - 75) && (draw.height/2 - 125) <= draw.mouseY)
-		{
-			draw.fill(0, 191, 255);
-			draw.rect(draw.width/2, draw.height/2 - 100, 350, 50);
-			
-			if (qRandomizer == 1)
-			{
-				if (ansRandomizer == 1)
-				{
-					draw.fill(51, 255, 51);
-					draw.textSize(50);
-					draw.text("Correct!", draw.width/2 - 400, draw.height/2 - 300);
-				}
-			}
-			else if (qRandomizer == 2)
-			{
-				if (ansRandomizer == 1)
-				{
-					draw.fill(51, 255, 51);
-					draw.textSize(50);
-					draw.text("Correct!", draw.width/2 - 400, draw.height/2 - 300);
-				}
-			}
-			else if (qRandomizer == 3)
-			{
-				if (ansRandomizer == 1)
-				{
-					draw.fill(51, 255, 51);
-					draw.textSize(50);
-					draw.text("Correct!", draw.width/2 - 400, draw.height/2 - 300);
-				}
-			}
-		}
-				
-		//click on B
-		else if(draw.mousePressed && draw.mouseX <= (draw.width/2 + 175) && (draw.width/2 - 175) <= draw.mouseX && draw.mouseY <= (draw.height/2 + 25) && (draw.height/2 - 25) <= draw.mouseY)
-		{
-			draw.fill(0, 191, 255);
-			draw.rect(draw.width/2, draw.height/2, 350, 50); //Quiz
-			
-			if (qRandomizer == 1)
-			{
-				if (ansRandomizer == 2)
-				{
-					draw.fill(51, 255, 51);
-					draw.textSize(50);
-					draw.text("Correct!", draw.width/2 - 400, draw.height/2 - 300);
-				}
-			}
-			else if (qRandomizer == 2)
-			{
-				if (ansRandomizer == 2)
-				{
-					draw.fill(51, 255, 51);
-					draw.textSize(50);
-					draw.text("Correct!", draw.width/2 - 400, draw.height/2 - 300);
-				}
-			}
-			else if (qRandomizer == 3)
-			{
-				if (ansRandomizer == 2)
-				{
-					draw.fill(51, 255, 51);
-					draw.textSize(50);
-					draw.text("Correct!", draw.width/2 - 400, draw.height/2 - 300);
-				}
-			}
-		}
-				
-		//click on C
-		else if(draw.mousePressed && draw.mouseX <= (draw.width/2 +175) && (draw.width/2 - 175) <= draw.mouseX && draw.mouseY <= (draw.height/2 + 125) && (draw.height/2 + 75) <= draw.mouseY)
-		{
-			draw.fill(0, 191, 255);
-			draw.rect(draw.width/2, draw.height/2 + 100, 350, 50); //Draw
-			
-			if (qRandomizer == 1)
-			{
-				if (ansRandomizer == 3)
-				{
-					draw.fill(51, 255, 51);
-					draw.textSize(50);
-					draw.text("Correct!", draw.width/2 - 400, draw.height/2 - 300);
-				}
-			}
-			else if (qRandomizer == 2)
-			{
-				if (ansRandomizer == 3)
-				{
-					draw.fill(51, 255, 51);
-					draw.textSize(50);
-					draw.text("Correct!", draw.width/2 - 400, draw.height/2 - 300);
-				}
-			}
-			else if (qRandomizer == 3)
-			{
-				if (ansRandomizer == 3)
-				{
-					draw.fill(51, 255, 51);
-					draw.textSize(50);
-					draw.text("Correct!", draw.width/2 - 400, draw.height/2 - 300);
-				}
-			}
-		}
-		
-		//click on D
-		else if(draw.mousePressed && draw.mouseX <= (draw.width/2 +175) && (draw.width/2 - 175) <= draw.mouseX && draw.mouseY <= (draw.height/2 + 225) && (draw.height/2 + 175) <= draw.mouseY)
-		{
-			draw.fill(0, 191, 255);
-			draw.rect(draw.width/2, draw.height/2 + 200, 350, 50); //Draw
-			
-			if (qRandomizer == 1)
-			{
-				if (ansRandomizer == 4)
-				{
-					draw.fill(51, 255, 51);
-					draw.textSize(50);
-					draw.text("Correct!", draw.width/2 - 400, draw.height/2 - 300);
-				}
-			}
-			else if (qRandomizer == 2)
-			{
-				if (ansRandomizer == 4)
-				{
-					draw.fill(51, 255, 51);
-					draw.textSize(50);
-					draw.text("Correct!", draw.width/2 - 400, draw.height/2 - 300);
-				}
-			}
-			else if (qRandomizer == 3)
-			{
-				if (ansRandomizer == 4)
-				{
-					draw.fill(51, 255, 51);
-					draw.textSize(50);
-					draw.text("Correct!", draw.width/2 - 400, draw.height/2 - 300);
-				}
-			}
-			
-		}
-		
-		
-		if (qRandomizer == 1)
-		{
-			randomizeCapital(draw);
-		}
-		else if (qRandomizer == 2)
-		{
-			randomizeLocation(draw);
-		}
-		else if (qRandomizer == 3)
-		{
-			randomizeImages(draw);
+			draw.image(draw.loadImage("fileData/map.png"), draw.width/2 - 200, draw.height/2 - (591f/2) + 150, 450, 500);
 		}
 		
 		//click on Next
@@ -269,6 +273,7 @@ public class QuizMode extends Screen{
 			resetRandomize();
 		}
 		
+		qRandomizer = (int) (Math.random() * 3 + 1);
 		correct = (int) (Math.random() * countries.size());
 		rand1 = (int) (Math.random() * countries.size());
 		rand2 = (int) (Math.random() * countries.size());
