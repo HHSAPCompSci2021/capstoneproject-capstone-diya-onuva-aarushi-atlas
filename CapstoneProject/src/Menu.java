@@ -14,29 +14,20 @@ import processing.core.PFont;
 
 public class Menu extends Screen {
 
-	private StudyMode study;
-	private QuizMode quiz;
-	private DrawingMode drawing;
 	private int highScore;
 	private Instructions inst;
+	private DrawingSurface surface;
 	private PFont myFont;
 	boolean pressed;
 	private int mode;
-	private final static int menu = 0;
-	private final static int studyMode = 1;
-	private final static int quizMode = 2;
-	private final static int drawMode = 3;
-	private final static int instructions = 4;
 	private static int activeMode;
 	private static boolean yes;
 	
-	public Menu()
+	public Menu(DrawingSurface surface)
 	{
 		super(1000, 751);
+		this.surface = surface;
 		inst = new Instructions();
-		study = new StudyMode();
-		quiz = new QuizMode();
-		drawing = new DrawingMode();
 		yes = true;
 //		studyBtn = new Rectangle(1000/2, 751/2 - 50, 350, 50);
 //		quizBtn = new Rectangle (1000/2, 751/2, 350, 50);
@@ -48,14 +39,18 @@ public class Menu extends Screen {
 	 * Draws the chosen Mode
 	 * @param draw
 	 */
-	public void draw(PApplet draw) 
+	public void draw() 
 	{
+		surface.background(0,255,255);
 		
-		if (activeMode == 0) menuDraw(draw);
-		else if (activeMode == 1) study.draw(draw);
-		else if (activeMode == 2) quiz.draw(draw);
-		else if (activeMode == 3) drawing.draw(draw);
-		else inst.draw(draw);
+		Rectangle rect = new Rectangle();
+		surface.rect(100, 100, 50, 50);
+		
+//		if (activeMode == 0) menuDraw(draw);
+//		else if (activeMode == 1) study.draw(draw);
+//		else if (activeMode == 2) quiz.draw(draw);
+//		else if (activeMode == 3) drawing.draw(draw);
+//		else inst.draw(draw);
 		
 	}
 	
