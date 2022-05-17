@@ -10,18 +10,19 @@ import processing.core.PApplet;
  * @author diya
  *
  */
-public class StudyMode extends Map {
+public class StudyMode {
 
 	String current;
 	private DrawingSurface surface;
 	boolean pressed, facts;
+	Map map;
 	
 	/**
 	 * sets default settings
 	 */
 	public StudyMode()
 	{
-		super(200, 80, 600, 591);
+		map = new Map(200, 80, 600, 591);
 		pressed = false;
 		facts = false;
 	}
@@ -38,14 +39,14 @@ public class StudyMode extends Map {
 		
 		if (draw.mousePressed && !pressed) {
 			pressed = true;
-			current = getCountry(draw, draw.mouseX, draw.mouseY);
-			int answer = JOptionPane.showConfirmDialog(null, current + "\nCapital: " + getCapital(current) + "\nFun Fact: " + getRInfo(current) + "\nMore fun facts?", current, JOptionPane.YES_NO_OPTION);
+			current = map.getCountry(draw, draw.mouseX, draw.mouseY);
+			int answer = JOptionPane.showConfirmDialog(null, current + "\nCapital: " + map.getCapital(current) + "\nFun Fact: " + map.getRInfo(current) + "\nMore fun facts?", current, JOptionPane.YES_NO_OPTION);
 			if (answer == JOptionPane.YES_OPTION) facts = true;
 			if (answer == JOptionPane.NO_OPTION || answer == JOptionPane.CLOSED_OPTION) facts = false;
 		}
 		else if (!draw.mousePressed) pressed = false;
 		if (facts) {
-			int answer = JOptionPane.showConfirmDialog(null, current + "\nCapital: " + getCapital(current) + "\nFun Fact: " + getRInfo(current) + "\nMore fun facts?", current, JOptionPane.YES_NO_OPTION);
+			int answer = JOptionPane.showConfirmDialog(null, current + "\nCapital: " + map.getCapital(current) + "\nFun Fact: " + map.getRInfo(current) + "\nMore fun facts?", current, JOptionPane.YES_NO_OPTION);
 			if (answer == JOptionPane.YES_OPTION) facts = true;
 			if (answer == JOptionPane.NO_OPTION || answer == JOptionPane.CLOSED_OPTION) facts = false;
 		}
