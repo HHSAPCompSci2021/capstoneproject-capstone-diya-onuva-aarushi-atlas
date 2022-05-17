@@ -443,5 +443,12 @@ public class Map {
 			return fileData.toString();
 		}
 		
+		public void changeSettings(double x, double y, double w, double h) {
+			xStart = x;
+			yStart = y;
+			width = w;
+			height = h;
+		}
+		
 	
 }
