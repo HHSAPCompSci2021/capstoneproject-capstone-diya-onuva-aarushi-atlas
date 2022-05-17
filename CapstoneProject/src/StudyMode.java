@@ -13,16 +13,17 @@ import processing.core.PApplet;
 public class StudyMode extends Screen {
 
 	String current;
-	private DrawingSurface surface;
+	private DrawingSurface draw;
 	boolean pressed, facts;
 	Map map;
 	
 	/**
 	 * sets default settings
 	 */
-	public StudyMode()
+	public StudyMode(DrawingSurface draw)
 	{
 		super(1000, 751);
+		this.draw = draw;
 		map = new Map(200, 80, 600, 591);
 		pressed = false;
 		facts = false;
@@ -32,7 +33,7 @@ public class StudyMode extends Screen {
 	 * draws map, and displays information
 	 * @param draw
 	 */
-	public void draw(PApplet draw)
+	public void draw()
 	{
 		draw.background(255);
 		

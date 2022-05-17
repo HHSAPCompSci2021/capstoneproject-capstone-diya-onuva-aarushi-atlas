@@ -1,4 +1,4 @@
-import java.awt.Rectangle;
+import java.awt.*;
 
 import processing.core.PApplet;
 import processing.core.PFont;
@@ -20,6 +20,9 @@ public class Menu extends Screen {
 	private PFont myFont;
 	boolean pressed;
 	private int mode;
+	private Rectangle studyBtn;
+	private Rectangle quizBtn;
+	private Rectangle drawingBtn;
 	private static int activeMode;
 	private static boolean yes;
 	
@@ -27,11 +30,11 @@ public class Menu extends Screen {
 	{
 		super(1000, 751);
 		this.surface = surface;
-		inst = new Instructions();
-		yes = true;
-//		studyBtn = new Rectangle(1000/2, 751/2 - 50, 350, 50);
-//		quizBtn = new Rectangle (1000/2, 751/2, 350, 50);
-//		drawingBtn = new Rectangle (1000/2, 751/2 + 50, 350, 50);
+//		inst = new Instructions();
+//		yes = true;
+		studyBtn = new Rectangle(1000/2 - 175, 751/2 - 150, 350, 50);
+		quizBtn = new Rectangle (1000/2 - 175, 751/2, 350, 50);
+		drawingBtn = new Rectangle (1000/2 - 175, 751/2 + 150, 350, 50);
 		
 	}
 	
@@ -41,10 +44,16 @@ public class Menu extends Screen {
 	 */
 	public void draw() 
 	{
-		surface.background(0,255,255);
+		surface.background(255, 119, 255);
 		
-		Rectangle rect = new Rectangle();
-		surface.rect(100, 100, 50, 50);
+		surface.fill(19, 200, 134);
+		surface.rect(studyBtn.x, studyBtn.y, studyBtn.width, studyBtn.height, 10, 10, 10, 10);
+		surface.rect(quizBtn.x, quizBtn.y, quizBtn.width, quizBtn.height, 10, 10, 10, 10);
+		surface.rect(drawingBtn.x, drawingBtn.y, drawingBtn.width, drawingBtn.height, 10, 10, 10, 10);
+		
+//		draw.text("Study Mode", draw.width/2, draw.height/2 - 90);
+//		draw.text("Quiz Mode", draw.width/2, draw.height/2 + 10);
+//		draw.text("Draw Mode", draw.width/2, draw.height/2 + 110);
 		
 //		if (activeMode == 0) menuDraw(draw);
 //		else if (activeMode == 1) study.draw(draw);
@@ -61,8 +70,7 @@ public class Menu extends Screen {
 	 */
 	public void menuDraw(PApplet draw) 
 	{
-		if(yes)
-		draw.background(100, 40, 35);
+		
 		if(draw.mousePressed && draw.mouseX <= (draw.width/2 + 175) && (draw.width/2 - 175) <= draw.mouseX && draw.mouseY <= (draw.height/2 - 75) && (draw.height/2 - 125) <= draw.mouseY)
 		{
 			yes = false;

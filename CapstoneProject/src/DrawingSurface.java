@@ -27,6 +27,7 @@ public class DrawingSurface extends PApplet implements ScreenSwitcher {
 	private PImage bg;
 	private Screen activeScreen;
 	private ArrayList<Screen> screens;
+
 	
 	/**
 	 * Creates and initializes <code>Introduction</code> and <code>Menu</code> screens
@@ -49,10 +50,10 @@ public class DrawingSurface extends PApplet implements ScreenSwitcher {
 		Menu screen2 = new Menu(this);
 		screens.add(screen2);
 		
-		StudyMode screen3 = new StudyMode();
+		StudyMode screen3 = new StudyMode(this);
 		screens.add(screen3);
 		
-		QuizMode screen4 = new QuizMode();
+		QuizMode screen4 = new QuizMode(this);
 		screens.add(screen4);
 		
 		DrawingMode screen5 = new DrawingMode();

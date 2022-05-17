@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 
 import processing.core.PApplet;
+import processing.core.PConstants;
 
 /**
  * Creates multiple choice questions for the user to interact with
@@ -12,7 +13,7 @@ public class QuizMode extends Screen{
 	private int score;
 	private ArrayList<String> unlocked;
 	private ArrayList<String> countries;
-	private DrawingSurface surface;
+	private DrawingSurface draw;
 	private Map map;
 	private int correct;
 	private int rand1;
@@ -24,10 +25,12 @@ public class QuizMode extends Screen{
 	/**
 	 * populates countries arraylist, and sets default settings
 	 */
-	public QuizMode ()
+	public QuizMode (DrawingSurface draw)
 	{
 		super(1000, 751);
 		map = new Map();
+		
+		this.draw = draw;
 		
 		countries = new ArrayList<String>();
 		addCountries();
@@ -45,10 +48,12 @@ public class QuizMode extends Screen{
 	 * Draws the question and title
 	 * @param draw
 	 */
-	public void draw(PApplet draw) 
+	public void draw() 
 	{
 		draw.background(255, 255, 224);
 		
+		draw.textAlign(PConstants.CENTER);
+		draw.rectMode(PConstants.CENTER);
 		draw.textSize(30);
 		draw.fill(0, 0, 0);
 		draw.text("QUIZ MODE", draw.width/2, draw.height/2 - 300);
