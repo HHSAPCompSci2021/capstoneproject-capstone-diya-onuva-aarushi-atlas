@@ -12,7 +12,7 @@ import processing.core.PFont;
  * 
  */
 
-public class Menu {
+public class Menu extends Screen {
 
 	private StudyMode study;
 	private QuizMode quiz;
@@ -32,6 +32,7 @@ public class Menu {
 	
 	public Menu()
 	{
+		super(1000, 751);
 		inst = new Instructions();
 		study = new StudyMode();
 		quiz = new QuizMode();

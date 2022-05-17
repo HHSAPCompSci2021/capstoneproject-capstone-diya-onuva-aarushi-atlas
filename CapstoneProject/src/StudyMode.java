@@ -10,7 +10,7 @@ import processing.core.PApplet;
  * @author diya
  *
  */
-public class StudyMode {
+public class StudyMode extends Screen {
 
 	String current;
 	private DrawingSurface surface;
@@ -22,6 +22,7 @@ public class StudyMode {
 	 */
 	public StudyMode()
 	{
+		super(1000, 751);
 		map = new Map(200, 80, 600, 591);
 		pressed = false;
 		facts = false;

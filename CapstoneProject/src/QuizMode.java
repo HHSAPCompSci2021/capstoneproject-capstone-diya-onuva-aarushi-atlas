@@ -7,7 +7,7 @@ import processing.core.PApplet;
  * @author diya
  *
  */
-public class QuizMode {
+public class QuizMode extends Screen{
 
 	private int score;
 	private ArrayList<String> unlocked;
@@ -26,6 +26,7 @@ public class QuizMode {
 	 */
 	public QuizMode ()
 	{
+		super(1000, 751);
 		map = new Map();
 		
 		countries = new ArrayList<String>();

@@ -23,21 +23,17 @@ import processing.core.PApplet;
  * 
  * @author Aarushi Gupta
  */
-public class DrawingMode extends Frame implements MouseListener {
+public class DrawingMode extends Screen {
 
 	public DrawingMode() {
+		super(1000, 751);
 	 yes = true;
 	 clicked = false;
 	}
 
-	private Image image;
 	private Graphics2D g2;
 	private boolean clicked;
-	private Rectangle rect;
 	private static boolean yes;
-	private static DrawingSurface surface;
-	
-	private int curX, curY, oldX, oldY;
 	Color color;
 	
 	/**
@@ -137,35 +133,6 @@ public class DrawingMode extends Frame implements MouseListener {
 		g2.setPaint(Color.blue);
 	}
 
-	@Override
-	public void mouseClicked(MouseEvent e) {
-		// TODO Auto-generated method stub
-		clicked = true;
-	}
-
-	@Override
-	public void mousePressed(MouseEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void mouseReleased(MouseEvent e) {
-		// TODO Auto-generated method stub
-		clicked = true;
-	}
-
-	@Override
-	public void mouseEntered(MouseEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void mouseExited(MouseEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
 
 	
 }

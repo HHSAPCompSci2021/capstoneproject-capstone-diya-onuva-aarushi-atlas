@@ -9,7 +9,7 @@ import processing.core.PConstants;
  * @author diya
  *
  */
-public class Introduction {
+public class Introduction extends Screen {
 
 	private float textSize, bWidth, bHeight, num;
 	private boolean pressed;
@@ -19,6 +19,7 @@ public class Introduction {
 	 */
 	public Introduction()
 	{
+		super(1000, 751);
 		textSize = 45;
 		bWidth = 150;
 		bHeight = 75;
