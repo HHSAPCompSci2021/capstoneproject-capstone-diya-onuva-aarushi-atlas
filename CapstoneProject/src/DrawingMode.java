@@ -1,4 +1,7 @@
 import java.awt.Color;
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
 
 import java.awt.Graphics;
 import java.awt.Graphics2D;
@@ -20,10 +23,11 @@ import processing.core.PApplet;
  * 
  * @author Aarushi Gupta
  */
-public class DrawingMode extends Frame implements MouseListener{
+public class DrawingMode extends Frame implements MouseListener {
 
 	public DrawingMode() {
 	 yes = true;
+	 clicked = false;
 	}
 
 	private Image image;
@@ -31,7 +35,7 @@ public class DrawingMode extends Frame implements MouseListener{
 	private boolean clicked;
 	private Rectangle rect;
 	private static boolean yes;
-	private DrawingSurface surface;
+	private static DrawingSurface surface;
 	
 	private int curX, curY, oldX, oldY;
 	Color color;
@@ -47,6 +51,7 @@ public class DrawingMode extends Frame implements MouseListener{
 //	}
 //	
 	public void draw(PApplet draw) {
+		
 		
 		
 		if (yes)
@@ -77,15 +82,30 @@ public class DrawingMode extends Frame implements MouseListener{
 //		
 //			draw.line(draw.mouseX, draw.mouseY, draw.mouseX+5, draw.mouseY +10);
 //		}
+		
+		if(clicked) {
+			draw.fill(10, 15, 14);
+			
+			draw.rect(draw.pmouseX, draw.pmouseY, 20, 20);
+		}
 	}
 	
 	/**
 	 * when mouse is clicked, program is directed to draw a rectangle
 	 */
-	public static void mouseClicked(PApplet draw) {
-//		draw.fill(10, 15, 14);
+//	public void mouseReleased() {
 //		
-//		draw.rect(draw.mouseX, draw.mouseY, 5, 5);
+//		surface.fill(10, 15, 14);
+//		
+//		surface.rect(surface.mouseX, surface.mouseY, 5, 5);
+//		
+//	}
+	
+	public void mousePressed() {
+		System.out.println("HI");
+	}
+	
+	public static void clicked() {
 		
 	}
 	
@@ -120,7 +140,7 @@ public class DrawingMode extends Frame implements MouseListener{
 	@Override
 	public void mouseClicked(MouseEvent e) {
 		// TODO Auto-generated method stub
-		
+		clicked = true;
 	}
 
 	@Override
@@ -132,7 +152,7 @@ public class DrawingMode extends Frame implements MouseListener{
 	@Override
 	public void mouseReleased(MouseEvent e) {
 		// TODO Auto-generated method stub
-//		e.rect(e.getX(), e.getY(), 5, 5);
+		clicked = true;
 	}
 
 	@Override

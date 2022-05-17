@@ -78,6 +78,7 @@ public class Menu {
 		//click on Quiz
 		if(draw.mousePressed && draw.mouseX <= (draw.width/2 + 175) && (draw.width/2 - 175) <= draw.mouseX && draw.mouseY <= (draw.height/2 + 25) && (draw.height/2 - 25) <= draw.mouseY)
 		{
+			yes = false;
 			switchActiveScreen(2);
 			pressed = true;
 			//draw.fill(0, 185, 35);
@@ -95,6 +96,7 @@ public class Menu {
 		//click on Instructions
 		if(draw.mousePressed && draw.mouseX <= 75 && 25 <= draw.mouseX && draw.mouseY <= 75 && 25 <= draw.mouseY)
 		{
+			yes = false;
 //			switchActiveScreen(3);
 			inst.draw(draw);
 			pressed = true;
