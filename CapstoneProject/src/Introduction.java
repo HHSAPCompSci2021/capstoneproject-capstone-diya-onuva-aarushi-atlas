@@ -5,6 +5,7 @@ import java.awt.Robot;
 
 import processing.core.PApplet;
 import processing.core.PConstants;
+import processing.core.PImage;
 
 /**
  * The introduction screen for the program, which contains the Play button
@@ -13,53 +14,86 @@ import processing.core.PConstants;
  */
 public class Introduction extends Screen {
 
-	private float textSize, bWidth, bHeight, num;
+	private float normText, pressText, bWidth, bHeight, num;
 	private boolean pressed;
-	private DrawingSurface surface;
-	private Rectangle button;
+	private PImage bg;
+	private DrawingSurface draw;
 	
 	/**
 	 * Sets default settings
 	 */
-	public Introduction(DrawingSurface surface)
+	public Introduction(DrawingSurface draw)
 	{
-		super(1000, 751);
-		this.surface = surface;
+		super(1600, 1050);
+		this.draw = draw;
 		
-		button = new Rectangle(1000/2-100,751/2-50,200,100);
-		
-		textSize = 45;
-		bWidth = 150;
-		bHeight = 75;
+		normText = 75;
+		pressText = 65;
+		bWidth = 225;
+		bHeight = 100;
 		num = 0.25f;
 		pressed = false;
 	}
 	
 	/**
-	 * Draws the blue background and play button
-	 * @param draw given PApplet
+	 * Completes PApplet setup
+	 */
+	public void setup() {
+		//bg = draw.loadImage("fileData/Intro.jpg");
+	}
+	
+	/**
+	 * Draws the <code>Introduction</code> <code>Screen</code>
+	 * @post Changes PApplet's textAlign and rectMode to PConstants.CENTER
 	 */
 	public void draw() 
 	{
-		surface.background(255,255,255);
+		//draw.background(bg);
+		draw.background(bHeight);
+		draw.textAlign(PConstants.CENTER);
+		draw.rectMode(PConstants.CENTER);
 		
-		surface.rect(button.x, button.y, button.width, button.height, 10, 10, 10, 10);
-		surface.fill(0);
-		String str = "Click me!";
+		if (draw.mousePressed && draw.mouseX <= draw.width/2 + bWidth/2 
+				&& draw.mouseX >= draw.width/2 - bWidth/2
+				&& draw.mouseY >= draw.height*0.4f - bHeight/2
+				&& draw.mouseY <= draw.height*0.4f + bHeight/2)
+			pressed = true;
 		
-		surface.textAlign(PConstants.CENTER);
-		surface.textSize(textSize);
-		surface.text("Play!", surface.width/2, surface.height/2);
+		if (pressed) {
+			draw.fill(150);
+			draw.rect(draw.width/2, draw.height * 0.4f, bWidth * 0.95f, bHeight * 0.95f, 10);
+		}
+		else {
+			draw.fill(255);
+			draw.rect(draw.width/2, draw.height * 0.4f, bWidth, bHeight, 10);
+		}
 		
-//		draw.textSize((draw.height/110f) * (draw.width/150f) * 2);
-		surface.text("ATLAS", surface.width/2, surface.height/10);
+		draw.fill(0);
+		if (pressed) {
+			draw.textSize(pressText);
+			draw.text("Play!", draw.width/2, draw.height * 0.4f + pressText/3);
+		}
+		else {
+			draw.textSize(normText);
+			draw.text("Play!", draw.width/2, draw.height * 0.4f + normText/3);
+		}
+		
+		draw.textSize((draw.height/150f) * (draw.width/175f) * 2);
+		draw.text("ATLAS", draw.width/2, draw.height/8);
+		
+		pressed = false;
 		
 	}
 	
+	/**
+	 * Detects when mouse is clicked
+	 */
 	public void mouseClicked() {
-		Point p = surface.actualCoordinatesToAssumed(new Point(surface.mouseX,surface.mouseY));
-		if (button.contains(p))
-			surface.switchScreen(ScreenSwitcher.MENU_SCREEN);
+		if (draw.mouseX <= draw.width/2 + bWidth/2 
+				&& draw.mouseX >= draw.width/2 - bWidth/2
+				&& draw.mouseY >= draw.height*0.4f - bHeight/2
+				&& draw.mouseY <= draw.height*0.4f + bHeight/2)
+			draw.switchScreen(ScreenSwitcher.MENU_SCREEN);
 	}
 	
 }
@@ -70,10 +104,10 @@ public class Introduction extends Screen {
 // */
 //public void draw() 
 //{
-//	surface.background(255,255,255);
+//	draw.background(255,255,255);
 //	
-//	surface.rect(button.x, button.y, button.width, button.height, 10, 10, 10, 10);
-//	surface.fill(0);
+//	draw.rect(button.x, button.y, button.width, button.height, 10, 10, 10, 10);
+//	draw.fill(0);
 //	String str = "Click me!";
 //	
 //	

@@ -13,53 +13,42 @@ import processing.core.PImage;
 
 public class DrawingSurface extends PApplet implements ScreenSwitcher {
 	
-	public float ratioX, ratioY;
+	private float ratioX, ratioY;
 	
 	private static Introduction intro;
 	private static Menu menu;
-//	private static DrawingMode drawing;
-//	private static QuizMode quiz;
-//	private static DrawingMode draw;
-//	private static StudyMode study;
-//	private static Instructions instruct;
+	private static StudyMode study;
+	private static QuizMode quiz;
+	private static DrawingMode drawing;
+	private static Instructions instruct;
 	
-	private static boolean showIntro;
-	private PImage bg;
 	private Screen activeScreen;
 	private ArrayList<Screen> screens;
 
 	
 	/**
-	 * Creates and initializes <code>Introduction</code> and <code>Menu</code> screens
+	 * Creates and initializes all screens
 	 */
 	public DrawingSurface() {
-		showIntro = true;
-		
-//		intro = new Introduction();
-//		menu = new Menu();
-//		quiz = new QuizMode();
-//		draw = new DrawingMode();
-//		study = new StudyMode();
-//		instruct = new Instructions();
 		
 		screens = new ArrayList<Screen>();
 		
-		Introduction screen1 = new Introduction(this); 
-		screens.add(screen1);
+		intro = new Introduction(this); 
+		screens.add(intro);
 		
-		Menu screen2 = new Menu(this);
-		screens.add(screen2);
+		menu = new Menu(this);
+		screens.add(menu);
 		
-		StudyMode screen3 = new StudyMode(this);
-		screens.add(screen3);
+		study = new StudyMode(this);
+		screens.add(study);
 		
-		QuizMode screen4 = new QuizMode(this);
-		screens.add(screen4);
+		quiz = new QuizMode(this);
+		screens.add(quiz);
 		
-		DrawingMode screen5 = new DrawingMode(this);
-		screens.add(screen5);
+		drawing = new DrawingMode(this);
+		screens.add(drawing);
 		
-		Instructions instruct = new Instructions(this);
+		instruct = new Instructions(this);
 		screens.add(instruct);
 		
 		activeScreen = screens.get(0);
@@ -70,36 +59,21 @@ public class DrawingSurface extends PApplet implements ScreenSwitcher {
 	 * Sets PApplet settings
 	 */
 	public void settings() {
-		size(1000, 751);
+		size(1600, 1050);
 	}
 	
 	/**
 	 * Completes PApplet setup
 	 */
 	public void setup() {
-		bg = loadImage("fileData/IntroTree.png");
-		
-		
-			for (Screen s : screens)
-				s.setup();
+		for (Screen s : screens)
+			s.setup();
 	}
 	
 	/**
-	 * Draws <code>Introduction</code> screen
-	 * or <code>Menu</code> screen
+	 * Draws current active <code>Screen</code>
 	 */
 	public void draw() {
-		
-//		if (showIntro) 
-//		{
-//			background(bg);
-//			intro.draw(this);
-//		}
-//		else 
-//		{
-////			background(255, 255, 255);
-//			menu.draw(this);
-//		}
 		
 		ratioX = (float)width/activeScreen.DRAWING_WIDTH;
 		ratioY = (float)height/activeScreen.DRAWING_HEIGHT;
@@ -114,42 +88,63 @@ public class DrawingSurface extends PApplet implements ScreenSwitcher {
 	}
 	
 	/**
-	 * Switches displayed <code>Introduction</code> screen
-	 * to <code>Menu</code> screen
+	 * Detects when mouse is pressed
 	 */
-	public static void switchToMenu() {
-		showIntro = false;
-	}
-	
 	public void mousePressed() {
 		activeScreen.mousePressed();
 	}
 	
+	/**
+	 * Detects when mouse is clicked
+	 */
 	public void mouseClicked() {
 		activeScreen.mouseClicked();
 	}
 	
+	/**
+	 * Detects when mouse is moved
+	 */
 	public void mouseMoved() {
 		activeScreen.mouseMoved();
 	}
 	
+	/**
+	 * Detects when mouse is dragged
+	 */
 	public void mouseDragged() {
 		activeScreen.mouseDragged();
 	}
 	
+	/**
+	 * Detects when mouse is released
+	 */
 	public void mouseReleased() {
 		activeScreen.mouseReleased();
 	}
 	
+	/**
+	 * 
+	 * @param assumed
+	 * @return
+	 */
 	public Point assumedCoordinatesToActual(Point assumed) {
 		return new Point((int)(assumed.getX()*ratioX), (int)(assumed.getY()*ratioY));
 	}
 
+	/**
+	 * 
+	 * @param actual
+	 * @return
+	 */
 	public Point actualCoordinatesToAssumed(Point actual) {
 		return new Point((int)(actual.getX()/ratioX) , (int)(actual.getY()/ratioY));
 	}
 
-	@Override
+	/**
+	 * Switches display to given <code>Screen</code>
+	 * @param i <code>Screen</code> to display
+	 * @post Switches displayed screen to given <code>Screen</code>
+	 */
 	public void switchScreen(int i) {
 		activeScreen = screens.get(i);
 	}
