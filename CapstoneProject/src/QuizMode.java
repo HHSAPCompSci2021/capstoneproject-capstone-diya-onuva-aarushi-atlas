@@ -222,7 +222,7 @@ public class QuizMode extends Screen{
 		
 		if (qRandomizer == 3)
 		{
-			if (countries.get(correct) == map.getCountry(draw, draw.mouseX, draw.mouseY))
+			if (draw.mousePressed && countries.get(correct) == map.getCountry(draw, draw.mouseX, draw.mouseY))
 			{
 				draw.fill(51, 255, 51);
 				draw.textSize(50);
