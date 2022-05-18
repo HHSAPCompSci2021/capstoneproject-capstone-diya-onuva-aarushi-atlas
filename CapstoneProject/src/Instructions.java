@@ -2,6 +2,8 @@ import java.awt.FlowLayout;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowEvent;
+import java.awt.event.WindowListener;
 
 import javax.swing.JButton;
 import javax.swing.JDialog;
@@ -35,6 +37,7 @@ public class Instructions extends Screen{
 	 */
 	public void draw ()
 	{
+		draw.noLoop();
 		JFrame jFrame = new JFrame();
 
         JDialog jd = new JDialog(jFrame);
@@ -63,7 +66,16 @@ public class Instructions extends Screen{
         jButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                jd.setVisible(false);
+            	jFrame.dispatchEvent(new WindowEvent(jFrame, WindowEvent.WINDOW_CLOSING));
+                draw.loop();
+                draw.switchScreen(ScreenSwitcher.MENU_SCREEN);
+            }
+        });
+        jd.addWindowListener(new java.awt.event.WindowAdapter() {
+            @Override
+            public void windowClosing(java.awt.event.WindowEvent windowEvent) {
+            	draw.loop();
+                draw.switchScreen(ScreenSwitcher.MENU_SCREEN);
             }
         });
 
@@ -77,6 +89,6 @@ public class Instructions extends Screen{
         jd.add(jButton);
         jd.setVisible(true);
 		
-//		draw.background(draw.loadImage(image));
+//        draw.background(draw.loadImage(image));
 	}
 }
