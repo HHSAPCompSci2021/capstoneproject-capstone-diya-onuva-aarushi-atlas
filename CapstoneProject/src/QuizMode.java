@@ -14,6 +14,7 @@ import processing.core.PConstants;
 public class QuizMode extends Screen{
 
 	private static int score;
+	private boolean clicked = false;
 	private ArrayList<String> unlocked;
 	private ArrayList<String> countries;
 	private DrawingSurface draw;
@@ -135,7 +136,7 @@ public class QuizMode extends Screen{
 				draw.fill(51, 255, 51);
 				draw.textSize(50);
 				draw.text("Correct!", draw.width/2 - 400, draw.height/2 - 300);
-				score++;
+//				score++;
 			}
 		}
 		
@@ -170,6 +171,7 @@ public class QuizMode extends Screen{
 	}
 	
 	public void mouseClicked() {
+		if (!clicked) {
 		
 		if (qRandomizer == 3)
 		{
@@ -285,6 +287,7 @@ public class QuizMode extends Screen{
 				draw.fill(51, 255, 51);
 				draw.textSize(50);
 				draw.text("Correct!", draw.width/2 - 400, draw.height/2 - 300);
+				score++;
 			}
 		}
 		
@@ -292,7 +295,10 @@ public class QuizMode extends Screen{
 		if (draw.mouseX <= (925) && (875) <= draw.mouseX && draw.mouseY <= (725) && (675) <= draw.mouseY)
 		{
 			resetRandomize();
-		}
+		}}
+	}
+	public void mouseReleased() {
+		clicked = false;
 	}
 	public void resetRandomize()
 	{
