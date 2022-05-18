@@ -1,3 +1,6 @@
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 
 import processing.core.PApplet;
@@ -5,12 +8,12 @@ import processing.core.PConstants;
 
 /**
  * Creates multiple choice questions for the user to interact with
- * @author diya
+ * @author Diya Bengani
  *
  */
 public class QuizMode extends Screen{
 
-	private int score;
+	private static int score;
 	private ArrayList<String> unlocked;
 	private ArrayList<String> countries;
 	private DrawingSurface draw;
@@ -21,6 +24,7 @@ public class QuizMode extends Screen{
 	private int rand3;
 	private int qRandomizer;
 	private int ansRandomizer;
+	private static String highScore;
 	
 	/**
 	 * populates countries arraylist, and sets default settings
@@ -42,6 +46,9 @@ public class QuizMode extends Screen{
 		
 		ansRandomizer = (int) (Math.random() * 4 + 1);
 		qRandomizer = (int) (Math.random() * 3 + 1);
+		
+		score = 0;
+		highScore = "fileData/HighScore";
 	}
 	
 	/**
@@ -114,6 +121,7 @@ public class QuizMode extends Screen{
 						draw.fill(51, 255, 51);
 						draw.textSize(50);
 						draw.text("Correct!", draw.width/2 - 400, draw.height/2 - 300);
+						score++;
 					}
 				}
 				else if (qRandomizer == 2)
@@ -123,6 +131,7 @@ public class QuizMode extends Screen{
 						draw.fill(51, 255, 51);
 						draw.textSize(50);
 						draw.text("Correct!", draw.width/2 - 400, draw.height/2 - 300);
+						score++;
 					}
 				}
 			}
@@ -140,6 +149,7 @@ public class QuizMode extends Screen{
 						draw.fill(51, 255, 51);
 						draw.textSize(50);
 						draw.text("Correct!", draw.width/2 - 400, draw.height/2 - 300);
+						score++;
 					}
 				}
 				else if (qRandomizer == 2)
@@ -149,6 +159,7 @@ public class QuizMode extends Screen{
 						draw.fill(51, 255, 51);
 						draw.textSize(50);
 						draw.text("Correct!", draw.width/2 - 400, draw.height/2 - 300);
+						score++;
 					}
 				}
 			}
@@ -166,6 +177,7 @@ public class QuizMode extends Screen{
 						draw.fill(51, 255, 51);
 						draw.textSize(50);
 						draw.text("Correct!", draw.width/2 - 400, draw.height/2 - 300);
+						score++;
 					}
 				}
 				else if (qRandomizer == 2)
@@ -175,6 +187,7 @@ public class QuizMode extends Screen{
 						draw.fill(51, 255, 51);
 						draw.textSize(50);
 						draw.text("Correct!", draw.width/2 - 400, draw.height/2 - 300);
+						score++;
 					}
 				}
 			}
@@ -192,6 +205,7 @@ public class QuizMode extends Screen{
 						draw.fill(51, 255, 51);
 						draw.textSize(50);
 						draw.text("Correct!", draw.width/2 - 400, draw.height/2 - 300);
+						score++;
 					}
 				}
 				else if (qRandomizer == 2)
@@ -201,6 +215,7 @@ public class QuizMode extends Screen{
 						draw.fill(51, 255, 51);
 						draw.textSize(50);
 						draw.text("Correct!", draw.width/2 - 400, draw.height/2 - 300);
+						score++;
 					}
 				}
 			}
@@ -227,6 +242,7 @@ public class QuizMode extends Screen{
 				draw.fill(51, 255, 51);
 				draw.textSize(50);
 				draw.text("Correct!", draw.width/2 - 400, draw.height/2 - 300);
+				score++;
 			}
 		}
 		
@@ -235,8 +251,158 @@ public class QuizMode extends Screen{
 		{
 			resetRandomize();
 		}
+		
+		try {
+			if (Integer.parseInt(map.readFile(highScore)) < score) {
+				FileWriter writer = new FileWriter(new File(highScore));
+				writer.write(Integer.toString(score));
+				writer.close();
+			}
+		} catch (NumberFormatException | IOException e) {
+			e.printStackTrace();
+		}
+		
+		draw.text("High Score: " + score, draw.width * 0.90f, draw.height * 0.1f);
 	}
 	
+	/**
+	 * gets the high score of the game
+	 * 
+	 * @return high score
+	 */
+	public int getHighScore()
+	{
+		return score;
+	}
+	
+	public void mouseClicked() {
+//		if(draw.mouseX <= (draw.width/2 + 175) && (draw.width/2 - 175) <= draw.mouseX && draw.mouseY <= (draw.height/2 - 75) && (draw.height/2 - 125) <= draw.mouseY)
+//		{
+//			draw.fill(0, 191, 255);
+//			draw.rect(draw.width/2, draw.height/2 - 100, 350, 50);
+//			
+//			if (qRandomizer == 1)
+//			{
+//				if (ansRandomizer == 1)
+//				{
+//					draw.fill(51, 255, 51);
+//					draw.textSize(50);
+//					draw.text("Correct!", draw.width/2 - 400, draw.height/2 - 300);
+//					score++;
+//				}
+//			}
+//			else if (qRandomizer == 2)
+//			{
+//				if (ansRandomizer == 1)
+//				{
+//					draw.fill(51, 255, 51);
+//					draw.textSize(50);
+//					draw.text("Correct!", draw.width/2 - 400, draw.height/2 - 300);
+//					score++;
+//				}
+//			}
+//		}
+//				
+//		//click on B
+//		else if(draw.mouseX <= (draw.width/2 + 175) && (draw.width/2 - 175) <= draw.mouseX && draw.mouseY <= (draw.height/2 + 25) && (draw.height/2 - 25) <= draw.mouseY)
+//		{
+//			draw.fill(0, 191, 255);
+//			draw.rect(draw.width/2, draw.height/2, 350, 50); //Quiz
+//			
+//			if (qRandomizer == 1)
+//			{
+//				if (ansRandomizer == 2)
+//				{
+//					draw.fill(51, 255, 51);
+//					draw.textSize(50);
+//					draw.text("Correct!", draw.width/2 - 400, draw.height/2 - 300);
+//					score++;
+//				}
+//			}
+//			else if (qRandomizer == 2)
+//			{
+//				if (ansRandomizer == 2)
+//				{
+//					draw.fill(51, 255, 51);
+//					draw.textSize(50);
+//					draw.text("Correct!", draw.width/2 - 400, draw.height/2 - 300);
+//					score++;
+//				}
+//			}
+//		}
+//				
+//		//click on C
+//		else if(draw.mouseX <= (draw.width/2 +175) && (draw.width/2 - 175) <= draw.mouseX && draw.mouseY <= (draw.height/2 + 125) && (draw.height/2 + 75) <= draw.mouseY)
+//		{
+//			draw.fill(0, 191, 255);
+//			draw.rect(draw.width/2, draw.height/2 + 100, 350, 50); //Draw
+//			
+//			if (qRandomizer == 1)
+//			{
+//				if (ansRandomizer == 3)
+//				{
+//					draw.fill(51, 255, 51);
+//					draw.textSize(50);
+//					draw.text("Correct!", draw.width/2 - 400, draw.height/2 - 300);
+//					score++;
+//				}
+//			}
+//			else if (qRandomizer == 2)
+//			{
+//				if (ansRandomizer == 3)
+//				{
+//					draw.fill(51, 255, 51);
+//					draw.textSize(50);
+//					draw.text("Correct!", draw.width/2 - 400, draw.height/2 - 300);
+//					score++;
+//				}
+//			}
+//		}
+//		
+//		//click on D
+//		else if(draw.mouseX <= (draw.width/2 +175) && (draw.width/2 - 175) <= draw.mouseX && draw.mouseY <= (draw.height/2 + 225) && (draw.height/2 + 175) <= draw.mouseY)
+//		{
+//			draw.fill(0, 191, 255);
+//			draw.rect(draw.width/2, draw.height/2 + 200, 350, 50); //Draw
+//			
+//			if (qRandomizer == 1)
+//			{
+//				if (ansRandomizer == 4)
+//				{
+//					draw.fill(51, 255, 51);
+//					draw.textSize(50);
+//					draw.text("Correct!", draw.width/2 - 400, draw.height/2 - 300);
+//					score++;
+//				}
+//			}
+//			else if (qRandomizer == 2)
+//			{
+//				if (ansRandomizer == 4)
+//				{
+//					draw.fill(51, 255, 51);
+//					draw.textSize(50);
+//					draw.text("Correct!", draw.width/2 - 400, draw.height/2 - 300);
+//					score++;
+//				}
+//			}
+//		}
+//		if (qRandomizer == 3)
+//		{
+//			if (countries.get(correct) == map.getCountry(draw, draw.mouseX, draw.mouseY))
+//			{
+//				draw.fill(51, 255, 51);
+//				draw.textSize(50);
+//				draw.text("Correct!", draw.width/2 - 400, draw.height/2 - 300);
+//				score++;
+//			}
+//		}
+//		
+//		//click on Next
+//		if (draw.mouseX <= (925) && (875) <= draw.mouseX && draw.mouseY <= (725) && (675) <= draw.mouseY)
+//		{
+//			resetRandomize();
+//		}
+	}
 	public void resetRandomize()
 	{
 		

@@ -104,15 +104,6 @@ public class Menu extends Screen {
 		if (draw.mouseX <= 650 && draw.mouseX >= 350 && draw.mouseY >= 650 && draw.mouseY <= 701)
 			draw.switchScreen(ScreenSwitcher.INSTRUCTIONS_SCREEN);
 	}
-	/**
-	 * gets the high score of the game
-	 * 
-	 * @return high score
-	 */
-	public int getHighScore()
-	{
-		return highScore;
-	}
 	
 	/**
 	 * To say which mode the user is currently in
