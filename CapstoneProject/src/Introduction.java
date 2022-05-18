@@ -39,7 +39,7 @@ public class Introduction extends Screen {
 	 * Completes PApplet setup
 	 */
 	public void setup() {
-		//bg = draw.loadImage("fileData/Intro.jpg");
+		bg = draw.loadImage("fileData/Intro.jpg");
 	}
 	
 	/**
@@ -48,8 +48,8 @@ public class Introduction extends Screen {
 	 */
 	public void draw() 
 	{
-		//draw.background(bg);
-		draw.background(bHeight);
+		draw.background(bg);
+//		draw.background(bHeight);
 		draw.textAlign(PConstants.CENTER);
 		draw.rectMode(PConstants.CENTER);
 		
