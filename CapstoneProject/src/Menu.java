@@ -80,7 +80,7 @@ public class Menu extends Screen {
 	}
 	
 	
-	public void mousePressed() {
+	public void mouseClicked() {
 		
 		surface.textAlign(PConstants.CENTER);
 		surface.rectMode(PConstants.CENTER);

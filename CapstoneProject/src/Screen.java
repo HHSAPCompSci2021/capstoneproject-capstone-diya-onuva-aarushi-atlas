@@ -20,6 +20,10 @@ public abstract class Screen {
 		
 	}
 	
+	public void mouseClicked() {
+		
+	}
+	
 	public void mouseMoved() {
 		
 	}

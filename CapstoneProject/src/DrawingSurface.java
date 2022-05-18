@@ -125,6 +125,10 @@ public class DrawingSurface extends PApplet implements ScreenSwitcher {
 		activeScreen.mousePressed();
 	}
 	
+	public void mouseClicked() {
+		activeScreen.mouseClicked();
+	}
+	
 	public void mouseMoved() {
 		activeScreen.mouseMoved();
 	}
