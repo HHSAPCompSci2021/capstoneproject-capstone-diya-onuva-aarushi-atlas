@@ -111,118 +111,6 @@ public class QuizMode extends Screen{
 			{
 				randomizeLocation(draw);
 			}
-			
-//			//click on A
-//			if(draw.mousePressed && draw.mouseX <= (draw.width/2 + 175) && (draw.width/2 - 175) <= draw.mouseX && draw.mouseY <= (draw.height/2 - 75) && (draw.height/2 - 125) <= draw.mouseY)
-//			{
-//				draw.fill(0, 191, 255);
-//				draw.rect(draw.width/2, draw.height/2 - 100, 350, 50);
-//				
-//				if (qRandomizer == 1)
-//				{
-//					if (ansRandomizer == 1)
-//					{
-//						draw.fill(51, 255, 51);
-//						draw.textSize(50);
-//						draw.text("Correct!", draw.width/2 - 400, draw.height/2 - 300);
-//						score++;
-//					}
-//				}
-//				else if (qRandomizer == 2)
-//				{
-//					if (ansRandomizer == 1)
-//					{
-//						draw.fill(51, 255, 51);
-//						draw.textSize(50);
-//						draw.text("Correct!", draw.width/2 - 400, draw.height/2 - 300);
-//						score++;
-//					}
-//				}
-//			}
-//					
-//			//click on B
-//			else if(draw.mousePressed && draw.mouseX <= (draw.width/2 + 175) && (draw.width/2 - 175) <= draw.mouseX && draw.mouseY <= (draw.height/2 + 25) && (draw.height/2 - 25) <= draw.mouseY)
-//			{
-//				draw.fill(0, 191, 255);
-//				draw.rect(draw.width/2, draw.height/2, 350, 50); //Quiz
-//				
-//				if (qRandomizer == 1)
-//				{
-//					if (ansRandomizer == 2)
-//					{
-//						draw.fill(51, 255, 51);
-//						draw.textSize(50);
-//						draw.text("Correct!", draw.width/2 - 400, draw.height/2 - 300);
-//						score++;
-//					}
-//				}
-//				else if (qRandomizer == 2)
-//				{
-//					if (ansRandomizer == 2)
-//					{
-//						draw.fill(51, 255, 51);
-//						draw.textSize(50);
-//						draw.text("Correct!", draw.width/2 - 400, draw.height/2 - 300);
-//						score++;
-//					}
-//				}
-//			}
-//					
-//			//click on C
-//			else if(draw.mousePressed && draw.mouseX <= (draw.width/2 +175) && (draw.width/2 - 175) <= draw.mouseX && draw.mouseY <= (draw.height/2 + 125) && (draw.height/2 + 75) <= draw.mouseY)
-//			{
-//				draw.fill(0, 191, 255);
-//				draw.rect(draw.width/2, draw.height/2 + 100, 350, 50); //Draw
-//				
-//				if (qRandomizer == 1)
-//				{
-//					if (ansRandomizer == 3)
-//					{
-//						draw.fill(51, 255, 51);
-//						draw.textSize(50);
-//						draw.text("Correct!", draw.width/2 - 400, draw.height/2 - 300);
-//						score++;
-//					}
-//				}
-//				else if (qRandomizer == 2)
-//				{
-//					if (ansRandomizer == 3)
-//					{
-//						draw.fill(51, 255, 51);
-//						draw.textSize(50);
-//						draw.text("Correct!", draw.width/2 - 400, draw.height/2 - 300);
-//						score++;
-//					}
-//				}
-//			}
-//			
-//			//click on D
-//			else if(draw.mousePressed && draw.mouseX <= (draw.width/2 +175) && (draw.width/2 - 175) <= draw.mouseX && draw.mouseY <= (draw.height/2 + 225) && (draw.height/2 + 175) <= draw.mouseY)
-//			{
-//				draw.fill(0, 191, 255);
-//				draw.rect(draw.width/2, draw.height/2 + 200, 350, 50); //Draw
-//				
-//				if (qRandomizer == 1)
-//				{
-//					if (ansRandomizer == 4)
-//					{
-//						draw.fill(51, 255, 51);
-//						draw.textSize(50);
-//						draw.text("Correct!", draw.width/2 - 400, draw.height/2 - 300);
-//						score++;
-//					}
-//				}
-//				else if (qRandomizer == 2)
-//				{
-//					if (ansRandomizer == 4)
-//					{
-//						draw.fill(51, 255, 51);
-//						draw.textSize(50);
-//						draw.text("Correct!", draw.width/2 - 400, draw.height/2 - 300);
-//						score++;
-//					}
-//				}
-//			}
 		}
 		
 		
@@ -289,8 +177,6 @@ public class QuizMode extends Screen{
 		}
 		if(draw.mouseX <= (draw.width/2 + 175) && (draw.width/2 - 175) <= draw.mouseX && draw.mouseY <= (draw.height/2 - 75) && (draw.height/2 - 125) <= draw.mouseY)
 		{
-//			draw.fill(0, 191, 255);
-//			draw.rect(draw.width/2, draw.height/2 - 100, 350, 50);
 			
 			if (qRandomizer == 1)
 			{
@@ -317,8 +203,6 @@ public class QuizMode extends Screen{
 		//click on B
 		else if(draw.mouseX <= (draw.width/2 + 175) && (draw.width/2 - 175) <= draw.mouseX && draw.mouseY <= (draw.height/2 + 25) && (draw.height/2 - 25) <= draw.mouseY)
 		{
-//			draw.fill(0, 191, 255);
-//			draw.rect(draw.width/2, draw.height/2, 350, 50); //Quiz
 			
 			if (qRandomizer == 1)
 			{
@@ -345,8 +229,6 @@ public class QuizMode extends Screen{
 		//click on C
 		else if(draw.mouseX <= (draw.width/2 +175) && (draw.width/2 - 175) <= draw.mouseX && draw.mouseY <= (draw.height/2 + 125) && (draw.height/2 + 75) <= draw.mouseY)
 		{
-//			draw.fill(0, 191, 255);
-//			draw.rect(draw.width/2, draw.height/2 + 100, 350, 50); //Draw
 			
 			if (qRandomizer == 1)
 			{
@@ -373,8 +255,6 @@ public class QuizMode extends Screen{
 		//click on D
 		else if(draw.mouseX <= (draw.width/2 +175) && (draw.width/2 - 175) <= draw.mouseX && draw.mouseY <= (draw.height/2 + 225) && (draw.height/2 + 175) <= draw.mouseY)
 		{
-//			draw.fill(0, 191, 255);
-//			draw.rect(draw.width/2, draw.height/2 + 200, 350, 50); //Draw
 			
 			if (qRandomizer == 1)
 			{
