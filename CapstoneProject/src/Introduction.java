@@ -59,7 +59,7 @@ public class Introduction extends Screen {
 	public void mousePressed() {
 		Point p = surface.actualCoordinatesToAssumed(new Point(surface.mouseX,surface.mouseY));
 		if (button.contains(p))
-			surface.switchScreen(ScreenSwitcher.QUIZ_SCREEN);
+			surface.switchScreen(ScreenSwitcher.MENU_SCREEN);
 	}
 	
 }

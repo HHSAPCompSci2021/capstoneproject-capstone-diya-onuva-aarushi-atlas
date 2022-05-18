@@ -25,16 +25,21 @@ import processing.core.PApplet;
  */
 public class DrawingMode extends Screen {
 
-	public DrawingMode() {
-		super(1000, 751);
-	 yes = true;
-	 clicked = false;
-	}
-
 	private Graphics2D g2;
 	private boolean clicked;
 	private static boolean yes;
 	Color color;
+	private DrawingSurface surface;
+	
+	public DrawingMode(DrawingSurface draw) {
+		
+		super(1000, 751);
+		this.surface = draw;
+	 yes = true;
+	 clicked = false;
+	}
+
+	
 	
 	/**
 	 * draws the drawing mode
@@ -46,12 +51,12 @@ public class DrawingMode extends Screen {
 //		draw.background(255);
 //	}
 //	
-	public void draw(PApplet draw) {
+	public void draw() {
 		
 		
 		
 		if (yes)
-			draw.background(255);
+			surface.background(255);
 			
 //		mouseClicked(draw);
 //		draw.rect(100, 100, 50, 50);
@@ -59,8 +64,8 @@ public class DrawingMode extends Screen {
 //		
 //		draw.mouseClicked();
 		yes = false;
-		draw.stroke(10, 30, 40);
-		draw.line(draw.pmouseX, draw.pmouseY, draw.mouseX, draw.mouseY);
+		surface.stroke(10, 30, 40);
+		surface.line(surface.pmouseX, surface.pmouseY, surface.mouseX, surface.mouseY);
 		
 //		if (draw.mousePressed) {
 //			clicked = true;
@@ -80,9 +85,9 @@ public class DrawingMode extends Screen {
 //		}
 		
 		if(clicked) {
-			draw.fill(10, 15, 14);
+			surface.fill(10, 15, 14);
 			
-			draw.rect(draw.pmouseX, draw.pmouseY, 20, 20);
+			surface.rect(surface.pmouseX, surface.pmouseY, 20, 20);
 		}
 	}
 	

@@ -8,7 +8,7 @@ import processing.core.PImage;
 /** <code>Drawing Surface</code> is responsible for displaying the
  * <code>Introduction</code> and <code>Menu</code> screens
  * 
- * @author Diya Bengani & Onuva Ekram
+ * @author Aarushi Gupta
 */
 
 public class DrawingSurface extends PApplet implements ScreenSwitcher {
@@ -56,7 +56,7 @@ public class DrawingSurface extends PApplet implements ScreenSwitcher {
 		QuizMode screen4 = new QuizMode(this);
 		screens.add(screen4);
 		
-		DrawingMode screen5 = new DrawingMode();
+		DrawingMode screen5 = new DrawingMode(this);
 		screens.add(screen5);
 		
 		activeScreen = screens.get(0);
