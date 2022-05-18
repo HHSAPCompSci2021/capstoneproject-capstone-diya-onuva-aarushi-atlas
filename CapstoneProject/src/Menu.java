@@ -3,6 +3,7 @@ import java.awt.*;
 import processing.core.PApplet;
 import processing.core.PConstants;
 import processing.core.PFont;
+import processing.core.PImage;
 
 /**
  * 
@@ -20,7 +21,7 @@ public class Menu extends Screen {
 	private QuizMode quiz;
 	private DrawingMode drawing;
 	private StudyMode study;
-	private DrawingSurface surface;
+	private DrawingSurface draw;
 	private PFont myFont;
 	boolean pressed;
 	private int mode;
@@ -29,15 +30,17 @@ public class Menu extends Screen {
 	private Rectangle drawingBtn;
 	private Rectangle instructBtn;
 	
-	public Menu(DrawingSurface surface)
+	private PImage bg;
+	
+	public Menu(DrawingSurface draw)
 	{
-		super(1000, 751);
-		this.surface = surface;
+		super(1600, 1050);
+		this.draw = draw;
 		
-		inst = new Instructions(surface);
-		quiz = new QuizMode(surface);
-		study = new StudyMode(surface);
-		drawing = new DrawingMode(surface);
+		inst = new Instructions(draw);
+		quiz = new QuizMode(draw);
+		study = new StudyMode(draw);
+		drawing = new DrawingMode(draw);
 		
 		studyBtn = new Rectangle(1000/2, 751/2 - 150, 350, 50);
 		quizBtn = new Rectangle (1000/2, 751/2, 350, 50);
@@ -46,56 +49,60 @@ public class Menu extends Screen {
 		
 	}
 	
+	public void setup() {
+		bg = draw.loadImage("fileData/MenuMap.jpg");
+	}
+	
 	/**
 	 * Draws the chosen Mode
 	 * @param draw
 	 */
 	public void draw() 
 	{
-		surface.background(255, 119, 255);
+		draw.background(bg);
 		
-		surface.textAlign(PConstants.CENTER);
-		surface.rectMode(PConstants.CENTER);
+		draw.textAlign(PConstants.CENTER);
+		draw.rectMode(PConstants.CENTER);
 		
-		surface.fill(19, 200, 134);
-		surface.rect(studyBtn.x, studyBtn.y, studyBtn.width, studyBtn.height, 10, 10, 10, 10);
-		surface.rect(quizBtn.x, quizBtn.y, quizBtn.width, quizBtn.height, 10, 10, 10, 10);
-		surface.rect(drawingBtn.x, drawingBtn.y, drawingBtn.width, drawingBtn.height, 10, 10, 10, 10);
-		surface.rect(instructBtn.x, instructBtn.y, instructBtn.width, instructBtn.height, 10, 10, 10, 10);
+		draw.fill(19, 200, 134);
+		draw.rect(studyBtn.x, studyBtn.y, studyBtn.width, studyBtn.height, 10, 10, 10, 10);
+		draw.rect(quizBtn.x, quizBtn.y, quizBtn.width, quizBtn.height, 10, 10, 10, 10);
+		draw.rect(drawingBtn.x, drawingBtn.y, drawingBtn.width, drawingBtn.height, 10, 10, 10, 10);
+		draw.rect(instructBtn.x, instructBtn.y, instructBtn.width, instructBtn.height, 10, 10, 10, 10);
 		
-		surface.fill(0);
-		myFont = surface.createFont("Times New Roman", 18);
-		surface.textFont(myFont);
-		surface.textSize(30);
-		surface.text("MAIN MENU", surface.width/2, surface.height/2 - 240);
+		draw.fill(0);
+		myFont = draw.createFont("Times New Roman", 18);
+		draw.textFont(myFont);
+		draw.textSize(30);
+		draw.text("MAIN MENU", draw.width/2, draw.height/2 - 240);
 		
-		surface.textSize(18);
-		surface.stroke(0);
+		draw.textSize(18);
+		draw.stroke(0);
 		
-		surface.text("Study Mode", studyBtn.x, studyBtn.y);
-		surface.text("Quiz Mode", quizBtn.x, quizBtn.y);
-		surface.text("Draw Mode", drawingBtn.x, drawingBtn.y);
-		surface.text("?", instructBtn.x, instructBtn.y);
+		draw.text("Study Mode", studyBtn.x, studyBtn.y);
+		draw.text("Quiz Mode", quizBtn.x, quizBtn.y);
+		draw.text("Draw Mode", drawingBtn.x, drawingBtn.y);
+		draw.text("?", instructBtn.x, instructBtn.y);
 		
 	}
 	
 	
 	public void mouseClicked() {
 		
-		surface.textAlign(PConstants.CENTER);
-		surface.rectMode(PConstants.CENTER);
+		draw.textAlign(PConstants.CENTER);
+		draw.rectMode(PConstants.CENTER);
 		
-		if (surface.mouseX <= 650 && surface.mouseX >= 350 && surface.mouseY >= 200 && surface.mouseY <=250)
-			surface.switchScreen(ScreenSwitcher.STUDY_SCREEN);
+		if (draw.mouseX <= 650 && draw.mouseX >= 350 && draw.mouseY >= 200 && draw.mouseY <=250)
+			draw.switchScreen(ScreenSwitcher.STUDY_SCREEN);
 		
-		if (surface.mouseX <= 650 && surface.mouseX >= 350 && surface.mouseY >= 350 && surface.mouseY <= 401)
-			surface.switchScreen(ScreenSwitcher.QUIZ_SCREEN);
+		if (draw.mouseX <= 650 && draw.mouseX >= 350 && draw.mouseY >= 350 && draw.mouseY <= 401)
+			draw.switchScreen(ScreenSwitcher.QUIZ_SCREEN);
 		
-		if (surface.mouseX <= 650 && surface.mouseX >= 350 && surface.mouseY >= 500 && surface.mouseY <= 551)
-			surface.switchScreen(ScreenSwitcher.DRAW_SCREEN);
+		if (draw.mouseX <= 650 && draw.mouseX >= 350 && draw.mouseY >= 500 && draw.mouseY <= 551)
+			draw.switchScreen(ScreenSwitcher.DRAW_SCREEN);
 		
-		if (surface.mouseX <= 650 && surface.mouseX >= 350 && surface.mouseY >= 650 && surface.mouseY <= 701)
-			surface.switchScreen(ScreenSwitcher.INSTRUCTIONS_SCREEN);
+		if (draw.mouseX <= 650 && draw.mouseX >= 350 && draw.mouseY >= 650 && draw.mouseY <= 701)
+			draw.switchScreen(ScreenSwitcher.INSTRUCTIONS_SCREEN);
 	}
 	/**
 	 * gets the high score of the game
