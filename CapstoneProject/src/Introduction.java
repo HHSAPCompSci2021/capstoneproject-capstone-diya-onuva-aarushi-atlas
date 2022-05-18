@@ -9,12 +9,12 @@ import processing.core.PImage;
 
 /**
  * The introduction screen for the program, which contains the Play button
- * @author diya
+ * @author Diya Bengani, Onuva Ekram
  *
  */
 public class Introduction extends Screen {
 
-	private float normText, pressText, bWidth, bHeight, num;
+	private float normText, pressText, bWidth, bHeight, n;
 	private boolean pressed;
 	private PImage bg;
 	private DrawingSurface draw;
@@ -31,7 +31,7 @@ public class Introduction extends Screen {
 		pressText = 65;
 		bWidth = 225;
 		bHeight = 100;
-		num = 0.25f;
+		n = 0.007f;
 		pressed = false;
 	}
 	
@@ -59,29 +59,27 @@ public class Introduction extends Screen {
 				&& draw.mouseY <= draw.height*0.4f + bHeight/2)
 			pressed = true;
 		
-		if (pressed) {
+		if (pressed && n >= 1) {
 			draw.fill(150);
 			draw.rect(draw.width/2, draw.height * 0.4f, bWidth * 0.95f, bHeight * 0.95f, 10);
 		}
 		else {
 			draw.fill(255);
-			draw.rect(draw.width/2, draw.height * 0.4f, bWidth, bHeight, 10);
+			draw.rect(draw.width/2, draw.height * 0.4f, bWidth * n, bHeight * n, 10);
 		}
 		
 		draw.fill(0);
-		if (pressed) {
+		if (pressed && n >= 1) {
 			draw.textSize(pressText);
 			draw.text("Play!", draw.width/2, draw.height * 0.4f + pressText/3);
 		}
 		else {
-			draw.textSize(normText);
-			draw.text("Play!", draw.width/2, draw.height * 0.4f + normText/3);
+			draw.textSize(normText * n);
+			draw.text("Play!", draw.width/2, draw.height * 0.4f + normText/3 * n);
 		}
 		
-		draw.textSize((draw.height/150f) * (draw.width/175f) * 2);
-		draw.text("ATLAS", draw.width/2, draw.height/8);
-		
 		pressed = false;
+		if (n < 1) n+=0.0075;
 		
 	}
 	
@@ -92,7 +90,8 @@ public class Introduction extends Screen {
 		if (draw.mouseX <= draw.width/2 + bWidth/2 
 				&& draw.mouseX >= draw.width/2 - bWidth/2
 				&& draw.mouseY >= draw.height*0.4f - bHeight/2
-				&& draw.mouseY <= draw.height*0.4f + bHeight/2)
+				&& draw.mouseY <= draw.height*0.4f + bHeight/2
+				&& n >= 1)
 			draw.switchScreen(ScreenSwitcher.MENU_SCREEN);
 	}
 	
