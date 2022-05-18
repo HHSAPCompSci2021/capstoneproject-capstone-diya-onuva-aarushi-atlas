@@ -59,7 +59,7 @@ public class DrawingSurface extends PApplet implements ScreenSwitcher {
 	 * Sets PApplet settings
 	 */
 	public void settings() {
-		size(1600, 1050);
+		size(1200, 750);
 	}
 	
 	/**

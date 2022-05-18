@@ -24,7 +24,7 @@ public class Introduction extends Screen {
 	 */
 	public Introduction(DrawingSurface draw)
 	{
-		super(1600, 1050);
+		super(1200, 750);
 		this.draw = draw;
 		
 		normText = 75;

@@ -27,7 +27,7 @@ public class QuizMode extends Screen{
 	 */
 	public QuizMode (DrawingSurface draw)
 	{
-		super(1000, 751);
+		super(1200, 750);
 		map = new Map();
 		
 		this.draw = draw;

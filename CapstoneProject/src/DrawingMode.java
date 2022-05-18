@@ -34,7 +34,7 @@ public class DrawingMode extends Screen {
 	
 	public DrawingMode(DrawingSurface draw) {
 
-		super(1000, 751);
+		super(1200, 750);
 		this.surface = draw;
 		isDragged = false;
 		setBackground = true;

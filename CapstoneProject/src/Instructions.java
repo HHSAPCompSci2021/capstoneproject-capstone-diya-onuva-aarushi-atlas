@@ -27,7 +27,7 @@ public class Instructions extends Screen{
 	 */
 	public Instructions(DrawingSurface draw)
 	{
-		super(1000, 751);
+		super(1600, 750);
 		this.draw = draw;
 	}
 	

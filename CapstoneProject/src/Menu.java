@@ -34,7 +34,7 @@ public class Menu extends Screen {
 	
 	public Menu(DrawingSurface draw)
 	{
-		super(1600, 1050);
+		super(1200, 750);
 		this.draw = draw;
 		
 		inst = new Instructions(draw);
