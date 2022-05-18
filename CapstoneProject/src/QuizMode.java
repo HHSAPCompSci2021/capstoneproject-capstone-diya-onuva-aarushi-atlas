@@ -304,37 +304,37 @@ public class QuizMode extends Screen{
 		{
 			draw.fill(0, 0, 0);
 			draw.textSize(20);
-			draw.text("A: " + map.getLocation(countries.get(correct)), draw.width/2, draw.height/2 - 100);
-			draw.text("B: " + map.getLocation(countries.get(rand1)), draw.width/2, draw.height/2); 
-			draw.text("C: " + map.getLocation(countries.get(rand2)), draw.width/2, draw.height/2 + 100); 
-			draw.text("D: " + map.getLocation(countries.get(rand3)), draw.width/2, draw.height/2 + 200);
+			draw.text("A: " + map.getRegion(countries.get(correct)), draw.width/2, draw.height/2 - 100);
+			draw.text("B: " + map.getRegion(countries.get(rand1)), draw.width/2, draw.height/2); 
+			draw.text("C: " + map.getRegion(countries.get(rand2)), draw.width/2, draw.height/2 + 100); 
+			draw.text("D: " + map.getRegion(countries.get(rand3)), draw.width/2, draw.height/2 + 200);
 		}
 		else if(ansRandomizer == 2)
 		{
 			draw.fill(0, 0, 0);
 			draw.textSize(20);
-			draw.text("A: " + map.getLocation(countries.get(rand1)), draw.width/2, draw.height/2 - 100);
-			draw.text("B: " + map.getLocation(countries.get(correct)), draw.width/2, draw.height/2); 
-			draw.text("C: " + map.getLocation(countries.get(rand2)), draw.width/2, draw.height/2 + 100); 
-			draw.text("D: " + map.getLocation(countries.get(rand3)), draw.width/2, draw.height/2 + 200);
+			draw.text("A: " + map.getRegion(countries.get(rand1)), draw.width/2, draw.height/2 - 100);
+			draw.text("B: " + map.getRegion(countries.get(correct)), draw.width/2, draw.height/2); 
+			draw.text("C: " + map.getRegion(countries.get(rand2)), draw.width/2, draw.height/2 + 100); 
+			draw.text("D: " + map.getRegion(countries.get(rand3)), draw.width/2, draw.height/2 + 200);
 		}
 		else if(ansRandomizer == 3)
 		{
 			draw.fill(0, 0, 0);
 			draw.textSize(20);
-			draw.text("A: " + map.getLocation(countries.get(rand1)), draw.width/2, draw.height/2 - 100);
-			draw.text("B: " + map.getLocation(countries.get(rand2)), draw.width/2, draw.height/2); 
-			draw.text("C: " + map.getLocation(countries.get(correct)), draw.width/2, draw.height/2 + 100); 
-			draw.text("D: " + map.getLocation(countries.get(rand3)), draw.width/2, draw.height/2 + 200);
+			draw.text("A: " + map.getRegion(countries.get(rand1)), draw.width/2, draw.height/2 - 100);
+			draw.text("B: " + map.getRegion(countries.get(rand2)), draw.width/2, draw.height/2); 
+			draw.text("C: " + map.getRegion(countries.get(correct)), draw.width/2, draw.height/2 + 100); 
+			draw.text("D: " + map.getRegion(countries.get(rand3)), draw.width/2, draw.height/2 + 200);
 		}
 		else if(ansRandomizer == 4)
 		{
 			draw.fill(0, 0, 0);
 			draw.textSize(20);
-			draw.text("A: " + map.getLocation(countries.get(rand1)), draw.width/2, draw.height/2 - 100);
-			draw.text("B: " + map.getLocation(countries.get(rand2)), draw.width/2, draw.height/2); 
-			draw.text("C: " + map.getLocation(countries.get(rand3)), draw.width/2, draw.height/2 + 100); 
-			draw.text("D: " + map.getLocation(countries.get(correct)), draw.width/2, draw.height/2 + 200);
+			draw.text("A: " + map.getRegion(countries.get(rand1)), draw.width/2, draw.height/2 - 100);
+			draw.text("B: " + map.getRegion(countries.get(rand2)), draw.width/2, draw.height/2); 
+			draw.text("C: " + map.getRegion(countries.get(rand3)), draw.width/2, draw.height/2 + 100); 
+			draw.text("D: " + map.getRegion(countries.get(correct)), draw.width/2, draw.height/2 + 200);
 		}
 	}
 	
