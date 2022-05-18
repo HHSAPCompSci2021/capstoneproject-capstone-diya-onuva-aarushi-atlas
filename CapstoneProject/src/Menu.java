@@ -42,10 +42,10 @@ public class Menu extends Screen {
 		study = new StudyMode(draw);
 		drawing = new DrawingMode(draw);
 		
-		studyBtn = new Rectangle(1000/2, 751/2 - 150, 350, 50);
-		quizBtn = new Rectangle (1000/2, 751/2, 350, 50);
-		drawingBtn = new Rectangle (1000/2 , 751/2 + 150, 350, 50);
-		instructBtn = new Rectangle (1000/2 , 751/2 + 300, 350, 50);
+		studyBtn = new Rectangle(1200/2, 750/2 - 150, 350, 50);
+		quizBtn = new Rectangle (1200/2, 750/2, 350, 50);
+		drawingBtn = new Rectangle (1200/2 , 750/2 + 150, 350, 50);
+		instructBtn = new Rectangle (1200/2 , 750/2 + 300, 350, 50);
 		
 	}
 	
