@@ -26,46 +26,40 @@ import processing.core.PApplet;
 public class DrawingMode extends Screen {
 
 	private Graphics2D g2;
-	private boolean clicked;
 	private static boolean yes;
+	private static boolean isDragged;
+	private static boolean setBackground;
 	Color color;
 	private DrawingSurface surface;
 	
 	public DrawingMode(DrawingSurface draw) {
-		
+
 		super(1000, 751);
 		this.surface = draw;
-	 yes = true;
-	 clicked = false;
+		isDragged = false;
+		setBackground = true;
 	}
 
 	
+	public void setup() {
+//		surface.background(255);
+	}
 	
 	/**
 	 * draws the drawing mode
-	 * @param draw
-	 * @post clicked is changed if mouse is pressed
 	 */
-	
-//	public void setup(PApplet draw) {
-//		draw.background(255);
-//	}
-//	
 	public void draw() {
 		
-		
-		
-		if (yes)
+		if(setBackground)
 			surface.background(255);
-			
-//		mouseClicked(draw);
-//		draw.rect(100, 100, 50, 50);
-//		
-//		
-//		draw.mouseClicked();
-		yes = false;
-		surface.stroke(10, 30, 40);
-		surface.line(surface.pmouseX, surface.pmouseY, surface.mouseX, surface.mouseY);
+		setBackground = false;
+		
+		if(isDragged) {
+			surface.stroke(10, 30, 40);
+			surface.line(surface.pmouseX, surface.pmouseY, surface.mouseX, surface.mouseY);
+		}
+//		surface.stroke(10, 30, 40);
+//		surface.line(surface.pmouseX, surface.pmouseY, surface.mouseX, surface.mouseY);
 		
 //		if (draw.mousePressed) {
 //			clicked = true;
@@ -84,11 +78,11 @@ public class DrawingMode extends Screen {
 //			draw.line(draw.mouseX, draw.mouseY, draw.mouseX+5, draw.mouseY +10);
 //		}
 		
-		if(clicked) {
-			surface.fill(10, 15, 14);
-			
-			surface.rect(surface.pmouseX, surface.pmouseY, 20, 20);
-		}
+//		if(clicked) {
+//			surface.fill(10, 15, 14);
+//			
+//			surface.rect(surface.pmouseX, surface.pmouseY, 20, 20);
+//		}
 	}
 	
 	/**
@@ -102,12 +96,21 @@ public class DrawingMode extends Screen {
 //		
 //	}
 	
-	public void mousePressed() {
-		System.out.println("HI");
+	public void mouseClicked() {
+		surface.fill(10, 15, 14);
+		
+		surface.rect(surface.pmouseX, surface.pmouseY, 20, 20);
 	}
 	
-	public static void clicked() {
+	public void mouseDragged() {
 		
+		isDragged = true;
+	}
+	
+	public void mouseReleased() {
+		if (isDragged) {
+			isDragged = false;
+		}
 	}
 	
 	/**

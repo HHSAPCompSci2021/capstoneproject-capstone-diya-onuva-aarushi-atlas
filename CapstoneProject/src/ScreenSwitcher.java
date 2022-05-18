@@ -1,3 +1,10 @@
+/**
+ * 
+ * @author aarushigupta
+ * Purpose: To set an convenient precedent for switching between modes/features of the game (screens)
+ * Includes a list of fields that works with the switchScreen (outlined) method
+ *
+ */
 
 public interface ScreenSwitcher {
 	public static final int MENU_SCREEN = 1;
