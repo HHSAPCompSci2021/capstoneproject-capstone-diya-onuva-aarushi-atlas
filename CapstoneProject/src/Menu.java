@@ -27,13 +27,14 @@ public class Menu extends Screen {
 	private Rectangle studyBtn;
 	private Rectangle quizBtn;
 	private Rectangle drawingBtn;
+	private Rectangle instructBtn;
 	
 	public Menu(DrawingSurface surface)
 	{
 		super(1000, 751);
 		this.surface = surface;
 		
-		inst = new Instructions();
+		inst = new Instructions(surface);
 		quiz = new QuizMode(surface);
 		study = new StudyMode(surface);
 		drawing = new DrawingMode(surface);
@@ -41,6 +42,7 @@ public class Menu extends Screen {
 		studyBtn = new Rectangle(1000/2, 751/2 - 150, 350, 50);
 		quizBtn = new Rectangle (1000/2, 751/2, 350, 50);
 		drawingBtn = new Rectangle (1000/2 , 751/2 + 150, 350, 50);
+		instructBtn = new Rectangle (1000/2 , 751/2 + 300, 350, 50);
 		
 	}
 	
@@ -59,6 +61,7 @@ public class Menu extends Screen {
 		surface.rect(studyBtn.x, studyBtn.y, studyBtn.width, studyBtn.height, 10, 10, 10, 10);
 		surface.rect(quizBtn.x, quizBtn.y, quizBtn.width, quizBtn.height, 10, 10, 10, 10);
 		surface.rect(drawingBtn.x, drawingBtn.y, drawingBtn.width, drawingBtn.height, 10, 10, 10, 10);
+		surface.rect(instructBtn.x, instructBtn.y, instructBtn.width, instructBtn.height, 10, 10, 10, 10);
 		
 		surface.fill(0);
 		myFont = surface.createFont("Times New Roman", 18);
@@ -72,6 +75,7 @@ public class Menu extends Screen {
 		surface.text("Study Mode", studyBtn.x, studyBtn.y);
 		surface.text("Quiz Mode", quizBtn.x, quizBtn.y);
 		surface.text("Draw Mode", drawingBtn.x, drawingBtn.y);
+		surface.text("?", instructBtn.x, instructBtn.y);
 		
 	}
 	
@@ -89,6 +93,9 @@ public class Menu extends Screen {
 		
 		if (surface.mouseX <= 650 && surface.mouseX >= 350 && surface.mouseY >= 500 && surface.mouseY <= 551)
 			surface.switchScreen(ScreenSwitcher.DRAW_SCREEN);
+		
+		if (surface.mouseX <= 650 && surface.mouseX >= 350 && surface.mouseY >= 650 && surface.mouseY <= 701)
+			surface.switchScreen(ScreenSwitcher.INSTRUCTIONS_SCREEN);
 	}
 	/**
 	 * gets the high score of the game

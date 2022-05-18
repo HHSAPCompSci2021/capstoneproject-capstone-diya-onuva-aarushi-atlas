@@ -15,23 +15,25 @@ import processing.core.PApplet;
  * @author diya
  *
  */
-public class Instructions{
+public class Instructions extends Screen{
 
 	String image;
+	private DrawingSurface draw;
 	
 	/**
 	 * Sets default settings
 	 */
-	public Instructions()
+	public Instructions(DrawingSurface draw)
 	{
-		
+		super(1000, 751);
+		this.draw = draw;
 	}
 	
 	/**
 	 * draws text and button on the new window
 	 * @param draw of PApplet
 	 */
-	public void draw (PApplet draw)
+	public void draw ()
 	{
 		JFrame jFrame = new JFrame();
 
