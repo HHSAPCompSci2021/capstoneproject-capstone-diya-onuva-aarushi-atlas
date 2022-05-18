@@ -16,19 +16,20 @@ import processing.core.PImage;
 
 public class Menu extends Screen {
 
-	private int highScore;
 	private Instructions inst;
 	private QuizMode quiz;
 	private DrawingMode drawing;
 	private StudyMode study;
 	private DrawingSurface draw;
 	private PFont myFont;
-	boolean pressed;
 	private int mode;
 	private Rectangle studyBtn;
 	private Rectangle quizBtn;
 	private Rectangle drawingBtn;
 	private Rectangle instructBtn;
+	
+	private boolean pressed;
+	private float bW, bH, normT, factor;
 	
 	private PImage bg;
 	
@@ -47,6 +48,12 @@ public class Menu extends Screen {
 		drawingBtn = new Rectangle (1200/2 , 750/2 + 150, 350, 50);
 		instructBtn = new Rectangle (1200/2 , 750/2 + 300, 350, 50);
 		
+		pressed = false;
+		factor = 0.9f;
+		bW = DRAWING_WIDTH * 0.23f;
+		bH = DRAWING_HEIGHT * 0.09f;
+		normT = 35;
+		
 	}
 	
 	public void setup() {
@@ -63,26 +70,78 @@ public class Menu extends Screen {
 		
 		draw.textAlign(PConstants.CENTER);
 		draw.rectMode(PConstants.CENTER);
-		
-		draw.fill(19, 200, 134);
-		draw.rect(studyBtn.x, studyBtn.y, studyBtn.width, studyBtn.height, 10, 10, 10, 10);
-		draw.rect(quizBtn.x, quizBtn.y, quizBtn.width, quizBtn.height, 10, 10, 10, 10);
-		draw.rect(drawingBtn.x, drawingBtn.y, drawingBtn.width, drawingBtn.height, 10, 10, 10, 10);
-		draw.rect(instructBtn.x, instructBtn.y, instructBtn.width, instructBtn.height, 10, 10, 10, 10);
-		
-		draw.fill(0);
 		myFont = draw.createFont("Times New Roman", 18);
 		draw.textFont(myFont);
-		draw.textSize(30);
+		draw.noStroke();
+		
+		if (draw.mousePressed && draw.mouseX <= draw.width/2 + bW/2 && draw.mouseX >= draw.width/2 - bW/2
+				&& draw.mouseY <= draw.height*0.43f + bH/2 && draw.mouseY >= draw.height*0.43f - bH/2) {
+			draw.fill(25, 210, 165);
+			draw.rect(draw.width/2, draw.height * 0.43f, bW * factor, bH * factor, 5);
+			draw.fill(0);
+			draw.textSize(normT * factor);
+			draw.text("Study Mode", draw.width/2, draw.height * 0.43f + normT/3 * factor);
+		}
+		else {
+			draw.fill(50, 235, 190);
+			draw.rect(draw.width/2, draw.height * 0.43f, bW, bH, 5);
+			draw.fill(0);
+			draw.textSize(normT);
+			draw.text("Study Mode", draw.width/2, draw.height * 0.43f + normT/3);
+		}
+		
+		if (draw.mousePressed && draw.mouseX <= draw.width/2 + bW/2 && draw.mouseX >= draw.width/2 - bW/2
+				&& draw.mouseY <= draw.height*0.6f + bH/2 && draw.mouseY >= draw.height*0.6f - bH/2) {
+			draw.fill(25, 210, 165);
+			draw.rect(draw.width/2, draw.height * 0.6f, bW * factor, bH * factor, 5);
+			draw.fill(0);
+			draw.textSize(normT * factor);
+			draw.text("Quiz Mode", draw.width/2, draw.height * 0.6f + normT/3 * factor);
+		}
+		else {
+			draw.fill(50, 235, 190);
+			draw.rect(draw.width/2, draw.height * 0.6f, bW, bH, 5);
+			draw.fill(0);
+			draw.textSize(normT);
+			draw.text("Quiz Mode", draw.width/2, draw.height * 0.6f + normT/3);
+		}
+		
+		if (draw.mousePressed && draw.mouseX <= draw.width/2 + bW/2 && draw.mouseX >= draw.width/2 - bW/2
+				&& draw.mouseY <= draw.height*0.77f + bH/2 && draw.mouseY >= draw.height*0.77f - bH/2) {
+			draw.fill(25, 210, 165);
+			draw.rect(draw.width/2, draw.height * 0.77f, bW * factor, bH * factor, 5);
+			draw.fill(0);
+			draw.textSize(normT * factor);
+			draw.text("Draw Mode", draw.width/2, draw.height * 0.77f + normT/3 * factor);
+		}
+		else {
+			draw.fill(50, 235, 190);
+			draw.rect(draw.width/2, draw.height * 0.77f, bW, bH, 5);
+			draw.fill(0);
+			draw.textSize(normT);
+			draw.text("Draw Mode", draw.width/2, draw.height * 0.77f + normT/3);
+		}
+		
+		if (draw.mousePressed && draw.mouseX <= draw.width * 0.08f + bH*0.85f/2 && draw.mouseX >= draw.width * 0.08f - bH*0.85f/2
+				&& draw.mouseY <= draw.height * 0.09f + bH*0.85f/2 && draw.mouseY >= draw.height * 0.09f - bH*0.85f/2) {
+			draw.fill(120, 130, 140);
+			draw.ellipse(draw.width * 0.08f, draw.height * 0.09f, bH*0.85f * factor, bH*0.85f * factor);
+			draw.fill(0);
+			draw.textSize(normT*1.4f * factor);
+			draw.text("?", draw.width * 0.08f, draw.height * 0.09f + normT/3 * 1.4f * factor);
+		}
+		else {
+			draw.fill(145, 155, 165);
+			draw.ellipse(draw.width * 0.08f, draw.height * 0.09f, bH*0.85f, bH*0.85f);
+			draw.fill(0);
+			draw.textSize(normT*1.4f);
+			draw.text("?", draw.width * 0.08f, draw.height * 0.09f + normT/3 * 1.4f);
+		}
+		
+		
+		draw.fill(0);
+		draw.textSize(80);
 		draw.text("MAIN MENU", draw.width/2, draw.height/2 - 240);
-		
-		draw.textSize(18);
-		draw.stroke(0);
-		
-		draw.text("Study Mode", studyBtn.x, studyBtn.y);
-		draw.text("Quiz Mode", quizBtn.x, quizBtn.y);
-		draw.text("Draw Mode", drawingBtn.x, drawingBtn.y);
-		draw.text("?", instructBtn.x, instructBtn.y);
 		
 	}
 	
@@ -92,16 +151,17 @@ public class Menu extends Screen {
 		draw.textAlign(PConstants.CENTER);
 		draw.rectMode(PConstants.CENTER);
 		
-		if (draw.mouseX <= 650 && draw.mouseX >= 350 && draw.mouseY >= 200 && draw.mouseY <=250)
+		if (draw.mouseX <= draw.width/2 + bW/2 && draw.mouseX >= draw.width/2 - bW/2
+				&& draw.mouseY <= draw.height*0.43f + bH/2 && draw.mouseY >= draw.height*0.43f - bH/2) 
 			draw.switchScreen(ScreenSwitcher.STUDY_SCREEN);
-		
-		if (draw.mouseX <= 650 && draw.mouseX >= 350 && draw.mouseY >= 350 && draw.mouseY <= 401)
+		else if (draw.mouseX <= draw.width/2 + bW/2 && draw.mouseX >= draw.width/2 - bW/2
+				&& draw.mouseY <= draw.height*0.6f + bH/2 && draw.mouseY >= draw.height*0.6f - bH/2)
 			draw.switchScreen(ScreenSwitcher.QUIZ_SCREEN);
-		
-		if (draw.mouseX <= 650 && draw.mouseX >= 350 && draw.mouseY >= 500 && draw.mouseY <= 551)
+		else if (draw.mouseX <= draw.width/2 + bW/2 && draw.mouseX >= draw.width/2 - bW/2
+				&& draw.mouseY <= draw.height*0.77f + bH/2 && draw.mouseY >= draw.height*0.77f - bH/2) 
 			draw.switchScreen(ScreenSwitcher.DRAW_SCREEN);
-		
-		if (draw.mouseX <= 650 && draw.mouseX >= 350 && draw.mouseY >= 650 && draw.mouseY <= 701)
+		else if (draw.mouseX <= draw.width * 0.08f + bH*0.85f/2 && draw.mouseX >= draw.width * 0.08f - bH*0.85f/2
+				&& draw.mouseY <= draw.height * 0.09f + bH*0.85f/2 && draw.mouseY >= draw.height * 0.09f - bH*0.85f/2) 
 			draw.switchScreen(ScreenSwitcher.INSTRUCTIONS_SCREEN);
 	}
 	
