@@ -16,7 +16,6 @@ public class QuizMode extends Screen{
 
 	private static int score;
 	private boolean clicked = false;
-	private ArrayList<String> unlocked;
 	private ArrayList<String> countries;
 	private DrawingSurface draw;
 	private static Map map;
@@ -95,7 +94,7 @@ public class QuizMode extends Screen{
 		
 		if (qRandomizer == 3)
 		{
-			draw.image(draw.loadImage("fileData/map.png"), draw.width/2 - 200, draw.height/2 - (591f/2) + 150, 450, 500);
+			draw.image(draw.loadImage("fileData/map.png"), draw.width/2 - 200, draw.height/2 - (591f/2) + 50, 470, 520);
 		}
 		else
 		{
@@ -111,10 +110,178 @@ public class QuizMode extends Screen{
 			}
 			else if (qRandomizer == 2)
 			{
-				randomizeLocation(draw);
+				selectLocation(draw);
 			}
 		}
 		
+		if(draw.mousePressed && draw.mouseX <= (draw.width/2 + 175) && (draw.width/2 - 175) <= draw.mouseX && draw.mouseY <= (draw.height/2 - 75) && (draw.height/2 - 125) <= draw.mouseY)
+		{
+			
+			if (qRandomizer == 1)
+			{
+				if (ansRandomizer == 1)
+				{
+					draw.fill(51, 255, 51);
+					draw.rect(draw.width/2, draw.height/2 - 100, 350, 50, 5);
+					draw.fill(0);
+					draw.textSize(15);
+					score++;
+				}
+				else
+				{
+					draw.fill(255, 51, 51);
+					draw.rect(draw.width/2, draw.height/2 - 100, 350, 50, 5);
+					draw.fill(0);
+					draw.textSize(15);
+				}
+			}
+			else if (qRandomizer == 2)
+			{
+				if ("North Africa".equals(map.getRegion(countries.get(correct))))
+				{
+					draw.fill(51, 255, 51);
+					draw.rect(draw.width/2, draw.height/2 - 100, 350, 50, 5);
+					draw.fill(0);
+					draw.textSize(15);
+					score++;
+				}
+				else
+				{
+					draw.fill(255, 51, 51);
+					draw.rect(draw.width/2, draw.height/2 - 100, 350, 50, 5);
+					draw.fill(0);
+					draw.textSize(15);
+				}
+			}
+		}
+				
+		//click on B
+		else if(draw.mousePressed && draw.mouseX <= (draw.width/2 + 175) && (draw.width/2 - 175) <= draw.mouseX && draw.mouseY <= (draw.height/2 + 25) && (draw.height/2 - 25) <= draw.mouseY)
+		{
+			
+			if (qRandomizer == 1)
+			{
+				if (ansRandomizer == 2)
+				{
+					draw.fill(51, 255, 51);
+					draw.rect(draw.width/2, draw.height/2, 350, 50, 5);
+					draw.fill(0);
+					draw.textSize(15);
+					score++;
+				}
+				else
+				{
+					draw.fill(255, 51, 51);
+					draw.rect(draw.width/2, draw.height/2, 350, 50, 5);
+					draw.fill(0);
+					draw.textSize(15);
+				}
+			}
+			else if (qRandomizer == 2)
+			{
+				if ("South Africa".equals(map.getRegion(countries.get(correct))))
+				{
+					draw.fill(51, 255, 51);
+					draw.rect(draw.width/2, draw.height/2, 350, 50, 5);
+					draw.fill(0);
+					draw.textSize(15);
+					score++;
+				}
+				else
+				{
+					draw.fill(255, 51, 51);
+					draw.rect(draw.width/2, draw.height/2, 350, 50, 5);
+					draw.fill(0);
+					draw.textSize(15);
+				}
+			}
+		}
+				
+		//click on C
+		else if(draw.mousePressed && draw.mouseX <= (draw.width/2 +175) && (draw.width/2 - 175) <= draw.mouseX && draw.mouseY <= (draw.height/2 + 125) && (draw.height/2 + 75) <= draw.mouseY)
+		{
+			
+			if (qRandomizer == 1)
+			{
+				if (ansRandomizer == 3)
+				{
+					draw.fill(51, 255, 51);
+					draw.rect(draw.width/2, draw.height/2 + 100, 350, 50, 5);
+					draw.fill(0);
+					draw.textSize(15);
+					score++;
+				}
+				else
+				{
+					draw.fill(255, 51, 51);
+					draw.rect(draw.width/2, draw.height/2 + 100, 350, 50, 5);
+					draw.fill(0);
+					draw.textSize(15);
+				}
+			}
+			else if (qRandomizer == 2)
+			{
+				if ("East Africa".equals(map.getRegion(countries.get(correct))))
+				{
+					draw.fill(51, 255, 51);
+					draw.rect(draw.width/2, draw.height/2 + 100, 350, 50, 5);
+					draw.fill(0);
+					draw.textSize(15);
+					score++;
+				}
+				else
+				{
+					draw.fill(255, 51, 51);
+					draw.rect(draw.width/2, draw.height/2 + 100, 350, 50, 5);
+					draw.fill(0);
+					draw.textSize(15);
+				}
+			}
+		}
+		
+		//click on D
+		else if(draw.mousePressed && draw.mouseX <= (draw.width/2 +175) && (draw.width/2 - 175) <= draw.mouseX && draw.mouseY <= (draw.height/2 + 225) && (draw.height/2 + 175) <= draw.mouseY)
+		{
+			
+			if (qRandomizer == 1)
+			{
+				if (ansRandomizer == 4)
+				{
+					draw.fill(51, 255, 51);
+					draw.rect(draw.width/2, draw.height/2 + 200, 350, 50, 5);
+					draw.fill(0);
+					draw.textSize(15);
+					score++;
+				}
+				else
+				{
+					draw.fill(255, 51, 51);
+					draw.rect(draw.width/2, draw.height/2 + 200, 350, 50, 5);
+					draw.fill(0);
+					draw.textSize(15);
+				}
+			}
+			else if (qRandomizer == 2)
+			{
+				if ("West Africa".equals(map.getRegion(countries.get(correct))))
+				{
+					draw.fill(51, 255, 51);
+					draw.rect(draw.width/2, draw.height/2 + 200, 350, 50, 5);
+					draw.fill(0);
+					draw.textSize(15);
+					score++;
+				}
+				else
+				{
+					draw.fill(255, 51, 51);
+					draw.rect(draw.width/2, draw.height/2 + 200, 350, 50, 5);
+					draw.fill(0);
+					draw.textSize(15);
+				}
+			}
+		}
+		
+		String country = map.getCountry(draw, draw.mouseX, draw.mouseY);
 		
 		if (qRandomizer == 1)
 		{
@@ -122,13 +289,39 @@ public class QuizMode extends Screen{
 		}
 		else if (qRandomizer == 2)
 		{
-			randomizeLocation(draw);
+			selectLocation(draw);
 		}
 		
 		if (draw.mousePressed && draw.mouseX <= 75 && draw.mouseX >= 25 && draw.mouseY >= 25 && draw.mouseY <= 75) 
 		{
 			draw.switchScreen(ScreenSwitcher.MENU_SCREEN);
 		}
+		
+		if (qRandomizer == 3)
+		{
+			draw.image(draw.loadImage("fileData/download.png"), draw.width/2 - 200, draw.height/2 - (591f/2) + 50, 470, 520);
+		}
+		
+		
+		if (draw.mousePressed && qRandomizer == 3)
+		{
+			if (countries.get(correct).equals(country))
+			{
+				draw.fill(51, 255, 51);
+				draw.stroke(0);
+				draw.circle(draw.mouseX, draw.mouseY, 20);
+				score++;
+			}
+			else
+			{
+				draw.fill(255, 51, 51);
+				draw.stroke(0);
+				draw.circle(draw.mouseX, draw.mouseY, 20);
+			}
+		}
+		
+		
+		
 		
 		try {
 			if (Integer.parseInt(map.readFile(highScore)) < score) {
@@ -157,133 +350,15 @@ public class QuizMode extends Screen{
 		return score;
 	}
 	
-	public void mousePressed() {
-		if (!clicked) {
-		
-		if(draw.mouseX <= (draw.width/2 + 175) && (draw.width/2 - 175) <= draw.mouseX && draw.mouseY <= (draw.height/2 - 75) && (draw.height/2 - 125) <= draw.mouseY)
-		{
-			
-			if (qRandomizer == 1)
-			{
-				if (ansRandomizer == 1)
-				{
-					draw.fill(51, 255, 51);
-					draw.textSize(50);
-					draw.text("Correct!", draw.width/2 - 400, draw.height/2 - 300);
-					score++;
-				}
-			}
-			else if (qRandomizer == 2)
-			{
-				if (ansRandomizer == 1)
-				{
-					draw.fill(51, 255, 51);
-					draw.textSize(50);
-					draw.text("Correct!", draw.width/2 - 400, draw.height/2 - 300);
-					score++;
-				}
-			}
-		}
-				
-		//click on B
-		else if(draw.mouseX <= (draw.width/2 + 175) && (draw.width/2 - 175) <= draw.mouseX && draw.mouseY <= (draw.height/2 + 25) && (draw.height/2 - 25) <= draw.mouseY)
-		{
-			
-			if (qRandomizer == 1)
-			{
-				if (ansRandomizer == 2)
-				{
-					draw.fill(51, 255, 51);
-					draw.textSize(50);
-					draw.text("Correct!", draw.width/2 - 400, draw.height/2 - 300);
-					score++;
-				}
-			}
-			else if (qRandomizer == 2)
-			{
-				if (ansRandomizer == 2)
-				{
-					draw.fill(51, 255, 51);
-					draw.textSize(50);
-					draw.text("Correct!", draw.width/2 - 400, draw.height/2 - 300);
-					score++;
-				}
-			}
-		}
-				
-		//click on C
-		else if(draw.mouseX <= (draw.width/2 +175) && (draw.width/2 - 175) <= draw.mouseX && draw.mouseY <= (draw.height/2 + 125) && (draw.height/2 + 75) <= draw.mouseY)
-		{
-			
-			if (qRandomizer == 1)
-			{
-				if (ansRandomizer == 3)
-				{
-					draw.fill(51, 255, 51);
-					draw.textSize(50);
-					draw.text("Correct!", draw.width/2 - 400, draw.height/2 - 300);
-					score++;
-				}
-			}
-			else if (qRandomizer == 2)
-			{
-				if (ansRandomizer == 3)
-				{
-					draw.fill(51, 255, 51);
-					draw.textSize(50);
-					draw.text("Correct!", draw.width/2 - 400, draw.height/2 - 300);
-					score++;
-				}
-			}
-		}
-		
-		//click on D
-		else if(draw.mouseX <= (draw.width/2 +175) && (draw.width/2 - 175) <= draw.mouseX && draw.mouseY <= (draw.height/2 + 225) && (draw.height/2 + 175) <= draw.mouseY)
-		{
-			
-			if (qRandomizer == 1)
-			{
-				if (ansRandomizer == 4)
-				{
-					draw.fill(51, 255, 51);
-					draw.textSize(50);
-					draw.text("Correct!", draw.width/2 - 400, draw.height/2 - 300);
-					score++;
-				}
-			}
-			else if (qRandomizer == 2)
-			{
-				if (ansRandomizer == 4)
-				{
-					draw.fill(51, 255, 51);
-					draw.textSize(50);
-					draw.text("Correct!", draw.width/2 - 400, draw.height/2 - 300);
-					score++;
-				}
-			}
-		}
-		
-		if (qRandomizer == 3)
-		{
-			if (countries.get(correct) == map.getCountry(draw, draw.mouseX, draw.mouseY))
-			{
-				draw.fill(51, 255, 51);
-				draw.textSize(50);
-				draw.text("Correct!", draw.width/2 - 400, draw.height/2 - 300);
-				score++;
-			}
-		}
-		
+	public void mouseClicked() 
+	{
 		//click on Next
 		if (draw.mouseX <= (925) && (875) <= draw.mouseX && draw.mouseY <= (725) && (675) <= draw.mouseY)
 		{
 			resetRandomize();
 		}
-		}
 	}
-	public void mouseReleased() {
-		clicked = false;
-	}
+	
 	public void resetRandomize()
 	{
 		
@@ -303,6 +378,16 @@ public class QuizMode extends Screen{
 		rand1 = (int) (Math.random() * countries.size());
 		rand2 = (int) (Math.random() * countries.size());
 		rand3 = (int) (Math.random() * countries.size());
+	}
+	
+	public void selectLocation(PApplet draw)
+	{
+		draw.fill(0, 0, 0);
+		draw.textSize(20);
+		draw.text("North Africa", draw.width/2, (float) (draw.height/2 - 100 + 20.0/3));
+		draw.text("South Africa", draw.width/2, (float) (draw.height/2 + 20.0/3)); 
+		draw.text("East Africa", draw.width/2, (float) (draw.height/2 + 100 + 20.0/3)); 
+		draw.text("West Africa", draw.width/2, (float) (draw.height/2 + 200 + 20.0/3));
 	}
 	
 	public void randomizeCapital(PApplet draw)
@@ -343,16 +428,6 @@ public class QuizMode extends Screen{
 			draw.text(map.getCapital(countries.get(rand3)), draw.width/2, (float) (draw.height/2 + 100 + 20.0/3)); 
 			draw.text(map.getCapital(countries.get(correct)), draw.width/2, (float) (draw.height/2 + 200 + 20.0/3));
 		}
-	}
-	
-	public void randomizeLocation(PApplet draw)
-	{
-		draw.fill(0, 0, 0);
-		draw.textSize(20);
-		draw.text("North Africa", draw.width/2, (float) (draw.height/2 - 100 + 20.0/3));
-		draw.text("South Africa", draw.width/2, (float) (draw.height/2 + 20.0/3)); 
-		draw.text("East Africa", draw.width/2, (float) (draw.height/2 + 100 + 20.0/3)); 
-		draw.text("West Africa", draw.width/2, (float) (draw.height/2 + 200 + 20.0/3));
 	}
 	
 	/**
