@@ -64,10 +64,10 @@ public class QuizMode extends Screen{
 		draw.textAlign(PConstants.CENTER);
 		draw.rectMode(PConstants.CENTER);
 		
-		draw.textSize(30);
-		draw.fill(0, 0, 0);
-		draw.text("QUIZ MODE", draw.width/2, draw.height/2 - 300);
-		
+//		draw.textSize(30);
+//		draw.fill(0, 0, 0);
+//		draw.text("QUIZ MODE", draw.width/2, draw.height/2 - 300);
+//		
 		draw.textSize(20);
 		
 		draw.fill(169, 169, 169);
@@ -99,10 +99,10 @@ public class QuizMode extends Screen{
 		else
 		{
 			draw.fill(135, 206, 250);
-			draw.rect(draw.width/2, draw.height/2 - 100, 350, 50);//A
-			draw.rect(draw.width/2, draw.height/2, 350, 50); //B
-			draw.rect(draw.width/2, draw.height/2 + 100, 350, 50); //C
-			draw.rect(draw.width/2, draw.height/2 + 200, 350, 50);//D
+			draw.rect(draw.width/2, draw.height/2 - 100, 350, 50, 20);//A
+			draw.rect(draw.width/2, draw.height/2, 350, 50, 20); //B
+			draw.rect(draw.width/2, draw.height/2 + 100, 350, 50, 20); //C
+			draw.rect(draw.width/2, draw.height/2 + 200, 350, 50, 20);//D
 			
 			if (qRandomizer == 1)
 			{
@@ -122,22 +122,6 @@ public class QuizMode extends Screen{
 		else if (qRandomizer == 2)
 		{
 			randomizeLocation(draw);
-		}
-		
-//		else if (qRandomizer == 3)
-//		{
-//			draw.image(draw.loadImage("fileData/map.png"), draw.width/2 - 200, draw.height/2 - (591f/2) + 150, 450, 500);
-//		}
-		
-		if (qRandomizer == 3)
-		{
-			if (draw.mousePressed && countries.get(correct) == map.getCountry(draw, draw.mouseX, draw.mouseY))
-			{
-				draw.fill(51, 255, 51);
-				draw.textSize(50);
-				draw.text("Correct!", draw.width/2 - 400, draw.height/2 - 300);
-//				score++;
-			}
 		}
 		
 		if (draw.mousePressed && draw.mouseX <= 75 && draw.mouseX >= 25 && draw.mouseY >= 25 && draw.mouseY <= 75) 
@@ -170,13 +154,9 @@ public class QuizMode extends Screen{
 		return score;
 	}
 	
-	public void mouseClicked() {
+	public void mousePressed() {
 		if (!clicked) {
 		
-		if (qRandomizer == 3)
-		{
-			draw.image(draw.loadImage("fileData/map.png"), draw.width/2 - 200, draw.height/2 - (591f/2) + 150, 450, 500);
-		}
 		if(draw.mouseX <= (draw.width/2 + 175) && (draw.width/2 - 175) <= draw.mouseX && draw.mouseY <= (draw.height/2 - 75) && (draw.height/2 - 125) <= draw.mouseY)
 		{
 			
@@ -295,7 +275,8 @@ public class QuizMode extends Screen{
 		if (draw.mouseX <= (925) && (875) <= draw.mouseX && draw.mouseY <= (725) && (675) <= draw.mouseY)
 		{
 			resetRandomize();
-		}}
+		}
+		}
 	}
 	public void mouseReleased() {
 		clicked = false;
@@ -327,78 +308,48 @@ public class QuizMode extends Screen{
 		{
 			draw.fill(0, 0, 0);
 			draw.textSize(20);
-			draw.text("A: " + map.getCapital(countries.get(correct)), draw.width/2, draw.height/2 - 100);
-			draw.text("B: " + map.getCapital(countries.get(rand1)), draw.width/2, draw.height/2); 
-			draw.text("C: " + map.getCapital(countries.get(rand2)), draw.width/2, draw.height/2 + 100); 
-			draw.text("D: " + map.getCapital(countries.get(rand3)), draw.width/2, draw.height/2 + 200);
+			draw.text(map.getCapital(countries.get(correct)), draw.width/2, draw.height/2 - 100);
+			draw.text(map.getCapital(countries.get(rand1)), draw.width/2, draw.height/2); 
+			draw.text(map.getCapital(countries.get(rand2)), draw.width/2, draw.height/2 + 100); 
+			draw.text(map.getCapital(countries.get(rand3)), draw.width/2, draw.height/2 + 200);
 		}
 		else if(ansRandomizer == 2)
 		{
 			draw.fill(0, 0, 0);
 			draw.textSize(20);
-			draw.text("A: " + map.getCapital(countries.get(rand1)), draw.width/2, draw.height/2 - 100);
-			draw.text("B: " + map.getCapital(countries.get(correct)), draw.width/2, draw.height/2); 
-			draw.text("C: " + map.getCapital(countries.get(rand2)), draw.width/2, draw.height/2 + 100); 
-			draw.text("D: " + map.getCapital(countries.get(rand3)), draw.width/2, draw.height/2 + 200);
+			draw.text(map.getCapital(countries.get(rand1)), draw.width/2, draw.height/2 - 100);
+			draw.text(map.getCapital(countries.get(correct)), draw.width/2, draw.height/2); 
+			draw.text(map.getCapital(countries.get(rand2)), draw.width/2, draw.height/2 + 100); 
+			draw.text(map.getCapital(countries.get(rand3)), draw.width/2, draw.height/2 + 200);
 		}
 		else if(ansRandomizer == 3)
 		{
 			draw.fill(0, 0, 0);
 			draw.textSize(20);
-			draw.text("A: " + map.getCapital(countries.get(rand1)), draw.width/2, draw.height/2 - 100);
-			draw.text("B: " + map.getCapital(countries.get(rand2)), draw.width/2, draw.height/2); 
-			draw.text("C: " + map.getCapital(countries.get(correct)), draw.width/2, draw.height/2 + 100); 
-			draw.text("D: " + map.getCapital(countries.get(rand3)), draw.width/2, draw.height/2 + 200);
+			draw.text(map.getCapital(countries.get(rand1)), draw.width/2, draw.height/2 - 100);
+			draw.text(map.getCapital(countries.get(rand2)), draw.width/2, draw.height/2); 
+			draw.text(map.getCapital(countries.get(correct)), draw.width/2, draw.height/2 + 100); 
+			draw.text(map.getCapital(countries.get(rand3)), draw.width/2, draw.height/2 + 200);
 		}
 		else if(ansRandomizer == 4)
 		{
 			draw.fill(0, 0, 0);
 			draw.textSize(20);
-			draw.text("A: " + map.getCapital(countries.get(rand1)), draw.width/2, draw.height/2 - 100);
-			draw.text("B: " + map.getCapital(countries.get(rand2)), draw.width/2, draw.height/2); 
-			draw.text("C: " + map.getCapital(countries.get(rand3)), draw.width/2, draw.height/2 + 100); 
-			draw.text("D: " + map.getCapital(countries.get(correct)), draw.width/2, draw.height/2 + 200);
+			draw.text(map.getCapital(countries.get(rand1)), draw.width/2, draw.height/2 - 100);
+			draw.text(map.getCapital(countries.get(rand2)), draw.width/2, draw.height/2); 
+			draw.text(map.getCapital(countries.get(rand3)), draw.width/2, draw.height/2 + 100); 
+			draw.text(map.getCapital(countries.get(correct)), draw.width/2, draw.height/2 + 200);
 		}
 	}
 	
 	public void randomizeLocation(PApplet draw)
 	{
-		if (ansRandomizer == 1)
-		{
-			draw.fill(0, 0, 0);
-			draw.textSize(20);
-			draw.text("A: " + map.getRegion(countries.get(correct)), draw.width/2, draw.height/2 - 100);
-			draw.text("B: " + map.getRegion(countries.get(rand1)), draw.width/2, draw.height/2); 
-			draw.text("C: " + map.getRegion(countries.get(rand2)), draw.width/2, draw.height/2 + 100); 
-			draw.text("D: " + map.getRegion(countries.get(rand3)), draw.width/2, draw.height/2 + 200);
-		}
-		else if(ansRandomizer == 2)
-		{
-			draw.fill(0, 0, 0);
-			draw.textSize(20);
-			draw.text("A: " + map.getRegion(countries.get(rand1)), draw.width/2, draw.height/2 - 100);
-			draw.text("B: " + map.getRegion(countries.get(correct)), draw.width/2, draw.height/2); 
-			draw.text("C: " + map.getRegion(countries.get(rand2)), draw.width/2, draw.height/2 + 100); 
-			draw.text("D: " + map.getRegion(countries.get(rand3)), draw.width/2, draw.height/2 + 200);
-		}
-		else if(ansRandomizer == 3)
-		{
-			draw.fill(0, 0, 0);
-			draw.textSize(20);
-			draw.text("A: " + map.getRegion(countries.get(rand1)), draw.width/2, draw.height/2 - 100);
-			draw.text("B: " + map.getRegion(countries.get(rand2)), draw.width/2, draw.height/2); 
-			draw.text("C: " + map.getRegion(countries.get(correct)), draw.width/2, draw.height/2 + 100); 
-			draw.text("D: " + map.getRegion(countries.get(rand3)), draw.width/2, draw.height/2 + 200);
-		}
-		else if(ansRandomizer == 4)
-		{
-			draw.fill(0, 0, 0);
-			draw.textSize(20);
-			draw.text("A: " + map.getRegion(countries.get(rand1)), draw.width/2, draw.height/2 - 100);
-			draw.text("B: " + map.getRegion(countries.get(rand2)), draw.width/2, draw.height/2); 
-			draw.text("C: " + map.getRegion(countries.get(rand3)), draw.width/2, draw.height/2 + 100); 
-			draw.text("D: " + map.getRegion(countries.get(correct)), draw.width/2, draw.height/2 + 200);
-		}
+		draw.fill(0, 0, 0);
+		draw.textSize(20);
+		draw.text("North Africa", draw.width/2, draw.height/2 - 100);
+		draw.text("South Africa", draw.width/2, draw.height/2); 
+		draw.text("East Africa", draw.width/2, draw.height/2 + 100); 
+		draw.text("West Africa", draw.width/2, draw.height/2 + 200);
 	}
 	
 	/**
