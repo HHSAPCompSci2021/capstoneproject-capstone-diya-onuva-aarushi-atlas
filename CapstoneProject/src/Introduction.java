@@ -9,18 +9,18 @@ import processing.core.PFont;
 import processing.core.PImage;
 
 /**
- * The introduction screen for the program, which contains the Play button
+ * The title/introduction display
  * @author Diya Bengani, Onuva Ekram
  *
  */
 public class Introduction extends Screen {
 
-	private float normText, pressText, bWidth, bHeight, n;
-	private boolean pressed;
 	private PImage bg;
-	private DrawingSurface draw;
-	private PFont myFont;
 	private double x, y;
+	private PFont myFont;
+	private boolean pressed;
+	private DrawingSurface draw;
+	private float normText, pressText, bWidth, bHeight, n;
 	
 	/**
 	 * Sets default settings
@@ -47,7 +47,7 @@ public class Introduction extends Screen {
 	 */
 	public void setup() 
 	{
-		bg = draw.loadImage("fileData/Intro.jpg");
+		bg = draw.loadImage("fileData/Intro.png");
 	}
 	
 	/**
@@ -81,14 +81,10 @@ public class Introduction extends Screen {
 		if (pressed && n >= 1) {
 			draw.fill(25, 210, 165);
 			draw.rect(draw.width/2, draw.height * 0.4f, bWidth * 0.95f, bHeight * 0.95f, 10);
-			draw.fill(25, 210, 165);
-			draw.rect(draw.width/2, draw.height * 0.4f, bWidth, bHeight, 10);
 		}
 		else {
 			draw.fill(50, 235, 190);
 			draw.rect(draw.width/2, draw.height * 0.4f, bWidth * n, bHeight * n, 10);
-			draw.fill(255, 255, 255, 5);
-			draw.rect(draw.width/2, draw.height * 0.4f, bWidth * 1.05f, bHeight * 1.05f, 10);
 		}
 		
 		draw.fill(255);
