@@ -5,6 +5,7 @@ import java.awt.Robot;
 
 import processing.core.PApplet;
 import processing.core.PConstants;
+import processing.core.PFont;
 import processing.core.PImage;
 
 /**
@@ -18,6 +19,7 @@ public class Introduction extends Screen {
 	private boolean pressed;
 	private PImage bg;
 	private DrawingSurface draw;
+	private PFont myFont;
 	private double x, y;
 	
 	/**
@@ -36,12 +38,15 @@ public class Introduction extends Screen {
 		pressed = false;
 		x = -1;
 		y = -1;
+		
+		
 	}
 	
 	/**
 	 * Completes PApplet setup
 	 */
-	public void setup() {
+	public void setup() 
+	{
 		bg = draw.loadImage("fileData/Intro.jpg");
 	}
 	
@@ -53,6 +58,8 @@ public class Introduction extends Screen {
 	{
 		draw.background(bg);
 		draw.textAlign(PConstants.CENTER);
+		myFont = draw.createFont("Sans Serif", 65);
+		draw.textFont(myFont);
 		draw.rectMode(PConstants.CENTER);
 		draw.noStroke();
 		
@@ -72,19 +79,19 @@ public class Introduction extends Screen {
 			pressed = true;
 		
 		if (pressed && n >= 1) {
-			draw.fill(150);
+			draw.fill(25, 210, 165);
 			draw.rect(draw.width/2, draw.height * 0.4f, bWidth * 0.95f, bHeight * 0.95f, 10);
-			draw.fill(150, 150, 150);
+			draw.fill(25, 210, 165);
 			draw.rect(draw.width/2, draw.height * 0.4f, bWidth, bHeight, 10);
 		}
 		else {
-			draw.fill(255);
+			draw.fill(50, 235, 190);
 			draw.rect(draw.width/2, draw.height * 0.4f, bWidth * n, bHeight * n, 10);
 			draw.fill(255, 255, 255, 5);
 			draw.rect(draw.width/2, draw.height * 0.4f, bWidth * 1.05f, bHeight * 1.05f, 10);
 		}
 		
-		draw.fill(0);
+		draw.fill(255);
 		if (pressed && n >= 1) {
 			draw.textSize(pressText);
 			draw.text("Play!", draw.width/2, draw.height * 0.4f + pressText/3);
