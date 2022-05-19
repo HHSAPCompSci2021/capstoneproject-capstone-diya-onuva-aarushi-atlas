@@ -23,9 +23,9 @@ public class StudyMode extends Screen {
 	 */
 	public StudyMode(DrawingSurface draw)
 	{
-		super(1000, 751);
+		super(1200, 750);
 		this.draw = draw;
-		map = new Map(200, 80, 600, 591);
+		map = new Map(DRAWING_WIDTH/2 - 300, 80, 600, 591);
 		pressed = false;
 		facts = false;
 	}
@@ -43,7 +43,7 @@ public class StudyMode extends Screen {
 		draw.fill(169, 169, 169);
 		draw.rect(50, 50, 50, 50); //Back button
 		
-		draw.image(draw.loadImage("fileData/map.png"), draw.width/2 - 300, draw.height/2 - (591f/2));
+		draw.image(draw.loadImage("fileData/map.png"), draw.width/2 - 300, 80);
 		
 		if (draw.mousePressed && draw.mouseX <= 75 && draw.mouseX >= 25 && draw.mouseY >= 25 && draw.mouseY <= 75) 
 		{

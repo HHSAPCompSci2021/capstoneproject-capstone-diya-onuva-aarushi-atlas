@@ -3,6 +3,7 @@ import java.awt.Point;
 import java.util.ArrayList;
 
 import processing.core.PApplet;
+import processing.core.PFont;
 import processing.core.PImage;
 
 /** <code>Drawing Surface</code> is responsible for displaying the
@@ -74,7 +75,8 @@ public class DrawingSurface extends PApplet implements ScreenSwitcher {
 	 * Draws current active <code>Screen</code>
 	 */
 	public void draw() {
-		frameRate(300);
+		PFont myFont = createFont("Times New Roman", 18);
+		textFont(myFont);
 		ratioX = (float)width/activeScreen.DRAWING_WIDTH;
 		ratioY = (float)height/activeScreen.DRAWING_HEIGHT;
 

@@ -21,7 +21,6 @@ public class Menu extends Screen {
 	private DrawingMode drawing;
 	private StudyMode study;
 	private DrawingSurface draw;
-	private PFont myFont;
 	private int mode;
 	private Rectangle studyBtn;
 	private Rectangle quizBtn;
@@ -70,8 +69,6 @@ public class Menu extends Screen {
 		
 		draw.textAlign(PConstants.CENTER);
 		draw.rectMode(PConstants.CENTER);
-		myFont = draw.createFont("Times New Roman", 18);
-		draw.textFont(myFont);
 		draw.noStroke();
 		
 		if (draw.mousePressed && draw.mouseX <= draw.width/2 + bW/2 && draw.mouseX >= draw.width/2 - bW/2

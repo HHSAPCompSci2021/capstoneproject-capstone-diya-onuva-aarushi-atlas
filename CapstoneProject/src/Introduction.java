@@ -18,6 +18,7 @@ public class Introduction extends Screen {
 	private boolean pressed;
 	private PImage bg;
 	private DrawingSurface draw;
+	private double x, y;
 	
 	/**
 	 * Sets default settings
@@ -33,6 +34,8 @@ public class Introduction extends Screen {
 		bHeight = 100;
 		n = 0.007f;
 		pressed = false;
+		x = -1;
+		y = -1;
 	}
 	
 	/**
@@ -49,23 +52,36 @@ public class Introduction extends Screen {
 	public void draw() 
 	{
 		draw.background(bg);
-//		draw.background(bHeight);
 		draw.textAlign(PConstants.CENTER);
 		draw.rectMode(PConstants.CENTER);
+		draw.noStroke();
 		
-		if (draw.mousePressed && draw.mouseX <= draw.width/2 + bWidth/2 
-				&& draw.mouseX >= draw.width/2 - bWidth/2
-				&& draw.mouseY >= draw.height*0.4f - bHeight/2
-				&& draw.mouseY <= draw.height*0.4f + bHeight/2)
+		if (draw.mousePressed && x < 0 && y < 0) {
+			x = draw.mouseX;
+			y = draw.mouseY;
+		}
+		else if (!draw.mousePressed) {
+			x = -1;
+			y = -1;
+		}
+		
+		if (draw.mousePressed && x <= draw.width/2 + bWidth/2 
+				&& x >= draw.width/2 - bWidth/2
+				&& y >= draw.height*0.4f - bHeight/2
+				&& y <= draw.height*0.4f + bHeight/2)
 			pressed = true;
 		
 		if (pressed && n >= 1) {
 			draw.fill(150);
 			draw.rect(draw.width/2, draw.height * 0.4f, bWidth * 0.95f, bHeight * 0.95f, 10);
+			draw.fill(150, 150, 150);
+			draw.rect(draw.width/2, draw.height * 0.4f, bWidth, bHeight, 10);
 		}
 		else {
 			draw.fill(255);
 			draw.rect(draw.width/2, draw.height * 0.4f, bWidth * n, bHeight * n, 10);
+			draw.fill(255, 255, 255, 5);
+			draw.rect(draw.width/2, draw.height * 0.4f, bWidth * 1.05f, bHeight * 1.05f, 10);
 		}
 		
 		draw.fill(0);
@@ -79,20 +95,26 @@ public class Introduction extends Screen {
 		}
 		
 		pressed = false;
-		if (n < 1) n+=0.0075;
+		if (n < 1) n+=0.02;
 		
 	}
 	
 	/**
 	 * Detects when mouse is clicked
 	 */
-	public void mouseClicked() {
+	public void mouseReleased() {
 		if (draw.mouseX <= draw.width/2 + bWidth/2 
 				&& draw.mouseX >= draw.width/2 - bWidth/2
 				&& draw.mouseY >= draw.height*0.4f - bHeight/2
 				&& draw.mouseY <= draw.height*0.4f + bHeight/2
-				&& n >= 1)
+				&& x <= draw.width/2 + bWidth/2 
+				&& x >= draw.width/2 - bWidth/2
+				&& y >= draw.height*0.4f - bHeight/2
+				&& y <= draw.height*0.4f + bHeight/2
+				&& n >= 1) {
+			draw();
 			draw.switchScreen(ScreenSwitcher.MENU_SCREEN);
+		}
 	}
 	
 }
