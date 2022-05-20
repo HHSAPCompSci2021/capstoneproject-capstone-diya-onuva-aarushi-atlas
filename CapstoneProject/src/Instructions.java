@@ -1,4 +1,6 @@
 import java.awt.FlowLayout;
+import java.awt.Font;
+import java.awt.GridLayout;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -39,27 +41,42 @@ public class Instructions extends Screen{
 	{
 		draw.noLoop();
 		JFrame jFrame = new JFrame();
+		jFrame.setResizable(false);
 
         JDialog jd = new JDialog(jFrame);
-
-        jd.setLayout(new FlowLayout());
+        //jd.setResizable(false);
+GridLayout gl = new GridLayout(0,1);
+        jd.setLayout(gl);
 
         jd.setBounds(500, 300, 600, 600);
 
-        JLabel jLabel = new JLabel("Once on the title page, the user will be transported to the menu, which will display their high score (if they have one, zero otherwise), and options to start Study Mode, Quiz Mode, or Drawing Mode.");
-        jLabel.setBounds(50, 50, 400, 50);
-        JLabel jLabel1 = new JLabel("Drawing Mode allows the user to draw their own maps and save them.");
-        jLabel1.setBounds(50, 150, 400, 50);
-        JLabel jLabel2 = new JLabel("Study Mode allows the user to interact with a map of Africa, and select countries to learn more about them. ");
-        jLabel2.setBounds(50, 250, 400, 50);
-        JLabel jLabel3 = new JLabel("Once clicked on, a pop-up window will appear and display images and information on the clicked country in a slideshow-esque manner.");
-        jLabel3.setBounds(50, 350, 400, 50);
-        JLabel jLabel4 = new JLabel("In Quiz Mode, the user must answer questions (multiple choice, short answer, select correct country, … etc.) about the countries of Africa.");
-        jLabel4.setBounds(50, 450, 400, 50);
-        JLabel jLabel5 = new JLabel("Based on how many questions the user is able to answer correctly the user receives their score, which if high enough will become their new high score.");
-        jLabel5.setBounds(50, 550, 400, 50);
-        JLabel jLabel6 = new JLabel("All three Modes will be able to navigate back to Menu through a button in one corner of the screen.");
-        jLabel6.setBounds(50, 650, 400, 50);
+        JLabel title1 = new JLabel("INSTRUCTIONS");
+        title1.setHorizontalAlignment(JLabel.CENTER);
+        title1.setFont(new Font("Times New Roman", Font.BOLD, 55));
+        
+        JLabel title2 = new JLabel("Welcome to Atlas!");
+        title2.setHorizontalAlignment(JLabel.CENTER);
+        title2.setFont(new Font("Times New Roman", Font.PLAIN, 30));
+        
+        JLabel intro = new JLabel("From here, you can navigate to the Study, Quiz, or Drawing Mode:");
+        intro.setHorizontalAlignment(JLabel.CENTER);
+        intro.setFont(new Font("Times New Roman", Font.PLAIN, 20));
+        
+        JLabel study = new JLabel("Study Mode allows you to click on various countries in Africa to learn its name, capital,and a fun fact about that country!");
+        study.setHorizontalAlignment(JLabel.CENTER);
+        study.setFont(new Font("Times New Roman", Font.PLAIN, 20));
+        
+        JLabel quiz = new JLabel("Quiz Mode gives you an opportunity to test your geography knowledge about Africa! Answer questions about the capital and region of a country, and select the correct country from a map.");
+        quiz.setHorizontalAlignment(JLabel.CENTER);
+        quiz.setFont(new Font("Times New Roman", Font.PLAIN, 20));
+        
+        JLabel drawing = new JLabel("Draw Mode is a blank screen that the user can use to draw a country, a map, or their own notes and save them for future use.");
+        drawing.setHorizontalAlignment(JLabel.CENTER);
+        drawing.setFont(new Font("Times New Roman", Font.PLAIN, 20));
+        
+        JLabel enjoy = new JLabel("Have fun navigating Africa with Atlas!");
+        enjoy.setHorizontalAlignment(JLabel.CENTER);
+        enjoy.setFont(new Font("Times New Roman", Font.PLAIN, 20));
         
         JButton jButton = new JButton("Close");
         
@@ -71,6 +88,7 @@ public class Instructions extends Screen{
                 draw.switchScreen(ScreenSwitcher.MENU_SCREEN);
             }
         });
+        jButton.setAlignmentX(jButton.CENTER_ALIGNMENT);
         jd.addWindowListener(new java.awt.event.WindowAdapter() {
             @Override
             public void windowClosing(java.awt.event.WindowEvent windowEvent) {
@@ -79,13 +97,13 @@ public class Instructions extends Screen{
             }
         });
 
-        jd.add(jLabel);
-        jd.add(jLabel1);
-        jd.add(jLabel2);
-        jd.add(jLabel3);
-        jd.add(jLabel4);
-        jd.add(jLabel5);
-        jd.add(jLabel6);
+        jd.add(title1);
+        jd.add(title2);
+        jd.add(intro);
+        jd.add(study);
+        jd.add(quiz);
+        jd.add(drawing);
+        jd.add(enjoy);
         jd.add(jButton);
         jd.setVisible(true);
 		
