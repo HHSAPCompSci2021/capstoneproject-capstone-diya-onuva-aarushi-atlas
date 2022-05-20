@@ -120,20 +120,20 @@ public class Menu extends Screen {
 			draw.text("Draw Mode", draw.width/2, draw.height * 0.77f + normT/3);
 		}
 		
-		if (draw.mousePressed && x <= draw.width * 0.08f + bH*0.85f/2 && x >= draw.width * 0.08f - bH*0.85f/2
-				&& y <= draw.height * 0.09f + bH*0.85f/2 && y >= draw.height * 0.09f - bH*0.85f/2) {
+		if (draw.mousePressed && x <= draw.width * 0.05f + draw.height * 0.05f && x >= draw.width * 0.05f - draw.height * 0.05f 
+				&& y <= draw.height * 0.13f && y >= draw.height * 0.03f) {
 			draw.fill(120, 130, 140);
-			draw.ellipse(draw.width * 0.08f, draw.height * 0.09f, bH*0.85f * factor, bH*0.85f * factor);
+			draw.ellipse(draw.width * 0.05f, draw.height * 0.08f, draw.height * 0.1f * (2f/3f), draw.height * 0.1f * (2f/3f));
 			draw.fill(0);
 			draw.textSize(normT*1.4f * factor);
-			draw.text("?", draw.width * 0.08f, draw.height * 0.09f + normT/3 * 1.4f * factor);
+			draw.text("?", draw.width * 0.05f, draw.height * 0.08f + normT/3 * 1.4f * factor);
 		}
 		else {
 			draw.fill(145, 155, 165);
-			draw.ellipse(draw.width * 0.08f, draw.height * 0.09f, bH*0.85f, bH*0.85f);
+			draw.ellipse(draw.width * 0.05f, draw.height * 0.08f, draw.height * 0.1f * factor, draw.height * 0.1f * factor);
 			draw.fill(0);
 			draw.textSize(normT*1.4f);
-			draw.text("?", draw.width * 0.08f, draw.height * 0.09f + normT/3 * 1.4f);
+			draw.text("?", draw.width * 0.05f, draw.height * 0.08f + normT/3 * 1.4f);
 		}
 		
 		
@@ -169,10 +169,10 @@ public class Menu extends Screen {
 			draw();
 			draw.switchScreen(ScreenSwitcher.DRAW_SCREEN);
 		}
-		else if (draw.mouseX <= draw.width * 0.08f + bH*0.85f/2 && draw.mouseX >= draw.width * 0.08f - bH*0.85f/2
-				&& draw.mouseY <= draw.height * 0.09f + bH*0.85f/2 && draw.mouseY >= draw.height * 0.09f - bH*0.85f/2
-				&& x <= draw.width * 0.08f + bH*0.85f/2 && x >= draw.width * 0.08f - bH*0.85f/2
-				&& y <= draw.height * 0.09f + bH*0.85f/2 && y >= draw.height * 0.09f - bH*0.85f/2) {
+		else if (draw.mouseX <= draw.width * 0.05f + draw.height * 0.05f && draw.mouseX >= draw.width * 0.05f - draw.height * 0.05f 
+				&& draw.mouseY <= draw.height * 0.13f && draw.mouseY >= draw.height * 0.03f
+				&& x <= draw.width * 0.05f + draw.height * 0.05f && x >= draw.width * 0.05f - draw.height * 0.05f 
+				&& y <= draw.height * 0.13f && y >= draw.height * 0.03f) {
 			draw();
 			draw.switchScreen(ScreenSwitcher.INSTRUCTIONS_SCREEN);
 		}
