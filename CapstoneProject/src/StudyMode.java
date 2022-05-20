@@ -13,10 +13,11 @@ import processing.core.PConstants;
  */
 public class StudyMode extends Screen {
 
-	String current;
+	private String current;
 	private DrawingSurface draw;
 	boolean pressed, facts;
-	Map map;
+	private Map map;
+	private float x, y;
 	
 	/**
 	 * sets default settings
@@ -28,6 +29,8 @@ public class StudyMode extends Screen {
 		map = new Map(DRAWING_WIDTH/2 - 300, 80, 600, 591);
 		pressed = false;
 		facts = false;
+		x = -1;
+		y = -1;
 	}
 	
 	/**
@@ -40,14 +43,28 @@ public class StudyMode extends Screen {
 		
 		draw.rectMode(PConstants.CENTER);
 		
-		draw.fill(169, 169, 169);
-		draw.rect(50, 50, 50, 50); //Back button
+		if (draw.mousePressed && x < 0 && y < 0) {
+			x = draw.mouseX;
+			y = draw.mouseY;
+		}
 		
-		draw.image(draw.loadImage("fileData/map.png"), draw.width/2 - 300, 80);
+		else if (!draw.mousePressed) {
+			x = -1;
+			y = -1;
+		}
 		
-		if (draw.mousePressed && draw.mouseX <= 75 && draw.mouseX >= 25 && draw.mouseY >= 25 && draw.mouseY <= 75) 
+		draw.image(draw.loadImage("fileData/map2.png"), draw.width/2 - 300, 80);
+		
+		if (draw.mousePressed && x <= draw.width * 0.05f + draw.height * 0.05f && x >= draw.width * 0.05f - draw.height * 0.05f && y <= draw.height * 0.13f && y >= draw.height * 0.03f) 
 		{
-			draw.switchScreen(ScreenSwitcher.MENU_SCREEN);
+			draw.fill(30, 120, 0);
+			draw.ellipse(draw.width * 0.05f, draw.height * 0.08f, draw.height * 0.1f * (2f/3f), draw.height * 0.1f * (2f/3f)); //Back button
+			draw.image(draw.loadImage("fileData/smallHouse.png"), draw.width * 0.035f, draw.height * 0.0575f);
+		}
+		else {
+			draw.fill(50, 140, 5);
+			draw.ellipse(draw.width * 0.05f, draw.height * 0.08f, draw.height * 0.1f, draw.height * 0.1f); //Back button
+			draw.image(draw.loadImage("fileData/house.png"), draw.width * 0.03f, draw.height * 0.05f);
 		}
 		if (draw.mousePressed && !pressed) {
 			pressed = true;
@@ -72,4 +89,17 @@ public class StudyMode extends Screen {
 		}
 		
 	}
+	
+	
+	public void mouseReleased() {
+		if (draw.mouseX <= draw.width * 0.05f + draw.height * 0.05f 
+				&& draw.mouseX >= draw.width * 0.05f - draw.height * 0.05f 
+				&& draw.mouseY <= draw.height * 0.13f && draw.mouseY >= draw.height * 0.03f
+				&& x <= draw.width * 0.05f + draw.height * 0.05f 
+				&& x >= draw.width * 0.05f - draw.height * 0.05f 
+				&& y <= draw.height * 0.13f && y >= draw.height * 0.03f)
+			draw.switchScreen(ScreenSwitcher.MENU_SCREEN);
+	}
+	
+	
 }
