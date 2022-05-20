@@ -14,34 +14,17 @@ public abstract class Screen {
 		this.DRAWING_HEIGHT = height;
 	}
 	
-	public void setup() {
-		
-	}
+	public void setup() {}
 	
-	public void draw() {
-		
-	}
+	public void draw() {}
 	
-	public void mousePressed() {
-		
-	}
+	public void mousePressed() {}
 	
-	public void mouseClicked() {
-		
-	}
+	public void mouseClicked() {}
 	
-	public void mouseMoved() {
-		
-	}
+	public void mouseMoved() {}
 	
-	public void mouseDragged() {
-		
-	}
+	public void mouseDragged() {}
 	
-	public void mouseReleased() {
-		
-	}
-	
-	
-	
+	public void mouseReleased() {}
 }

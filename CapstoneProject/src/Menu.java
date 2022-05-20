@@ -7,9 +7,10 @@ import processing.core.PImage;
 
 /**
  * 
- * Serves to act as a menu where the user can navigate to different <code>Screens</code> within the game (<code>StudyMode</code>, <code>QuizMode</code>, <code>DrawMode</code>, and the <code>Instructions</code>)
- *
+ * Serves to act as a menu where the user can navigate to different Screens within the game
+ * Screens include Instructions, Quiz Mode, Study Mode, and Drawing Mode
  * @author Aarushi Gupta
+ * Has a PImage (for background), a drawing surface, animation controls, and custom font
  * 
  */
 
@@ -21,7 +22,7 @@ public class Menu extends Screen {
 	private PFont myFont;
 	
 	/**
-	 * Sets default settings
+	 * Sets to default settings; initializes fields
 	 * @param draw given PApplet
 	 */
 	public Menu(DrawingSurface draw)
@@ -47,7 +48,8 @@ public class Menu extends Screen {
 	}
 	
 	/**
-	 * Draws the <code>Menu</code> <code>Screen</code>
+	 * Draws the Menu screen and its corresponding animation controls
+	 * @post modifies draw (the drawing surface) by adding buttons, colors, etc.
 	 */
 	public void draw() 
 	{
