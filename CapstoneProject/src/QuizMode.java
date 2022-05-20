@@ -99,10 +99,10 @@ public class QuizMode extends Screen{
 		else
 		{
 			draw.fill(50, 235, 190);
-			draw.rect(draw.width/2, draw.height/2 - 100, 350, 50, 5);//A
-			draw.rect(draw.width/2, draw.height/2, 350, 50, 5); //B
-			draw.rect(draw.width/2, draw.height/2 + 100, 350, 50, 5); //C
-			draw.rect(draw.width/2, draw.height/2 + 200, 350, 50, 5);//D
+			draw.rect(draw.width/2, draw.height/2 - 100, 350, 50, 5);// A
+			draw.rect(draw.width/2, draw.height/2, 350, 50, 5); // B
+			draw.rect(draw.width/2, draw.height/2 + 100, 350, 50, 5); // C
+			draw.rect(draw.width/2, draw.height/2 + 200, 350, 50, 5);// D
 			
 			if (qRandomizer == 1)
 			{
@@ -110,6 +110,7 @@ public class QuizMode extends Screen{
 			}
 			else if (qRandomizer == 2)
 			{
+				draw.rect(draw.width/2, draw.height/2 - 200, 350, 50, 5); // E
 				selectLocation(draw);
 			}
 		}
@@ -281,6 +282,29 @@ public class QuizMode extends Screen{
 			}
 		}
 		
+		if (qRandomizer == 2)
+		{
+			//E
+			if(draw.mousePressed && draw.mouseX <= (draw.width/2 + 175) && (draw.width/2 - 175) <= draw.mouseX && draw.mouseY <= (draw.height/2 - 175) && (draw.height/2 - 225) <= draw.mouseY)
+			{
+				if ("Central Africa".equals(map.getRegion(countries.get(correct))))
+					{
+						draw.fill(51, 255, 51);
+						draw.rect(draw.width/2, draw.height/2 - 200, 350, 50, 5);
+						draw.fill(0);
+						draw.textSize(15);
+						score++;
+					}
+					else
+					{
+						draw.fill(255, 51, 51);
+						draw.rect(draw.width/2, draw.height/2 - 200, 350, 50, 5);
+						draw.fill(0);
+						draw.textSize(15);
+					}
+				}
+			}
+		
 		String country = map.getCountry(draw, draw.mouseX, draw.mouseY);
 		
 		if (qRandomizer == 1)
@@ -384,6 +408,8 @@ public class QuizMode extends Screen{
 	{
 		draw.fill(0, 0, 0);
 		draw.textSize(20);
+		
+		draw.text("Central Africa", draw.width/2, (float) (draw.height/2 - 200 + 20.0/3));
 		draw.text("North Africa", draw.width/2, (float) (draw.height/2 - 100 + 20.0/3));
 		draw.text("South Africa", draw.width/2, (float) (draw.height/2 + 20.0/3)); 
 		draw.text("East Africa", draw.width/2, (float) (draw.height/2 + 100 + 20.0/3)); 
@@ -444,11 +470,11 @@ public class QuizMode extends Screen{
 		countries.add("Gabon");
 		countries.add("South Africa");
 		countries.add("Eritrea");
+		countries.add("The Comoros");
 		countries.add("Sengal");
 		countries.add("Burkina Faso");
 		countries.add("Somalia");
 		countries.add("Mozambique");
-		countries.add("The Comoros");
 		countries.add("Madagascar");
 		countries.add("Angola");
 		countries.add("Uganda");
