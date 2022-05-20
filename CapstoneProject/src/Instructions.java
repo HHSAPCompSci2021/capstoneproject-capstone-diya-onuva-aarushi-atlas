@@ -1,4 +1,3 @@
-import java.awt.Component;
 import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.GridLayout;
@@ -89,7 +88,7 @@ GridLayout gl = new GridLayout(0,1);
                 draw.switchScreen(ScreenSwitcher.MENU_SCREEN);
             }
         });
-        jButton.setAlignmentX(Component.CENTER_ALIGNMENT);
+        jButton.setAlignmentX(jButton.CENTER_ALIGNMENT);
         jd.addWindowListener(new java.awt.event.WindowAdapter() {
             @Override
             public void windowClosing(java.awt.event.WindowEvent windowEvent) {
