@@ -44,8 +44,7 @@ public class Instructions extends Screen{
 		jFrame.setResizable(false);
 
         JDialog jd = new JDialog(jFrame);
-        //jd.setResizable(false);
-GridLayout gl = new GridLayout(0,1);
+        GridLayout gl = new GridLayout(0,1);
         jd.setLayout(gl);
 
         jd.setBounds(500, 300, 600, 600);
