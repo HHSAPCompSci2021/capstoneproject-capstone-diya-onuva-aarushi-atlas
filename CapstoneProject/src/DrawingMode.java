@@ -10,7 +10,8 @@ public class DrawingMode extends Screen {
 	private static boolean isDragged, setBackground;
 	private DrawingSurface surface;
 	private Menu menu;
-//	private ArrayList<String> countries;
+	private int[] colorSwitch;
+	private int curColor;
 	
 	/**
 	 * @param draw of type DrawingSurface
@@ -22,6 +23,8 @@ public class DrawingMode extends Screen {
 		
 		isDragged = false;
 		setBackground = true;
+		colorSwitch = new int[6];
+		curColor = 0;
 	}
 	
 
@@ -42,12 +45,28 @@ public class DrawingMode extends Screen {
 		
 		//allows for user to free draw
 		if(isDragged) {
-			red();
+			if(curColor == 0)
+				surface.stroke(0);
+			else if (curColor == 1)
+				surface.stroke(203, 32, 40); //red
+			else if (curColor == 2) 
+				surface.stroke(205, 99, 41); //orange
+			else if (curColor == 3)
+				surface.stroke(204, 162, 42); //yellow
+			else if (curColor == 4)
+				surface.stroke(19, 2139, 6); //green
+			else if (curColor == 5)
+				surface.stroke(9, 77, 140); //blue
+			else if (curColor == 6)
+				surface.stroke(81, 42, 123); //purple
+			
 			surface.line(surface.pmouseX, surface.pmouseY, surface.mouseX, surface.mouseY);
+			
 		}
 		
 		if(surface.mousePressed && surface.mouseX <= 60 && surface.mouseX >= 30 && surface.mouseY <= 60 && surface.mouseY >= 30) {
 			setBackground = true;
+			curColor = 0;
 			surface.switchScreen(ScreenSwitcher.MENU_SCREEN);
 		}
 		
@@ -58,6 +77,7 @@ public class DrawingMode extends Screen {
 	 * Serves to detect and interpret when and where a user clicks on the screen
 	 * @post if a certain button is clicked, background changes
 	 * @post if a certain button is clicked, surface changes
+	 * @post if a certain button is clicked, curColor changes
 	 */
 	public void mouseClicked() {
 		
@@ -66,9 +86,37 @@ public class DrawingMode extends Screen {
 			setBackground = true;
 		}
 		
+		//switches to red stroke
 		if((surface.mouseX <= (DRAWING_WIDTH - 35) && surface.mouseX >= (DRAWING_WIDTH - 65) && surface.mouseY <= 65 && surface.mouseY >= 35)) {
-			surface.rect(150,  150,  100,  100);
-			red();
+			curColor = 1;
+		}
+		
+		if((surface.mouseX <= (DRAWING_WIDTH - 35) && surface.mouseX >= (DRAWING_WIDTH - 65) && surface.mouseY <= 115 && surface.mouseY >= 85)) {
+			curColor = 2;
+		}
+		
+		if((surface.mouseX <= (DRAWING_WIDTH - 35) && surface.mouseX >= (DRAWING_WIDTH - 65) && surface.mouseY <= 165 && surface.mouseY >= 135)) {
+			curColor = 3;
+		}
+		
+		if((surface.mouseX <= (DRAWING_WIDTH - 35) && surface.mouseX >= (DRAWING_WIDTH - 65) && surface.mouseY <= 215 && surface.mouseY >=185)) {
+			curColor = 4;
+		}
+		
+		if((surface.mouseX <= (DRAWING_WIDTH - 35) && surface.mouseX >= (DRAWING_WIDTH - 65) && surface.mouseY <= 265 && surface.mouseY >= 235)) {
+			curColor = 5;
+		}
+		
+		if((surface.mouseX <= (DRAWING_WIDTH - 35) && surface.mouseX >= (DRAWING_WIDTH - 65) && surface.mouseY <= 315 && surface.mouseY >= 285)) {
+			curColor = 6;
+		}
+		
+		if((surface.mouseX <= (DRAWING_WIDTH - 35) && surface.mouseX >= (DRAWING_WIDTH - 65) && surface.mouseY <= 375 && surface.mouseY >= 325)) {
+			curColor = 0;
+		}
+		
+		if((surface.mouseX <= (DRAWING_WIDTH - 35) && surface.mouseX >= (DRAWING_WIDTH - 65) && surface.mouseY <= 415 && surface.mouseY >= 385)) {
+			reset();
 		}
 	}
 
@@ -85,64 +133,45 @@ public class DrawingMode extends Screen {
 	 * @post sets isDragged to true
 	 */
 	public void mouseReleased() {
-		if (isDragged) {
+		
+		if (isDragged) 
 			isDragged = false;
-		}
 	}
 	
 	/** 
 	 * Serves to draw out the controls for the user to use (color changing)
 	 */
 	public void controlsSetUp() {
-		surface.stroke(0);
-		surface.rect(30, 30, 30, 30);
+		surface.stroke(10, 10, 10);
+		surface.rect(30, 30, 35, 35, 5);
+		surface.fill(255);
+		surface.text("Menu", 31, 31);
 		
 		surface.fill(203, 32, 40); //red
-		surface.rect(DRAWING_WIDTH - 50, 50, 30, 30);
+		surface.rect(1150, 50, 30, 30);
 		
 		surface.fill(205, 99, 41); //orange
-		surface.rect(DRAWING_WIDTH - 50, 100, 30, 30);
+		surface.rect(1150, 100, 30, 30);
 		
 		surface.fill(204, 162, 42); //yellow
-		surface.rect(DRAWING_WIDTH - 50, 150, 30, 30);
+		surface.rect(1150, 150, 30, 30);
 		
 		surface.fill(19, 2139, 6); //green
-		surface.rect(DRAWING_WIDTH - 50, 200, 30, 30);
+		surface.rect(1150, 200, 30, 30);
 		
 		surface.fill(9, 77, 140); //blue
-		surface.rect(DRAWING_WIDTH - 50, 250, 30, 30);
+		surface.rect(1150, 250, 30, 30);
 		
 		surface.fill(81, 42, 123); //purple
-		surface.rect(DRAWING_WIDTH - 50, 300, 30, 30);
+		surface.rect(1150, 300, 30, 30);
+		
+		surface.fill(0); //black
+		surface.rect(1150, 350, 30, 30);
+		
+		surface.fill(220, 236, 199); //sage green reset
+		surface.rect(1150, 400, 30, 30);
 		surface.fill(0);
-	}
-	
-	/**
-	 * sets the paint color to red
-	 */
-	public void red() {
-		surface.stroke(255, 0, 0);
-	}
-	
-	/**
-	 * sets the paint color to black
-	 */
-	public void black() {
-		surface.fill(DRAWING_HEIGHT);
-	}
-	
-	/**
-	 * sets the paint color to green
-	 */
-	public void green() {
-		surface.fill(DRAWING_HEIGHT);
-	}
-	
-	/**
-	 * sets the paint color to blue
-	 */
-	public void blue() {
-		surface.fill(DRAWING_HEIGHT);
+		surface.text("Reset", 1150, 405);
 	}
 	
 	/**
