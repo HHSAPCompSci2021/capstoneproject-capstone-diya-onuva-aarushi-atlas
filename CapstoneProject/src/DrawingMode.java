@@ -121,6 +121,10 @@ public class DrawingMode extends Screen {
 		surface.fill(DRAWING_HEIGHT);
 	}
 	
+	public void reset() {
+		setBackground = true;
+	}
+	
 	public void addCountries()
 	{
 		countries.add("The Gambia");

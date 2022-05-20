@@ -58,7 +58,7 @@ public class Introduction extends Screen {
 	{
 		draw.background(bg);
 		draw.textAlign(PConstants.CENTER);
-		myFont = draw.createFont("Sans Serif", 65);
+		myFont = draw.createFont("Times New Roman", 65);
 		draw.textFont(myFont);
 		draw.rectMode(PConstants.CENTER);
 		draw.noStroke();
@@ -79,11 +79,11 @@ public class Introduction extends Screen {
 			pressed = true;
 		
 		if (pressed && n >= 1) {
-			draw.fill(25, 210, 165);
+			draw.fill(204, 204, 255);
 			draw.rect(draw.width/2, draw.height * 0.4f, bWidth * 0.95f, bHeight * 0.95f, 10);
 		}
 		else {
-			draw.fill(50, 235, 190);
+			draw.fill(178, 172, 136);
 			draw.rect(draw.width/2, draw.height * 0.4f, bWidth * n, bHeight * n, 10);
 		}
 		

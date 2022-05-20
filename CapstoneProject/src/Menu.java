@@ -18,6 +18,7 @@ public class Menu extends Screen {
 	private PImage bg;
 	private DrawingSurface draw;
 	private float bW, bH, normT, factor, x, y;
+	private PFont myFont;
 	
 	/**
 	 * Sets default settings
@@ -56,24 +57,29 @@ public class Menu extends Screen {
 		draw.rectMode(PConstants.CENTER);
 		draw.noStroke();
 		
+		myFont = draw.createFont("Times New Roman", 65);
+		draw.textFont(myFont);
+		
 		if (draw.mousePressed && x < 0 && y < 0) {
 			x = draw.mouseX;
 			y = draw.mouseY;
-		}else if (!draw.mousePressed) {
+		}
+		
+		else if (!draw.mousePressed) {
 			x = -1;
 			y = -1;
 		}
 		
 		if (draw.mousePressed && x <= draw.width/2 + bW/2 && x >= draw.width/2 - bW/2
 				&& y <= draw.height*0.43f + bH/2 && y >= draw.height*0.43f - bH/2) {
-			draw.fill(25, 210, 165);
+			draw.fill(204, 204, 255);
 			draw.rect(draw.width/2, draw.height * 0.43f, bW * factor, bH * factor, 5);
 			draw.fill(0);
 			draw.textSize(normT * factor);
 			draw.text("Study Mode", draw.width/2, draw.height * 0.43f + normT/3 * factor);
 		}
 		else {
-			draw.fill(50, 235, 190);
+			draw.fill(178, 172, 136);
 			draw.rect(draw.width/2, draw.height * 0.43f, bW, bH, 5);
 			draw.fill(0);
 			draw.textSize(normT);
@@ -82,14 +88,14 @@ public class Menu extends Screen {
 		
 		if (draw.mousePressed && x <= draw.width/2 + bW/2 && x >= draw.width/2 - bW/2
 				&& y <= draw.height*0.6f + bH/2 && y >= draw.height*0.6f - bH/2) {
-			draw.fill(25, 210, 165);
+			draw.fill(204, 204, 255);
 			draw.rect(draw.width/2, draw.height * 0.6f, bW * factor, bH * factor, 5);
 			draw.fill(0);
 			draw.textSize(normT * factor);
 			draw.text("Quiz Mode", draw.width/2, draw.height * 0.6f + normT/3 * factor);
 		}
 		else {
-			draw.fill(50, 235, 190);
+			draw.fill(178, 172, 136);
 			draw.rect(draw.width/2, draw.height * 0.6f, bW, bH, 5);
 			draw.fill(0);
 			draw.textSize(normT);
@@ -98,14 +104,14 @@ public class Menu extends Screen {
 		
 		if (draw.mousePressed && x <= draw.width/2 + bW/2 && x >= draw.width/2 - bW/2
 				&& y <= draw.height*0.77f + bH/2 && y >= draw.height*0.77f - bH/2) {
-			draw.fill(25, 210, 165);
+			draw.fill(204, 204, 255);
 			draw.rect(draw.width/2, draw.height * 0.77f, bW * factor, bH * factor, 5);
 			draw.fill(0);
 			draw.textSize(normT * factor);
 			draw.text("Draw Mode", draw.width/2, draw.height * 0.77f + normT/3 * factor);
 		}
 		else {
-			draw.fill(50, 235, 190);
+			draw.fill(178, 172, 136);
 			draw.rect(draw.width/2, draw.height * 0.77f, bW, bH, 5);
 			draw.fill(0);
 			draw.textSize(normT);
@@ -137,6 +143,7 @@ public class Menu extends Screen {
 	
 	/**
 	 * Detects when mouse is released
+	 * @post if mouse hits one of the indicated buttons, screen switches to corresponding screen
 	 */
 	public void mouseReleased() {
 		if (draw.mouseX <= draw.width/2 + bW/2 && draw.mouseX >= draw.width/2 - bW/2
