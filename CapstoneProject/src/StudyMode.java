@@ -8,7 +8,7 @@ import processing.core.PConstants;
 
 /**
  * A study mode where users directly interact with information from the map
- * @author diya
+ * @author Diya 
  *
  */
 public class StudyMode extends Screen {
@@ -34,8 +34,8 @@ public class StudyMode extends Screen {
 	}
 	
 	/**
-	 * draws map, and displays information
-	 * @param draw
+	 * Draws the map and displays information about each country
+	 * @post when countries are clicked, a window pops up with facts that can be continued to be seen by the user or exited
 	 */
 	public void draw()
 	{
@@ -90,7 +90,10 @@ public class StudyMode extends Screen {
 		
 	}
 	
-	
+	/**
+	 * Purpose it to interpret and carry out actions when mouse is released
+	 * @post if certain, indicated button is pressed and released by user, screen switches back to menu
+	 */
 	public void mouseReleased() {
 		if (draw.mouseX <= draw.width * 0.05f + draw.height * 0.05f 
 				&& draw.mouseX >= draw.width * 0.05f - draw.height * 0.05f 

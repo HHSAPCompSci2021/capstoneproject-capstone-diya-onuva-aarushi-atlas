@@ -8,7 +8,8 @@ import processing.core.PConstants;
 import processing.core.PFont;
 
 /**
- * Creates multiple choice questions for the user to interact with
+ * Creates multiple choice questions for the user to interact with in order to learn fun and fast facts about each country.
+ * Also contains a point system and incorrect/correct system, and is a screen
  * @author Diya Bengani
  *
  */
@@ -29,7 +30,8 @@ public class QuizMode extends Screen{
 	private static String highScore;
 	
 	/**
-	 * populates countries arraylist, and sets default settings
+	 * Populates countries (Arraylist), initializes fields, and sets default settings
+	 * @param draw of type DrawingSurface
 	 */
 	public QuizMode (DrawingSurface draw)
 	{
@@ -56,6 +58,7 @@ public class QuizMode extends Screen{
 	/**
 	 * Draws the question and title
 	 * @param draw
+	 * @post changes the drawing surface
 	 */
 	public void draw() 
 	{
@@ -365,7 +368,7 @@ public class QuizMode extends Screen{
 	}
 	
 	/**
-	 * gets the high score of the game
+	 * Gets the high score of the game
 	 * 
 	 * @return high score
 	 */
@@ -374,6 +377,10 @@ public class QuizMode extends Screen{
 		return score;
 	}
 	
+	/**
+	 * Interprets and carries out actions when mouse is clicked
+	 * @post if certain, indicated button is called, current displayed question is randomized and changed 
+	 */
 	public void mouseClicked() 
 	{
 		//click on Next
@@ -383,6 +390,9 @@ public class QuizMode extends Screen{
 		}
 	}
 	
+	/**
+	 *  Purpose is to randomize questions order for the user to answer
+	 */
 	public void resetRandomize()
 	{
 		
@@ -404,6 +414,11 @@ public class QuizMode extends Screen{
 		rand3 = (int) (Math.random() * countries.size());
 	}
 	
+	/**
+	 * Purpose is to...
+	 * @param draw of type PApplet
+	 * 
+	 */
 	public void selectLocation(PApplet draw)
 	{
 		draw.fill(0, 0, 0);
@@ -416,6 +431,10 @@ public class QuizMode extends Screen{
 		draw.text("West Africa", draw.width/2, (float) (draw.height/2 + 200 + 20.0/3));
 	}
 	
+	/**
+	 * @param draw of type PApplet
+	 * 
+	 */
 	public void randomizeCapital(PApplet draw)
 	{
 		if (ansRandomizer == 1)
@@ -457,7 +476,7 @@ public class QuizMode extends Screen{
 	}
 	
 	/**
-	 * adds countries to the countries arraylist
+	 * Adds countries to the countries arraylist
 	 */
 	public void addCountries()
 	{
