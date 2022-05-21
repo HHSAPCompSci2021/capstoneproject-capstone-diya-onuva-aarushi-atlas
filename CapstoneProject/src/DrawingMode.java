@@ -11,7 +11,6 @@ public class DrawingMode extends Screen {
 	private DrawingSurface surface;
 	private Menu menu;
 	private int curColor;
-	private float bW, bH, normT, factor, x, y;
 	
 	/**
 	 * @param draw of type DrawingSurface
@@ -24,9 +23,6 @@ public class DrawingMode extends Screen {
 		isDragged = false;
 		setBackground = true;
 		curColor = 0;
-		
-		x = -1;
-		y = -1;
 	}
 	
 
