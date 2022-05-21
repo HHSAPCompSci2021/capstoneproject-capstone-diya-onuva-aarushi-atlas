@@ -290,7 +290,7 @@ public class Map {
 		catch (IOException e) {
 			return null;
 		}
-		int n = Integer.parseInt(info.substring(info.length()-2, info.length()-1)) - 1;
+		int n = Integer.parseInt(info.substring(info.lastIndexOf('.')-1, info.lastIndexOf('.'))) - 1;
 		int r = (int) (Math.random()*n)+1;
 		String rInfo = info.substring(info.indexOf(r+". ")+3, info.indexOf((r+1)+"."));
 		return rInfo;
