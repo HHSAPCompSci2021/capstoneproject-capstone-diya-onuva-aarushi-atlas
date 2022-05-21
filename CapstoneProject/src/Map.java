@@ -233,19 +233,6 @@ public class Map {
 	}
 	
 	/**
-	 * Returns pictures of the given country in an <code>ArrayList</code>; if given country 
-	 * is not in Africa or in the list of countries recorded in this <code>Map</code>, returns
-	 * an empty <code>ArrayList</code>
-	 * @param s given country
-	 * @return an <code>ArrayList</code> of pictures of given country, if country does not exist in <code>Map</code>,
-	 * returns an empty <code>ArrayList</code>
-	 */
-	public ArrayList<String> getPics(String s) {
-		return null;
-		
-	}
-	
-	/**
 	 * Returns general location of the given country; if given country 
 	 * is not in Africa or in the list of countries recorded in this <code>Map</code>, returns
 	 * null

@@ -15,7 +15,7 @@ public class StudyMode extends Screen {
 
 	private String current;
 	private DrawingSurface draw;
-	boolean pressed, facts;
+	private boolean pressed, facts;
 	private Map map;
 	private float x, y;
 	

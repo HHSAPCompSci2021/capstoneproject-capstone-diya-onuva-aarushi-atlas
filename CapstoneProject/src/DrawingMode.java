@@ -9,7 +9,6 @@ public class DrawingMode extends Screen {
 
 	private static boolean isDragged, setBackground;
 	private DrawingSurface surface;
-	private Menu menu;
 	private int curColor;
 	
 	/**

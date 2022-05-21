@@ -22,7 +22,6 @@ import processing.core.PApplet;
  */
 public class Instructions extends Screen{
 
-	String image;
 	private DrawingSurface draw;
 	
 	/**
