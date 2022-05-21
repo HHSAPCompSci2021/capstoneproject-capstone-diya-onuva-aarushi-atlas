@@ -10,7 +10,6 @@ public class DrawingMode extends Screen {
 	private static boolean isDragged, setBackground;
 	private DrawingSurface surface;
 	private Menu menu;
-	private int[] colorSwitch;
 	private int curColor;
 	
 	/**
@@ -23,7 +22,6 @@ public class DrawingMode extends Screen {
 		
 		isDragged = false;
 		setBackground = true;
-		colorSwitch = new int[6];
 		curColor = 0;
 	}
 	
@@ -35,6 +33,12 @@ public class DrawingMode extends Screen {
 	 * @post user can draw lines onto the surface, changing the state of the surface
 	 */
 	public void draw() {
+		
+//		if(surface.mousePressed && surface.mouseX <= 60 && surface.mouseX >= 30 && surface.mouseY <= 60 && surface.mouseY >= 30) {
+//			setBackground = true;
+//			curColor = 0;
+//			surface.switchScreen(ScreenSwitcher.MENU_SCREEN);
+//		}
 		
 		//sets the background
 		if(setBackground)
@@ -63,15 +67,9 @@ public class DrawingMode extends Screen {
 			surface.line(surface.pmouseX, surface.pmouseY, surface.mouseX, surface.mouseY);
 			
 		}
-		
-		if(surface.mousePressed && surface.mouseX <= 60 && surface.mouseX >= 30 && surface.mouseY <= 60 && surface.mouseY >= 30) {
-			setBackground = true;
-			curColor = 0;
-			surface.switchScreen(ScreenSwitcher.MENU_SCREEN);
-		}
-		
 		surface.stroke(100, 100, 100);
 	}
+	
 	
 	/**
 	 * Serves to detect and interpret when and where a user clicks on the screen
@@ -81,9 +79,10 @@ public class DrawingMode extends Screen {
 	 */
 	public void mouseClicked() {
 		
-		if (surface.mouseX <= 60 && surface.mouseX >= 30 && surface.mouseY <= 60 && surface.mouseY >= 30) {
-//			surface.background(255);
+		if(surface.mouseX <= 55 && surface.mouseX >= 5 && surface.mouseY <= 55 && surface.mouseY >= 5) {
 			setBackground = true;
+			curColor = 0;
+			surface.switchScreen(ScreenSwitcher.MENU_SCREEN);
 		}
 		
 		//switches to red stroke
@@ -143,7 +142,7 @@ public class DrawingMode extends Screen {
 	 */
 	public void controlsSetUp() {
 		surface.stroke(10, 10, 10);
-		surface.rect(30, 30, 35, 35, 5);
+		surface.rect(30, 30, 50, 50, 5);
 		surface.fill(255);
 		surface.text("Menu", 31, 31);
 		
@@ -168,9 +167,10 @@ public class DrawingMode extends Screen {
 		surface.fill(0); //black
 		surface.rect(1150, 350, 30, 30);
 		
-		surface.fill(220, 236, 199); //sage green reset
+		surface.fill(220, 236, 245); //sage green reset
 		surface.rect(1150, 400, 30, 30);
 		surface.fill(0);
+		surface.textSize(10);
 		surface.text("Reset", 1150, 405);
 	}
 	

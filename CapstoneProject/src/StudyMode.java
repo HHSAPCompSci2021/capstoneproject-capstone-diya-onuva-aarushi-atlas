@@ -8,7 +8,7 @@ import processing.core.PConstants;
 
 /**
  * A study mode where users directly interact with information from the map
- * @author Diya 
+ * @author Diya Bengani
  *
  */
 public class StudyMode extends Screen {
@@ -20,7 +20,8 @@ public class StudyMode extends Screen {
 	private float x, y;
 	
 	/**
-	 * sets default settings
+	 * Sets default settings, initializes fields
+	 * @param draw is a Drawing Surface
 	 */
 	public StudyMode(DrawingSurface draw)
 	{
@@ -36,6 +37,7 @@ public class StudyMode extends Screen {
 	/**
 	 * Draws the map and displays information about each country
 	 * @post when countries are clicked, a window pops up with facts that can be continued to be seen by the user or exited
+	 * @post rectangles are draw from the center
 	 */
 	public void draw()
 	{
