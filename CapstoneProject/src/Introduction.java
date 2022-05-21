@@ -63,7 +63,6 @@ public class Introduction extends Screen {
 		myFont = draw.createFont("Times New Roman", 65);
 		draw.textFont(myFont);
 		draw.rectMode(PConstants.CENTER);
-		draw.noStroke();
 		
 		if (draw.mousePressed && x < 0 && y < 0) {
 			x = draw.mouseX;
@@ -72,7 +71,14 @@ public class Introduction extends Screen {
 		else if (!draw.mousePressed) {
 			x = -1;
 			y = -1;
+			draw.cursor(PConstants.ARROW);
 		}
+		if (draw.mouseX <= draw.width/2 + bWidth/2 
+				&& draw.mouseX >= draw.width/2 - bWidth/2
+				&& draw.mouseY >= draw.height*0.4f - bHeight/2
+				&& draw.mouseY <= draw.height*0.4f + bHeight/2
+				&& n >= 1)
+			draw.cursor(PConstants.HAND);
 		
 		if (draw.mousePressed && x <= draw.width/2 + bWidth/2 
 				&& x >= draw.width/2 - bWidth/2

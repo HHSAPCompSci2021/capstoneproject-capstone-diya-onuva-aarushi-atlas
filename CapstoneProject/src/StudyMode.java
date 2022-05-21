@@ -41,7 +41,7 @@ public class StudyMode extends Screen {
 	 */
 	public void draw()
 	{
-		draw.background(255);
+		draw.background(50, 110, 175);
 		
 		draw.rectMode(PConstants.CENTER);
 		
@@ -53,7 +53,13 @@ public class StudyMode extends Screen {
 		else if (!draw.mousePressed) {
 			x = -1;
 			y = -1;
+			draw.cursor(PConstants.ARROW);
 		}
+		
+		if (draw.mouseX <= draw.width * 0.05f + draw.height * 0.05f 
+				&& draw.mouseX >= draw.width * 0.05f - draw.height * 0.05f 
+				&& draw.mouseY <= draw.height * 0.13f && draw.mouseY >= draw.height * 0.03f)
+			draw.cursor(PConstants.HAND);
 		
 		draw.image(draw.loadImage("fileData/map2.png"), draw.width/2 - 300, 80);
 		

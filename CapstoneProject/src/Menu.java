@@ -57,7 +57,6 @@ public class Menu extends Screen {
 		
 		draw.textAlign(PConstants.CENTER);
 		draw.rectMode(PConstants.CENTER);
-		draw.noStroke();
 		
 		myFont = draw.createFont("Times New Roman", 65);
 		draw.textFont(myFont);
@@ -70,7 +69,18 @@ public class Menu extends Screen {
 		else if (!draw.mousePressed) {
 			x = -1;
 			y = -1;
+			draw.cursor(PConstants.ARROW);
 		}
+		if ((draw.mouseX <= draw.width/2 + bW/2 && draw.mouseX >= draw.width/2 - bW/2
+				&& draw.mouseY <= draw.height*0.43f + bH/2 && draw.mouseY >= draw.height*0.43f - bH/2)
+				|| (draw.mouseX <= draw.width/2 + bW/2 && draw.mouseX >= draw.width/2 - bW/2
+				&& draw.mouseY <= draw.height*0.6f + bH/2 && draw.mouseY >= draw.height*0.6f - bH/2)
+				|| (draw.mouseX <= draw.width/2 + bW/2 && draw.mouseX >= draw.width/2 - bW/2
+				&& draw.mouseY <= draw.height*0.77f + bH/2 && draw.mouseY >= draw.height*0.77f - bH/2)
+				|| (draw.mouseX <= draw.width * 0.93f + draw.height * 0.05f && draw.mouseX >= draw.width * 0.93f - draw.height * 0.05f 
+				&& draw.mouseY <= draw.height * 0.13f && draw.mouseY >= draw.height * 0.03f)) 
+			draw.cursor(PConstants.HAND);
+		
 		
 		if (draw.mousePressed && x <= draw.width/2 + bW/2 && x >= draw.width/2 - bW/2
 				&& y <= draw.height*0.43f + bH/2 && y >= draw.height*0.43f - bH/2) {

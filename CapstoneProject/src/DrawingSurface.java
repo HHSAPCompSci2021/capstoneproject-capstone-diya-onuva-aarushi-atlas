@@ -79,6 +79,7 @@ public class DrawingSurface extends PApplet implements ScreenSwitcher {
 		textFont(myFont);
 		ratioX = (float)width/activeScreen.DRAWING_WIDTH;
 		ratioY = (float)height/activeScreen.DRAWING_HEIGHT;
+		noStroke();
 
 		push();
 		
