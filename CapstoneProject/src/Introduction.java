@@ -9,7 +9,7 @@ import processing.core.PFont;
 import processing.core.PImage;
 
 /**
- * The title/introduction display
+ * Serves to display the title/introduction display
  * @author Diya Bengani, Onuva Ekram
  *
  */
@@ -23,7 +23,8 @@ public class Introduction extends Screen {
 	private float normText, pressText, bWidth, bHeight, n;
 	
 	/**
-	 * Sets default settings
+	 * Sets default settings, initializes the fields
+	 * @param draw of type DrawingSurface
 	 */
 	public Introduction(DrawingSurface draw)
 	{
@@ -51,8 +52,9 @@ public class Introduction extends Screen {
 	}
 	
 	/**
-	 * Draws the <code>Introduction</code> <code>Screen</code>
+	 * Draws the Introduction Screen
 	 * @post Changes PApplet's textAlign and rectMode to PConstants.CENTER
+	 * @post modifies draw, the drawing surface 
 	 */
 	public void draw() 
 	{
@@ -104,6 +106,7 @@ public class Introduction extends Screen {
 	
 	/**
 	 * Detects when mouse is clicked
+	 * @post when certain button is clicked, screen switches to the menu screen
 	 */
 	public void mouseReleased() {
 		if (draw.mouseX <= draw.width/2 + bWidth/2 

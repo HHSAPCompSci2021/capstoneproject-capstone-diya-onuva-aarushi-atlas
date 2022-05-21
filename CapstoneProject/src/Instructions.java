@@ -16,7 +16,8 @@ import processing.core.PApplet;
 
 /**
  * Creates a pop out window with instructions on the game.
- * @author diya
+ * @author Diya
+ * Has an String for the image 
  *
  */
 public class Instructions extends Screen{
@@ -25,7 +26,7 @@ public class Instructions extends Screen{
 	private DrawingSurface draw;
 	
 	/**
-	 * Sets default settings
+	 * Sets default settings, initializes fields
 	 */
 	public Instructions(DrawingSurface draw)
 	{
@@ -34,8 +35,8 @@ public class Instructions extends Screen{
 	}
 	
 	/**
-	 * draws text and button on the new window
-	 * @param draw of PApplet
+	 * Draws the text and button on the new window
+	 * @post draw is modified 
 	 */
 	public void draw ()
 	{
@@ -44,6 +45,7 @@ public class Instructions extends Screen{
 		jFrame.setResizable(false);
 
         JDialog jd = new JDialog(jFrame);
+        //jd.setResizable(false);
         GridLayout gl = new GridLayout(0,1);
         jd.setLayout(gl);
 

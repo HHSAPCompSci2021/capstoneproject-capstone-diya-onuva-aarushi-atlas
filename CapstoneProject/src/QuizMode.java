@@ -8,14 +8,15 @@ import processing.core.PConstants;
 import processing.core.PFont;
 
 /**
- * Creates multiple choice questions for the user to interact with
+ * Creates multiple choice questions for the user to interact with in order to learn fun and fast facts about each country.
+ * Also contains a point system and incorrect/correct system, and is a screen
  * @author Diya Bengani
  *
  */
 public class QuizMode extends Screen{
 
 	private static int score;
-	private boolean clicked = false;
+	private boolean clicked;
 	private ArrayList<String> countries;
 	private DrawingSurface draw;
 	private static Map map;
@@ -29,7 +30,8 @@ public class QuizMode extends Screen{
 	private static String highScore;
 	
 	/**
-	 * populates countries arraylist, and sets default settings
+	 * Populates countries (Arraylist), initializes fields, and sets default settings
+	 * @param draw of type DrawingSurface
 	 */
 	public QuizMode (DrawingSurface draw)
 	{
@@ -51,11 +53,14 @@ public class QuizMode extends Screen{
 		
 		score = 0;
 		highScore = "fileData/HighScore";
+		
+		clicked = false;
 	}
 	
 	/**
 	 * Draws the question and title
 	 * @param draw
+	 * @post changes the drawing surface
 	 */
 	public void draw() 
 	{
@@ -98,7 +103,7 @@ public class QuizMode extends Screen{
 		}
 		else
 		{
-			draw.fill(50, 235, 190);
+			draw.fill(178, 172, 136);
 			draw.rect(draw.width/2, draw.height/2 - 100, 350, 50, 5);// A
 			draw.rect(draw.width/2, draw.height/2, 350, 50, 5); // B
 			draw.rect(draw.width/2, draw.height/2 + 100, 350, 50, 5); // C
@@ -122,15 +127,16 @@ public class QuizMode extends Screen{
 			{
 				if (ansRandomizer == 1)
 				{
-					draw.fill(51, 255, 51);
+					draw.fill(46, 139, 87);
 					draw.rect(draw.width/2, draw.height/2 - 100, 350, 50, 5);
 					draw.fill(0);
 					draw.textSize(15);
+					if(clicked)
 					score++;
 				}
 				else
 				{
-					draw.fill(255, 51, 51);
+					draw.fill(220, 20, 60);
 					draw.rect(draw.width/2, draw.height/2 - 100, 350, 50, 5);
 					draw.fill(0);
 					draw.textSize(15);
@@ -140,15 +146,16 @@ public class QuizMode extends Screen{
 			{
 				if ("North Africa".equals(map.getRegion(countries.get(correct))))
 				{
-					draw.fill(51, 255, 51);
+					draw.fill(46, 139, 87);
 					draw.rect(draw.width/2, draw.height/2 - 100, 350, 50, 5);
 					draw.fill(0);
 					draw.textSize(15);
-					score++;
+					if(clicked)
+						score++;
 				}
 				else
 				{
-					draw.fill(255, 51, 51);
+					draw.fill(220, 20, 60);
 					draw.rect(draw.width/2, draw.height/2 - 100, 350, 50, 5);
 					draw.fill(0);
 					draw.textSize(15);
@@ -164,15 +171,16 @@ public class QuizMode extends Screen{
 			{
 				if (ansRandomizer == 2)
 				{
-					draw.fill(51, 255, 51);
+					draw.fill(46, 139, 87);
 					draw.rect(draw.width/2, draw.height/2, 350, 50, 5);
 					draw.fill(0);
 					draw.textSize(15);
-					score++;
+					if(clicked)
+						score++;
 				}
 				else
 				{
-					draw.fill(255, 51, 51);
+					draw.fill(220, 20, 60);
 					draw.rect(draw.width/2, draw.height/2, 350, 50, 5);
 					draw.fill(0);
 					draw.textSize(15);
@@ -182,15 +190,16 @@ public class QuizMode extends Screen{
 			{
 				if ("South Africa".equals(map.getRegion(countries.get(correct))))
 				{
-					draw.fill(51, 255, 51);
+					draw.fill(46, 139, 87);
 					draw.rect(draw.width/2, draw.height/2, 350, 50, 5);
 					draw.fill(0);
 					draw.textSize(15);
-					score++;
+					if(clicked)
+						score++;
 				}
 				else
 				{
-					draw.fill(255, 51, 51);
+					draw.fill(220, 20, 60);
 					draw.rect(draw.width/2, draw.height/2, 350, 50, 5);
 					draw.fill(0);
 					draw.textSize(15);
@@ -206,15 +215,16 @@ public class QuizMode extends Screen{
 			{
 				if (ansRandomizer == 3)
 				{
-					draw.fill(51, 255, 51);
+					draw.fill(46, 139, 87);
 					draw.rect(draw.width/2, draw.height/2 + 100, 350, 50, 5);
 					draw.fill(0);
 					draw.textSize(15);
-					score++;
+					if(clicked)
+						score++;
 				}
 				else
 				{
-					draw.fill(255, 51, 51);
+					draw.fill(220, 20, 60);
 					draw.rect(draw.width/2, draw.height/2 + 100, 350, 50, 5);
 					draw.fill(0);
 					draw.textSize(15);
@@ -224,15 +234,16 @@ public class QuizMode extends Screen{
 			{
 				if ("East Africa".equals(map.getRegion(countries.get(correct))))
 				{
-					draw.fill(51, 255, 51);
+					draw.fill(46, 139, 87);
 					draw.rect(draw.width/2, draw.height/2 + 100, 350, 50, 5);
 					draw.fill(0);
 					draw.textSize(15);
-					score++;
+					if(clicked)
+						score++;
 				}
 				else
 				{
-					draw.fill(255, 51, 51);
+					draw.fill(220, 20, 60);
 					draw.rect(draw.width/2, draw.height/2 + 100, 350, 50, 5);
 					draw.fill(0);
 					draw.textSize(15);
@@ -248,15 +259,16 @@ public class QuizMode extends Screen{
 			{
 				if (ansRandomizer == 4)
 				{
-					draw.fill(51, 255, 51);
+					draw.fill(46, 139, 87);
 					draw.rect(draw.width/2, draw.height/2 + 200, 350, 50, 5);
 					draw.fill(0);
 					draw.textSize(15);
-					score++;
+					if(clicked)
+						score++;
 				}
 				else
 				{
-					draw.fill(255, 51, 51);
+					draw.fill(220, 20, 60);
 					draw.rect(draw.width/2, draw.height/2 + 200, 350, 50, 5);
 					draw.fill(0);
 					draw.textSize(15);
@@ -266,15 +278,16 @@ public class QuizMode extends Screen{
 			{
 				if ("West Africa".equals(map.getRegion(countries.get(correct))))
 				{
-					draw.fill(51, 255, 51);
+					draw.fill(46, 139, 87);
 					draw.rect(draw.width/2, draw.height/2 + 200, 350, 50, 5);
 					draw.fill(0);
 					draw.textSize(15);
-					score++;
+					if(clicked)
+						score++;
 				}
 				else
 				{
-					draw.fill(255, 51, 51);
+					draw.fill(220, 20, 60);
 					draw.rect(draw.width/2, draw.height/2 + 200, 350, 50, 5);
 					draw.fill(0);
 					draw.textSize(15);
@@ -289,15 +302,16 @@ public class QuizMode extends Screen{
 			{
 				if ("Central Africa".equals(map.getRegion(countries.get(correct))))
 					{
-						draw.fill(51, 255, 51);
+						draw.fill(46, 139, 87);
 						draw.rect(draw.width/2, draw.height/2 - 200, 350, 50, 5);
 						draw.fill(0);
 						draw.textSize(15);
-						score++;
+						if(clicked)
+							score++;
 					}
 					else
 					{
-						draw.fill(255, 51, 51);
+						draw.fill(220, 20, 60);
 						draw.rect(draw.width/2, draw.height/2 - 200, 350, 50, 5);
 						draw.fill(0);
 						draw.textSize(15);
@@ -365,7 +379,7 @@ public class QuizMode extends Screen{
 	}
 	
 	/**
-	 * gets the high score of the game
+	 * Gets the high score of the game
 	 * 
 	 * @return high score
 	 */
@@ -374,8 +388,14 @@ public class QuizMode extends Screen{
 		return score;
 	}
 	
+	/**
+	 * Interprets and carries out actions when mouse is clicked
+	 * @post if certain, indicated button is called, current displayed question is randomized and changed 
+	 */
 	public void mouseClicked() 
 	{
+		clicked = true;
+		
 		//click on Next
 		if (draw.mouseX <= (925) && (875) <= draw.mouseX && draw.mouseY <= (725) && (675) <= draw.mouseY)
 		{
@@ -383,6 +403,9 @@ public class QuizMode extends Screen{
 		}
 	}
 	
+	/**
+	 *  Purpose is to randomize questions order for the user to answer
+	 */
 	public void resetRandomize()
 	{
 		
@@ -404,6 +427,11 @@ public class QuizMode extends Screen{
 		rand3 = (int) (Math.random() * countries.size());
 	}
 	
+	/**
+	 * Purpose is to...
+	 * @param draw of type PApplet
+	 * 
+	 */
 	public void selectLocation(PApplet draw)
 	{
 		draw.fill(0, 0, 0);
@@ -416,6 +444,10 @@ public class QuizMode extends Screen{
 		draw.text("West Africa", draw.width/2, (float) (draw.height/2 + 200 + 20.0/3));
 	}
 	
+	/**
+	 * @param draw of type PApplet
+	 * 
+	 */
 	public void randomizeCapital(PApplet draw)
 	{
 		if (ansRandomizer == 1)
@@ -457,7 +489,7 @@ public class QuizMode extends Screen{
 	}
 	
 	/**
-	 * adds countries to the countries arraylist
+	 * Adds countries to the countries arraylist
 	 */
 	public void addCountries()
 	{
