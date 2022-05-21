@@ -434,38 +434,46 @@ public class Map {
 	
 	// This method takes a file name as an argument. 
 		// It then returns the data contained in the file as a String.
-		public String readFile(String inputFile) throws IOException {
-			StringBuffer fileData = new StringBuffer();
-			
-			Scanner scan = null;
-			if(!(new File(inputFile).exists())) {
-				System.out.println(inputFile + " does not exist. Quitting.");
-				//System.exit(1);
-			}
-			try {
-				FileReader fr = new FileReader(inputFile);
-				scan = new Scanner(fr);
+	public String readFile(String inputFile) throws IOException {
+		StringBuffer fileData = new StringBuffer();
+		
+		Scanner scan = null;
+		if(!(new File(inputFile).exists())) {
+			System.out.println(inputFile + " does not exist. Quitting.");
+			//System.exit(1);
+		}
+		try {
+			FileReader fr = new FileReader(inputFile);
+			scan = new Scanner(fr);
 
-				while (scan.hasNextLine()) {
-					String line = scan.nextLine();
-					fileData.append(line);
-					fileData.append(lineSeparator);
-				}
-				fileData.replace(0, fileData.length(), fileData.substring(0, fileData.length()-1));
-			} finally {
-				if (scan != null)
-					scan.close();
+			while (scan.hasNextLine()) {
+				String line = scan.nextLine();
+				fileData.append(line);
+				fileData.append(lineSeparator);
 			}
-			
-			return fileData.toString();
+			fileData.replace(0, fileData.length(), fileData.substring(0, fileData.length()-1));
+		} finally {
+			if (scan != null)
+				scan.close();
 		}
 		
-		public void changeSettings(double x, double y, double w, double h) {
-			xStart = x;
-			yStart = y;
-			width = w;
-			height = h;
-		}
+		return fileData.toString();
+	}
+		
+	/**
+	 * Edit <code>Map</code> to have a sensitivity of 5 pixels and resets map settings with
+	 * given information
+	 * @param x top-left x-coordinate of map
+	 * @param y top-left y-coordinate of map
+	 * @param w width of map (pixels)
+	 * @param h height of map (pixels)
+	 */
+	public void changeSettings(double x, double y, double w, double h) {
+		xStart = x;
+		yStart = y;
+		width = w;
+		height = h;
+	}
 		
 	
 }
