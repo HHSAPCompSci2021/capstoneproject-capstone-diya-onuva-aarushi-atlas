@@ -24,6 +24,7 @@ public class QuizMode extends Screen{
 	private PFont myFont;
 	private int correct;
 	private boolean foo;
+	private int r;
 	private int rand1;
 	private int rand2;
 	private int rand3;
@@ -62,6 +63,7 @@ public class QuizMode extends Screen{
 		y = -1;
 		n = 0;
 		
+		r = 1;
 		foo = false;
 	}
 	
@@ -76,7 +78,8 @@ public class QuizMode extends Screen{
 		draw.background(255, 255, 255);
 		map.changeSettings(draw.width/2 - 200, draw.height/2 - (591f/2) + 150, 450, 500);
 		
-		if (draw.mousePressed && x < 0 && y < 0) {
+		if (draw.mousePressed && x < 0 && y < 0) 
+		{
 			x = draw.mouseX;
 			y = draw.mouseY;
 		}
@@ -107,19 +110,6 @@ public class QuizMode extends Screen{
 			draw.image(draw.loadImage("fileData/house.png"), draw.width * 0.03f, draw.height * 0.05f);
 		}
 		
-//		//Next button
-//		if (draw.mousePressed && x <= draw.width * 0.93f + draw.height * 0.05f && x >= draw.width * 0.93f - draw.height * 0.05f && y <= draw.height * 0.13f + 620 && y >= draw.height * 0.03f + 620) 
-//		{
-//			draw.fill(30, 120, 0);
-//			draw.ellipse(draw.width * 0.93f, draw.height * 0.08f + 620, draw.height * 0.1f * (2f/3f), draw.height * 0.1f * (2f/3f)); 
-//			draw.image(draw.loadImage("fileData/smallHouse.png"), draw.width * 0.93f - 17, draw.height * 0.0575f + 620);
-//		}
-//		else 
-//		{
-//			draw.fill(50, 140, 5);
-//			draw.ellipse(draw.width * 0.93f, draw.height * 0.08f + 620, draw.height * 0.1f, draw.height * 0.1f); 
-//			draw.image(draw.loadImage("fileData/house.png"), draw.width * 0.93f - 24, draw.height * 0.05f + 620);
-//		}
 		
 		if (qRandomizer == 1)
 		{
@@ -171,9 +161,6 @@ public class QuizMode extends Screen{
 					draw.rect(draw.width/2, draw.height/2 - 100, 350, 50, 5);
 					draw.fill(0);
 					draw.textSize(15);
-					if(clicked)
-					score++;
-					
 					foo = true;
 					
 					
@@ -194,8 +181,6 @@ public class QuizMode extends Screen{
 					draw.rect(draw.width/2, draw.height/2 - 100, 350, 50, 5);
 					draw.fill(0);
 					draw.textSize(15);
-					if(clicked)
-						score++;
 					
 					foo = true;
 					
@@ -223,8 +208,6 @@ public class QuizMode extends Screen{
 					draw.rect(draw.width/2, draw.height/2, 350, 50, 5);
 					draw.fill(0);
 					draw.textSize(15);
-					if(clicked)
-						score++;
 					
 					foo = true;
 					
@@ -246,8 +229,6 @@ public class QuizMode extends Screen{
 					draw.rect(draw.width/2, draw.height/2, 350, 50, 5);
 					draw.fill(0);
 					draw.textSize(15);
-					if(clicked)
-						score++;
 					foo = true;
 					
 					
@@ -274,8 +255,6 @@ public class QuizMode extends Screen{
 					draw.rect(draw.width/2, draw.height/2 + 100, 350, 50, 5);
 					draw.fill(0);
 					draw.textSize(15);
-					if(clicked)
-						score++;
 					foo = true;
 					
 					
@@ -296,8 +275,6 @@ public class QuizMode extends Screen{
 					draw.rect(draw.width/2, draw.height/2 + 100, 350, 50, 5);
 					draw.fill(0);
 					draw.textSize(15);
-					if(clicked)
-						score++;
 					foo = true;
 					
 					
@@ -324,8 +301,6 @@ public class QuizMode extends Screen{
 					draw.rect(draw.width/2, draw.height/2 + 200, 350, 50, 5);
 					draw.fill(0);
 					draw.textSize(15);
-					if(clicked)
-						score++;
 					foo = true;
 					
 					
@@ -346,8 +321,6 @@ public class QuizMode extends Screen{
 					draw.rect(draw.width/2, draw.height/2 + 200, 350, 50, 5);
 					draw.fill(0);
 					draw.textSize(15);
-					if(clicked)
-						score++;
 					foo = true;
 					
 					
@@ -373,8 +346,6 @@ public class QuizMode extends Screen{
 						draw.rect(draw.width/2, draw.height/2 - 200, 350, 50, 5);
 						draw.fill(0);
 						draw.textSize(15);
-						if(clicked)
-							score++;
 						foo = true;
 						
 						
@@ -418,7 +389,6 @@ public class QuizMode extends Screen{
 				draw.fill(51, 255, 51);
 				draw.stroke(0);
 				draw.circle(draw.mouseX, draw.mouseY, 20);
-				score++;
 				foo = true;
 				
 				
@@ -448,11 +418,19 @@ public class QuizMode extends Screen{
 		draw.textSize(25);
 		draw.noStroke();
 		draw.text("Score: " + score, 1100, draw.height/2 - 300);
-		if (foo) {
+		
+		if (foo) 
+		{
 			n += 0.04;
-			System.out.println(n);
+			r++;
 		}
-		if (n >= 1) resetRandomize();
+		
+		if (n >= 1) 
+		{
+			score++;
+			resetRandomize();
+		}
+		
 	}
 	
 	/**
@@ -494,6 +472,7 @@ public class QuizMode extends Screen{
 	{
 		foo = false;
 		n = 0;
+		
 		int newRandomizer = (int) (Math.random() * 4 + 1);
 		
 		if (ansRandomizer != newRandomizer)
