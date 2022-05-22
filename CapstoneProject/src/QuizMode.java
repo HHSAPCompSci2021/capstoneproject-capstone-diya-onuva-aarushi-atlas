@@ -89,9 +89,7 @@ public class QuizMode extends Screen{
 		draw.noStroke();		
 		draw.textSize(30);
 		
-		draw.fill(169, 169, 169);
-		draw.rect(900, 700, 50, 50); //Next button
-		
+		//Back button
 		if (draw.mousePressed && x <= draw.width * 0.05f + draw.height * 0.05f && x >= draw.width * 0.05f - draw.height * 0.05f && y <= draw.height * 0.13f && y >= draw.height * 0.03f) 
 		{
 			draw.fill(30, 120, 0);
@@ -103,6 +101,20 @@ public class QuizMode extends Screen{
 			draw.ellipse(draw.width * 0.05f, draw.height * 0.08f, draw.height * 0.1f, draw.height * 0.1f); //Back button
 			draw.image(draw.loadImage("fileData/house.png"), draw.width * 0.03f, draw.height * 0.05f);
 		}
+		
+//		//Next button
+//		if (draw.mousePressed && x <= draw.width * 0.93f + draw.height * 0.05f && x >= draw.width * 0.93f - draw.height * 0.05f && y <= draw.height * 0.13f + 620 && y >= draw.height * 0.03f + 620) 
+//		{
+//			draw.fill(30, 120, 0);
+//			draw.ellipse(draw.width * 0.93f, draw.height * 0.08f + 620, draw.height * 0.1f * (2f/3f), draw.height * 0.1f * (2f/3f)); 
+//			draw.image(draw.loadImage("fileData/smallHouse.png"), draw.width * 0.93f - 17, draw.height * 0.0575f + 620);
+//		}
+//		else 
+//		{
+//			draw.fill(50, 140, 5);
+//			draw.ellipse(draw.width * 0.93f, draw.height * 0.08f + 620, draw.height * 0.1f, draw.height * 0.1f); 
+//			draw.image(draw.loadImage("fileData/house.png"), draw.width * 0.93f - 24, draw.height * 0.05f + 620);
+//		}
 		
 		if (qRandomizer == 1)
 		{
@@ -156,6 +168,9 @@ public class QuizMode extends Screen{
 					draw.textSize(15);
 					if(clicked)
 					score++;
+					
+					draw.delay(1000);
+					resetRandomize();
 				}
 				else
 				{
@@ -175,6 +190,9 @@ public class QuizMode extends Screen{
 					draw.textSize(15);
 					if(clicked)
 						score++;
+					
+					draw.delay(1000);
+					resetRandomize();
 				}
 				else
 				{
@@ -200,6 +218,9 @@ public class QuizMode extends Screen{
 					draw.textSize(15);
 					if(clicked)
 						score++;
+					
+					draw.delay(1000);
+					resetRandomize();
 				}
 				else
 				{
@@ -219,6 +240,9 @@ public class QuizMode extends Screen{
 					draw.textSize(15);
 					if(clicked)
 						score++;
+					
+					draw.delay(1000);
+					resetRandomize();
 				}
 				else
 				{
@@ -244,6 +268,9 @@ public class QuizMode extends Screen{
 					draw.textSize(15);
 					if(clicked)
 						score++;
+					
+					draw.delay(1000);
+					resetRandomize();
 				}
 				else
 				{
@@ -263,6 +290,9 @@ public class QuizMode extends Screen{
 					draw.textSize(15);
 					if(clicked)
 						score++;
+					
+					draw.delay(1000);
+					resetRandomize();
 				}
 				else
 				{
@@ -288,6 +318,9 @@ public class QuizMode extends Screen{
 					draw.textSize(15);
 					if(clicked)
 						score++;
+					
+					draw.delay(1000);
+					resetRandomize();
 				}
 				else
 				{
@@ -307,6 +340,9 @@ public class QuizMode extends Screen{
 					draw.textSize(15);
 					if(clicked)
 						score++;
+					
+					draw.delay(1000);
+					resetRandomize();
 				}
 				else
 				{
@@ -331,6 +367,9 @@ public class QuizMode extends Screen{
 						draw.textSize(15);
 						if(clicked)
 							score++;
+						
+						draw.delay(1000);
+						resetRandomize();
 					}
 					else
 					{
@@ -372,6 +411,9 @@ public class QuizMode extends Screen{
 				draw.stroke(0);
 				draw.circle(draw.mouseX, draw.mouseY, 20);
 				score++;
+				
+				draw.delay(1000);
+				resetRandomize();
 			}
 			else
 			{
@@ -380,7 +422,6 @@ public class QuizMode extends Screen{
 				draw.circle(draw.mouseX, draw.mouseY, 20);
 			}
 		}
-		
 		
 		
 		
@@ -418,12 +459,11 @@ public class QuizMode extends Screen{
 	{
 		clicked = true;
 		
-		//click on Next
-		if (draw.mouseX <= (925) && (875) <= draw.mouseX && draw.mouseY <= (725) && (675) <= draw.mouseY)
-		{
-			resetRandomize();
-		}
-		
+//		if (x <= draw.width * 0.93f + draw.height * 0.05f && x >= draw.width * 0.93f - draw.height * 0.05f && y <= draw.height * 0.13f + 620 && y >= draw.height * 0.03f + 620) 
+//		{
+//			resetRandomize();
+//		}
+//		
 		if (draw.mouseX <= draw.width * 0.05f + draw.height * 0.05f 
 				&& draw.mouseX >= draw.width * 0.05f - draw.height * 0.05f 
 				&& draw.mouseY <= draw.height * 0.13f && draw.mouseY >= draw.height * 0.03f
