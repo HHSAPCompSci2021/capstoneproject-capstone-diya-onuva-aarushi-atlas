@@ -424,7 +424,13 @@ public class QuizMode extends Screen{
 			n += 0.04;
 			r++;
 		}
-		if (n >= 1) resetRandomize();
+		
+		if (n >= 1) 
+		{
+			score++;
+			resetRandomize();
+		}
+		
 	}
 	
 	/**
@@ -466,7 +472,6 @@ public class QuizMode extends Screen{
 	{
 		foo = false;
 		n = 0;
-		score ++;
 		
 		int newRandomizer = (int) (Math.random() * 4 + 1);
 		
