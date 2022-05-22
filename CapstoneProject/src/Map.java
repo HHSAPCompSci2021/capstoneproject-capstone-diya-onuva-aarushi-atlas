@@ -165,6 +165,7 @@ public class Map {
 		else if(r==255 && g==2 && b==2) return "Guinea-Bissau";
 		else if(r==25 && g==132 && b==25) return "Sierra Leone";
 		else if(r==255 && g==123 && b==25) return "Côte D'Ivore";
+		else if(r==50 && g==110 && b==175) return "Cabo Verde";
 		else return null;
 	}
 	
@@ -228,6 +229,7 @@ public class Map {
 		else if (s.equalsIgnoreCase("Guinea-Bissau")) return "Bissau";
 		else if (s.equalsIgnoreCase("Sierra Leone")) return "Freetown";
 		else if (s.equalsIgnoreCase("Côte D'Ivore")) return "Yamoussoukro";
+		else if (s.equalsIgnoreCase("Cabo Verde") || s.equalsIgnoreCase("Cape Verde")) return "Praia";
 		else return null;
 		
 	}
