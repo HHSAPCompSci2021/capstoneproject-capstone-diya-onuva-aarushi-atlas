@@ -16,12 +16,14 @@ import processing.core.PFont;
 public class QuizMode extends Screen{
 
 	private static int score;
+	private double n;
 	private boolean clicked;
 	private ArrayList<String> countries;
 	private DrawingSurface draw;
 	private static Map map;
 	private PFont myFont;
 	private int correct;
+	private boolean foo;
 	private int rand1;
 	private int rand2;
 	private int rand3;
@@ -58,6 +60,9 @@ public class QuizMode extends Screen{
 		clicked = false;
 		x = -1;
 		y = -1;
+		n = 0;
+		
+		foo = false;
 	}
 	
 	/**
@@ -169,8 +174,9 @@ public class QuizMode extends Screen{
 					if(clicked)
 					score++;
 					
-					draw.delay(1000);
-					resetRandomize();
+					foo = true;
+					
+					
 				}
 				else
 				{
@@ -191,8 +197,9 @@ public class QuizMode extends Screen{
 					if(clicked)
 						score++;
 					
-					draw.delay(1000);
-					resetRandomize();
+					foo = true;
+					
+					
 				}
 				else
 				{
@@ -219,8 +226,9 @@ public class QuizMode extends Screen{
 					if(clicked)
 						score++;
 					
-					draw.delay(1000);
-					resetRandomize();
+					foo = true;
+					
+					
 				}
 				else
 				{
@@ -240,9 +248,9 @@ public class QuizMode extends Screen{
 					draw.textSize(15);
 					if(clicked)
 						score++;
+					foo = true;
 					
-					draw.delay(1000);
-					resetRandomize();
+					
 				}
 				else
 				{
@@ -268,9 +276,9 @@ public class QuizMode extends Screen{
 					draw.textSize(15);
 					if(clicked)
 						score++;
+					foo = true;
 					
-					draw.delay(1000);
-					resetRandomize();
+					
 				}
 				else
 				{
@@ -290,9 +298,9 @@ public class QuizMode extends Screen{
 					draw.textSize(15);
 					if(clicked)
 						score++;
+					foo = true;
 					
-					draw.delay(1000);
-					resetRandomize();
+					
 				}
 				else
 				{
@@ -318,9 +326,9 @@ public class QuizMode extends Screen{
 					draw.textSize(15);
 					if(clicked)
 						score++;
+					foo = true;
 					
-					draw.delay(1000);
-					resetRandomize();
+					
 				}
 				else
 				{
@@ -340,9 +348,9 @@ public class QuizMode extends Screen{
 					draw.textSize(15);
 					if(clicked)
 						score++;
+					foo = true;
 					
-					draw.delay(1000);
-					resetRandomize();
+					
 				}
 				else
 				{
@@ -367,9 +375,9 @@ public class QuizMode extends Screen{
 						draw.textSize(15);
 						if(clicked)
 							score++;
+						foo = true;
 						
-						draw.delay(1000);
-						resetRandomize();
+						
 					}
 					else
 					{
@@ -411,9 +419,9 @@ public class QuizMode extends Screen{
 				draw.stroke(0);
 				draw.circle(draw.mouseX, draw.mouseY, 20);
 				score++;
+				foo = true;
 				
-				draw.delay(1000);
-				resetRandomize();
+				
 			}
 			else
 			{
@@ -440,6 +448,11 @@ public class QuizMode extends Screen{
 		draw.textSize(25);
 		draw.noStroke();
 		draw.text("Score: " + score, 1100, draw.height/2 - 300);
+		if (foo) {
+			n += 0.04;
+			System.out.println(n);
+		}
+		if (n >= 1) resetRandomize();
 	}
 	
 	/**
@@ -479,7 +492,8 @@ public class QuizMode extends Screen{
 	 */
 	public void resetRandomize()
 	{
-		
+		foo = false;
+		n = 0;
 		int newRandomizer = (int) (Math.random() * 4 + 1);
 		
 		if (ansRandomizer != newRandomizer)
