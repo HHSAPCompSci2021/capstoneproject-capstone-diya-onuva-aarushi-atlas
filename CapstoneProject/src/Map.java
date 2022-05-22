@@ -233,19 +233,6 @@ public class Map {
 	}
 	
 	/**
-	 * Returns pictures of the given country in an <code>ArrayList</code>; if given country 
-	 * is not in Africa or in the list of countries recorded in this <code>Map</code>, returns
-	 * an empty <code>ArrayList</code>
-	 * @param s given country
-	 * @return an <code>ArrayList</code> of pictures of given country, if country does not exist in <code>Map</code>,
-	 * returns an empty <code>ArrayList</code>
-	 */
-	public ArrayList<String> getPics(String s) {
-		return null;
-		
-	}
-	
-	/**
 	 * Returns general location of the given country; if given country 
 	 * is not in Africa or in the list of countries recorded in this <code>Map</code>, returns
 	 * null
@@ -290,7 +277,7 @@ public class Map {
 		catch (IOException e) {
 			return null;
 		}
-		int n = Integer.parseInt(info.substring(info.length()-2, info.length()-1)) - 1;
+		int n = Integer.parseInt(info.substring(info.lastIndexOf('.')-1, info.lastIndexOf('.'))) - 1;
 		int r = (int) (Math.random()*n)+1;
 		String rInfo = info.substring(info.indexOf(r+". ")+3, info.indexOf((r+1)+"."));
 		return rInfo;
@@ -434,38 +421,46 @@ public class Map {
 	
 	// This method takes a file name as an argument. 
 		// It then returns the data contained in the file as a String.
-		public String readFile(String inputFile) throws IOException {
-			StringBuffer fileData = new StringBuffer();
-			
-			Scanner scan = null;
-			if(!(new File(inputFile).exists())) {
-				System.out.println(inputFile + " does not exist. Quitting.");
-				//System.exit(1);
-			}
-			try {
-				FileReader fr = new FileReader(inputFile);
-				scan = new Scanner(fr);
+	public String readFile(String inputFile) throws IOException {
+		StringBuffer fileData = new StringBuffer();
+		
+		Scanner scan = null;
+		if(!(new File(inputFile).exists())) {
+			System.out.println(inputFile + " does not exist. Quitting.");
+			//System.exit(1);
+		}
+		try {
+			FileReader fr = new FileReader(inputFile);
+			scan = new Scanner(fr);
 
-				while (scan.hasNextLine()) {
-					String line = scan.nextLine();
-					fileData.append(line);
-					fileData.append(lineSeparator);
-				}
-				fileData.replace(0, fileData.length(), fileData.substring(0, fileData.length()-1));
-			} finally {
-				if (scan != null)
-					scan.close();
+			while (scan.hasNextLine()) {
+				String line = scan.nextLine();
+				fileData.append(line);
+				fileData.append(lineSeparator);
 			}
-			
-			return fileData.toString();
+			fileData.replace(0, fileData.length(), fileData.substring(0, fileData.length()-1));
+		} finally {
+			if (scan != null)
+				scan.close();
 		}
 		
-		public void changeSettings(double x, double y, double w, double h) {
-			xStart = x;
-			yStart = y;
-			width = w;
-			height = h;
-		}
+		return fileData.toString();
+	}
+		
+	/**
+	 * Edit <code>Map</code> to have a sensitivity of 5 pixels and resets map settings with
+	 * given information
+	 * @param x top-left x-coordinate of map
+	 * @param y top-left y-coordinate of map
+	 * @param w width of map (pixels)
+	 * @param h height of map (pixels)
+	 */
+	public void changeSettings(double x, double y, double w, double h) {
+		xStart = x;
+		yStart = y;
+		width = w;
+		height = h;
+	}
 		
 	
 }

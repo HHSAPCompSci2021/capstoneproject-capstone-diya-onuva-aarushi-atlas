@@ -61,9 +61,10 @@ public class QuizMode extends Screen{
 	}
 	
 	/**
-	 * Draws the question and title
+	 * Draws the randomized questions and title
 	 * @param draw
-	 * @post changes the drawing surface
+	 * @post Modifies the draw (drawing surface)
+	 * @post changes rectangles and text to be draw from the center
 	 */
 	public void draw() 
 	{
@@ -402,8 +403,7 @@ public class QuizMode extends Screen{
 	
 	/**
 	 * Gets the high score of the game
-	 * 
-	 * @return high score
+	 * @return the high score
 	 */
 	public int getHighScore()
 	{
@@ -435,6 +435,7 @@ public class QuizMode extends Screen{
 	
 	/**
 	 *  Purpose is to randomize questions order for the user to answer
+	 *  @post score changes 
 	 */
 	public void resetRandomize()
 	{
@@ -458,7 +459,7 @@ public class QuizMode extends Screen{
 	}
 	
 	/**
-	 * Purpose is to...
+	 * Purpose is to indicate answer options for questions regarding location
 	 * @param draw of type PApplet
 	 * 
 	 */
@@ -476,6 +477,7 @@ public class QuizMode extends Screen{
 	
 	/**
 	 * @param draw of type PApplet
+	 * @post randomizes answer order for each question
 	 * 
 	 */
 	public void randomizeCapital(PApplet draw)
@@ -519,7 +521,7 @@ public class QuizMode extends Screen{
 	}
 	
 	/**
-	 * Adds countries to the countries arraylist
+	 * Adds countries to the countries Arraylist
 	 */
 	public void addCountries()
 	{

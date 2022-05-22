@@ -16,17 +16,17 @@ import processing.core.PApplet;
 
 /**
  * Creates a pop out window with instructions on the game.
- * @author Diya
+ * @author Diya Bengani
  * Has an String for the image 
  *
  */
 public class Instructions extends Screen{
 
-	String image;
 	private DrawingSurface draw;
 	
 	/**
 	 * Sets default settings, initializes fields
+	 * @param draw of type DrawingSurface
 	 */
 	public Instructions(DrawingSurface draw)
 	{
@@ -36,7 +36,8 @@ public class Instructions extends Screen{
 	
 	/**
 	 * Draws the text and button on the new window
-	 * @post draw is modified 
+	 * @post draw (screen) is modified and buttons are added
+	 * @post buttons are drawn with center alignment
 	 */
 	public void draw ()
 	{

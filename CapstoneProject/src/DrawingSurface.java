@@ -79,6 +79,7 @@ public class DrawingSurface extends PApplet implements ScreenSwitcher {
 		textFont(myFont);
 		ratioX = (float)width/activeScreen.DRAWING_WIDTH;
 		ratioY = (float)height/activeScreen.DRAWING_HEIGHT;
+		noStroke();
 
 		push();
 		
@@ -118,25 +119,25 @@ public class DrawingSurface extends PApplet implements ScreenSwitcher {
 	}
 	
 	/**
-	 * Detects when mouse is released
+	 * Detects when mouse is released for active screen
 	 */
 	public void mouseReleased() {
 		activeScreen.mouseReleased();
 	}
 	
 	/**
-	 * 
-	 * @param assumed
-	 * @return
+	 * Gets the mouse location of the user
+	 * @param assumed point
+	 * @return new point
 	 */
 	public Point assumedCoordinatesToActual(Point assumed) {
 		return new Point((int)(assumed.getX()*ratioX), (int)(assumed.getY()*ratioY));
 	}
 
 	/**
-	 * 
-	 * @param actual
-	 * @return
+	 * translates the user's mouse information to correspond with the active screen dimensions
+	 * @param actual point 
+	 * @return new point 
 	 */
 	public Point actualCoordinatesToAssumed(Point actual) {
 		return new Point((int)(actual.getX()/ratioX) , (int)(actual.getY()/ratioY));

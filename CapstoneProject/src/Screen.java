@@ -1,9 +1,8 @@
 /**
  * 
- * @author aarushigupta
- * Purpose: abstract class which serves as a base for each screen coded
+ * An abstract class which serves as a base for each screen coded
  * Has: a width and a height which are initialized in the constructor
- *
+ * @author Aarushi Gupta
  */
 public abstract class Screen {
 

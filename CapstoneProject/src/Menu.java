@@ -57,7 +57,6 @@ public class Menu extends Screen {
 		
 		draw.textAlign(PConstants.CENTER);
 		draw.rectMode(PConstants.CENTER);
-		draw.noStroke();
 		
 		myFont = draw.createFont("Times New Roman", 65);
 		draw.textFont(myFont);
@@ -70,7 +69,18 @@ public class Menu extends Screen {
 		else if (!draw.mousePressed) {
 			x = -1;
 			y = -1;
+			draw.cursor(PConstants.ARROW);
 		}
+		if ((draw.mouseX <= draw.width/2 + bW/2 && draw.mouseX >= draw.width/2 - bW/2
+				&& draw.mouseY <= draw.height*0.43f + bH/2 && draw.mouseY >= draw.height*0.43f - bH/2)
+				|| (draw.mouseX <= draw.width/2 + bW/2 && draw.mouseX >= draw.width/2 - bW/2
+				&& draw.mouseY <= draw.height*0.6f + bH/2 && draw.mouseY >= draw.height*0.6f - bH/2)
+				|| (draw.mouseX <= draw.width/2 + bW/2 && draw.mouseX >= draw.width/2 - bW/2
+				&& draw.mouseY <= draw.height*0.77f + bH/2 && draw.mouseY >= draw.height*0.77f - bH/2)
+				|| (draw.mouseX <= draw.width * 0.93f + draw.height * 0.05f && draw.mouseX >= draw.width * 0.93f - draw.height * 0.05f 
+				&& draw.mouseY <= draw.height * 0.13f && draw.mouseY >= draw.height * 0.03f)) 
+			draw.cursor(PConstants.HAND);
+		
 		
 		if (draw.mousePressed && x <= draw.width/2 + bW/2 && x >= draw.width/2 - bW/2
 				&& y <= draw.height*0.43f + bH/2 && y >= draw.height*0.43f - bH/2) {
@@ -120,20 +130,20 @@ public class Menu extends Screen {
 			draw.text("Draw Mode", draw.width/2, draw.height * 0.77f + normT/3);
 		}
 		
-		if (draw.mousePressed && x <= draw.width * 0.05f + draw.height * 0.05f && x >= draw.width * 0.05f - draw.height * 0.05f 
+		if (draw.mousePressed && x <= draw.width * 0.93f + draw.height * 0.05f && x >= draw.width * 0.93f - draw.height * 0.05f 
 				&& y <= draw.height * 0.13f && y >= draw.height * 0.03f) {
 			draw.fill(120, 130, 140);
-			draw.ellipse(draw.width * 0.05f, draw.height * 0.08f, draw.height * 0.1f * (2f/3f), draw.height * 0.1f * (2f/3f));
+			draw.ellipse(draw.width * 0.93f, draw.height * 0.08f, draw.height * 0.1f * (2f/3f), draw.height * 0.1f * (2f/3f));
 			draw.fill(0);
 			draw.textSize(normT*1.4f * factor);
-			draw.text("?", draw.width * 0.05f, draw.height * 0.08f + normT/3 * 1.4f * factor);
+			draw.text("?", draw.width * 0.93f, draw.height * 0.08f + normT/3 * 1.4f * factor);
 		}
 		else {
 			draw.fill(145, 155, 165);
-			draw.ellipse(draw.width * 0.05f, draw.height * 0.08f, draw.height * 0.1f * factor, draw.height * 0.1f * factor);
+			draw.ellipse(draw.width * 0.93f, draw.height * 0.08f, draw.height * 0.1f * factor, draw.height * 0.1f * factor);
 			draw.fill(0);
 			draw.textSize(normT*1.4f);
-			draw.text("?", draw.width * 0.05f, draw.height * 0.08f + normT/3 * 1.4f);
+			draw.text("?", draw.width * 0.93f, draw.height * 0.08f + normT/3 * 1.4f);
 		}
 		
 		
@@ -169,9 +179,9 @@ public class Menu extends Screen {
 			draw();
 			draw.switchScreen(ScreenSwitcher.DRAW_SCREEN);
 		}
-		else if (draw.mouseX <= draw.width * 0.05f + draw.height * 0.05f && draw.mouseX >= draw.width * 0.05f - draw.height * 0.05f 
+		else if (draw.mouseX <= draw.width * 0.93f + draw.height * 0.05f && draw.mouseX >= draw.width * 0.93f - draw.height * 0.05f 
 				&& draw.mouseY <= draw.height * 0.13f && draw.mouseY >= draw.height * 0.03f
-				&& x <= draw.width * 0.05f + draw.height * 0.05f && x >= draw.width * 0.05f - draw.height * 0.05f 
+				&& x <= draw.width * 0.93f + draw.height * 0.05f && x >= draw.width * 0.93f - draw.height * 0.05f 
 				&& y <= draw.height * 0.13f && y >= draw.height * 0.03f) {
 			draw();
 			draw.switchScreen(ScreenSwitcher.INSTRUCTIONS_SCREEN);

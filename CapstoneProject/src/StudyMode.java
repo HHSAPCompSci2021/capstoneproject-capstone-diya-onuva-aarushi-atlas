@@ -8,19 +8,20 @@ import processing.core.PConstants;
 
 /**
  * A study mode where users directly interact with information from the map
- * @author Diya 
+ * @author Diya Bengani
  *
  */
 public class StudyMode extends Screen {
 
 	private String current;
 	private DrawingSurface draw;
-	boolean pressed, facts;
+	private boolean pressed, facts;
 	private Map map;
 	private float x, y;
 	
 	/**
-	 * sets default settings
+	 * Sets default settings, initializes fields
+	 * @param draw is a Drawing Surface
 	 */
 	public StudyMode(DrawingSurface draw)
 	{
@@ -36,10 +37,11 @@ public class StudyMode extends Screen {
 	/**
 	 * Draws the map and displays information about each country
 	 * @post when countries are clicked, a window pops up with facts that can be continued to be seen by the user or exited
+	 * @post rectangles are draw from the center
 	 */
 	public void draw()
 	{
-		draw.background(255);
+		draw.background(50, 110, 175);
 		
 		draw.rectMode(PConstants.CENTER);
 		
@@ -51,7 +53,13 @@ public class StudyMode extends Screen {
 		else if (!draw.mousePressed) {
 			x = -1;
 			y = -1;
+			draw.cursor(PConstants.ARROW);
 		}
+		
+		if (draw.mouseX <= draw.width * 0.05f + draw.height * 0.05f 
+				&& draw.mouseX >= draw.width * 0.05f - draw.height * 0.05f 
+				&& draw.mouseY <= draw.height * 0.13f && draw.mouseY >= draw.height * 0.03f)
+			draw.cursor(PConstants.HAND);
 		
 		draw.image(draw.loadImage("fileData/map2.png"), draw.width/2 - 300, 80);
 		
