@@ -28,6 +28,7 @@ public class QuizMode extends Screen{
 	private int qRandomizer;
 	private int ansRandomizer;
 	private static String highScore;
+	private float x, y;
 	
 	/**
 	 * Populates countries (Arraylist), initializes fields, and sets default settings
@@ -55,6 +56,8 @@ public class QuizMode extends Screen{
 		highScore = "fileData/HighScore";
 		
 		clicked = false;
+		x = -1;
+		y = -1;
 	}
 	
 	/**
@@ -68,6 +71,16 @@ public class QuizMode extends Screen{
 		draw.background(255, 255, 255);
 		map.changeSettings(draw.width/2 - 200, draw.height/2 - (591f/2) + 150, 450, 500);
 		
+		if (draw.mousePressed && x < 0 && y < 0) {
+			x = draw.mouseX;
+			y = draw.mouseY;
+		}
+		
+		else if (!draw.mousePressed) {
+			x = -1;
+			y = -1;
+		}
+		
 		draw.textAlign(PConstants.CENTER);
 		draw.rectMode(PConstants.CENTER);
 		
@@ -79,8 +92,17 @@ public class QuizMode extends Screen{
 		draw.fill(169, 169, 169);
 		draw.rect(900, 700, 50, 50); //Next button
 		
-		draw.fill(169, 169, 169);
-		draw.rect(50, 50, 50, 50); //Back button
+		if (draw.mousePressed && x <= draw.width * 0.05f + draw.height * 0.05f && x >= draw.width * 0.05f - draw.height * 0.05f && y <= draw.height * 0.13f && y >= draw.height * 0.03f) 
+		{
+			draw.fill(30, 120, 0);
+			draw.ellipse(draw.width * 0.05f, draw.height * 0.08f, draw.height * 0.1f * (2f/3f), draw.height * 0.1f * (2f/3f)); //Back button
+			draw.image(draw.loadImage("fileData/smallHouse.png"), draw.width * 0.035f, draw.height * 0.0575f);
+		}
+		else {
+			draw.fill(50, 140, 5);
+			draw.ellipse(draw.width * 0.05f, draw.height * 0.08f, draw.height * 0.1f, draw.height * 0.1f); //Back button
+			draw.image(draw.loadImage("fileData/house.png"), draw.width * 0.03f, draw.height * 0.05f);
+		}
 		
 		if (qRandomizer == 1)
 		{
@@ -401,6 +423,14 @@ public class QuizMode extends Screen{
 		{
 			resetRandomize();
 		}
+		
+		if (draw.mouseX <= draw.width * 0.05f + draw.height * 0.05f 
+				&& draw.mouseX >= draw.width * 0.05f - draw.height * 0.05f 
+				&& draw.mouseY <= draw.height * 0.13f && draw.mouseY >= draw.height * 0.03f
+				&& x <= draw.width * 0.05f + draw.height * 0.05f 
+				&& x >= draw.width * 0.05f - draw.height * 0.05f 
+				&& y <= draw.height * 0.13f && y >= draw.height * 0.03f)
+			draw.switchScreen(ScreenSwitcher.MENU_SCREEN);
 	}
 	
 	/**
@@ -547,4 +577,5 @@ public class QuizMode extends Screen{
 		countries.add("Sierra Leone");
 		countries.add("Côte D'Ivore");
 	}
+	
 }
