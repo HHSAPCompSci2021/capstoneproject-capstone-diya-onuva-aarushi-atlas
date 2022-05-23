@@ -281,7 +281,7 @@ public class Map {
 		}
 		int n = Integer.parseInt(info.substring(info.lastIndexOf('.')-1, info.lastIndexOf('.'))) - 1;
 		int r = (int) (Math.random()*n)+1;
-		String rInfo = info.substring(info.indexOf(r+". ")+3, info.indexOf((r+1)+"."));
+		String rInfo = info.substring(info.indexOf(lineSeparator + r+". ")+4, info.indexOf(lineSeparator + (r+1)+".")+1);
 		return rInfo;
 		
 	}
