@@ -78,7 +78,7 @@ public class StudyMode extends Screen {
 		if (draw.mousePressed && !pressed) {
 			pressed = true;
 			current = map.getCountry(draw, draw.mouseX, draw.mouseY);
-			System.out.println(map.getRGB());
+			
 			if (current != null)
 			{
 				int answer = JOptionPane.showConfirmDialog(null, current + "\nCapital: " + map.getCapital(current) + "\n" + map.getRInfo(current) + "\nMore information?", current, JOptionPane.YES_OPTION, JOptionPane.NO_OPTION, new ImageIcon("fileData/Country Flags/" + current + ".png"));

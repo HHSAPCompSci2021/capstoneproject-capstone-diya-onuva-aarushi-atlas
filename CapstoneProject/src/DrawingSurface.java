@@ -62,10 +62,9 @@ public class DrawingSurface extends PApplet implements ScreenSwitcher {
 		activeScreen = screens.get(0);
 		frame = 0;
 		m = new Music();
-		track = "fileData/5 Minute Timer - Calm and Relaxing Music.wav"; //edit
+		track = "fileData/elevator.wav"; //edit
 
-		m.setFile(track);
-		m.play();
+		
 	}
 	
 	/**
@@ -161,7 +160,18 @@ public class DrawingSurface extends PApplet implements ScreenSwitcher {
 	 * @post Switches displayed screen to given <code>Screen</code>
 	 */
 	public void switchScreen(int i) {
+		boolean onMenu = activeScreen.equals(screens.get(5));
+		boolean onInstruc = activeScreen.equals(screens.get(0));
+		if (!onInstruc && i != 5 && !(onMenu && i == 1)) m.stop();
 		activeScreen = screens.get(i);
+		if (i == MENU_SCREEN) track = "fileData/reflections.wav";
+		else if (i == QUIZ_SCREEN) track = "fileData/elevator.wav";
+		else if (i == STUDY_SCREEN) track = "fileData/beats.wav";
+		else if (i == DRAW_SCREEN) track = "fileData/relax.wav";
+		if (i != 5 && !(onMenu && i == 1)) {
+			m.setFile(track);
+			m.restart();
+		}
 	}
 	
 	public static class Music {
@@ -207,14 +217,6 @@ public class DrawingSurface extends PApplet implements ScreenSwitcher {
 //			else if(clip.getFrameLength() !=0) return (float)clip.getFramePosition()/clip.getFrameLength();
 //			else return 1;
 //		}
-		
-//		public void scrolling(double num) {
-//			frame = (int) (clip.getFrameLength() * num);
-//			clip.stop();
-//			clip.close();
-//			started = false;
-//		}
-		
 		public void loop() {
 			clip.loop(Clip.LOOP_CONTINUOUSLY);
 		}
