@@ -413,11 +413,31 @@ public class QuizMode extends Screen{
 			e.printStackTrace();
 		}
 		
-		draw.fill(0, 0, 0);
+		draw.fill(50, 140, 5);
+		draw.rect(1100, draw.height/2 - 307, 100, 45, 10);
+		
+		draw.fill(50, 140, 5);
+		draw.rect(1100, draw.height/2 - 258, 155, 45, 10);
+		
+		draw.fill(255);
 		draw.textFont(myFont);
 		draw.textSize(25);
 		draw.noStroke();
 		draw.text("Score: " + score, 1100, draw.height/2 - 300);
+		
+		draw.fill(255);
+		draw.textFont(myFont);
+		draw.textSize(25);
+		draw.noStroke();
+		try {
+			draw.text("High Score: " + getHighScore(), 1100, draw.height/2 - 250);
+		} catch (NumberFormatException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 		if (foo) 
 		{
@@ -436,10 +456,12 @@ public class QuizMode extends Screen{
 	/**
 	 * Gets the high score of the game
 	 * @return the high score
+	 * @throws IOException 
+	 * @throws NumberFormatException 
 	 */
-	public int getHighScore()
+	public int getHighScore() throws NumberFormatException, IOException
 	{
-		return score;
+		return Integer.parseInt(map.readFile(highScore));
 	}
 	
 	/**
