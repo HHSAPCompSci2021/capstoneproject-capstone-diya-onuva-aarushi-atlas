@@ -70,7 +70,6 @@ public class QuizMode extends Screen{
 	
 	/**
 	 * Draws the randomized questions and title
-	 * @param draw
 	 * @post Modifies the draw (drawing surface)
 	 * @post changes rectangles and text to be draw from the center
 	 */
@@ -475,8 +474,8 @@ public class QuizMode extends Screen{
 	/**
 	 * Gets the high score of the game
 	 * @return the high score
-	 * @throws IOException 
-	 * @throws NumberFormatException 
+	 * @throws IOException throws if error with FileReader
+	 * @throws NumberFormatException throws if score cannot be converted into an integer
 	 */
 	public int getHighScore() throws NumberFormatException, IOException
 	{
@@ -491,11 +490,7 @@ public class QuizMode extends Screen{
 	{
 		clicked = true;
 		
-//		if (x <= draw.width * 0.93f + draw.height * 0.05f && x >= draw.width * 0.93f - draw.height * 0.05f && y <= draw.height * 0.13f + 620 && y >= draw.height * 0.03f + 620) 
-//		{
-//			resetRandomize();
-//		}
-//		
+
 		if (draw.mouseX <= draw.width * 0.05f + draw.height * 0.05f 
 				&& draw.mouseX >= draw.width * 0.05f - draw.height * 0.05f 
 				&& draw.mouseY <= draw.height * 0.13f && draw.mouseY >= draw.height * 0.03f
