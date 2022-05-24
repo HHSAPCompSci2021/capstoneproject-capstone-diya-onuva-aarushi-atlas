@@ -12,7 +12,7 @@ import processing.core.PFont;
 import processing.core.PImage;
 
 /** <code>Drawing Surface</code> is responsible for displaying the
- * <code>Introduction</code> and <code>Menu</code> screens
+ * all  <code>Screens</code>
  * 
  * @author Aarushi Gupta
 */

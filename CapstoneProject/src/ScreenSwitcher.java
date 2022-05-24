@@ -2,6 +2,7 @@
  * 
  * Sets a convenient precedent for switching between modes/features of the game (<code>Screens</code>)
  * Includes a list of fields that works with the outlined, switchScreen method
+ * 
  * @author Aarushi Gupta
  */
 

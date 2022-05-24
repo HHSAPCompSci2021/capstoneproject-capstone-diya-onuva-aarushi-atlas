@@ -5,13 +5,22 @@ import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
 import javax.sound.sampled.FloatControl;
 
+/**
+ * Plays music based on given <code>Clip</code> and alters its volume
+ * 
+ * @author Onuva Ekram
+ *
+ */
 public class Music {
 
 		static Clip clip;
 		static float vol = -25;
-		boolean started = false;
 		private static int frame;
 
+		/**
+		 * Identifies and sets the sound file to play
+		 * @param soundFileName sound file to play
+		 */
 		public void setFile(String soundFileName) {
 			try {
 				File file = new File(soundFileName);
@@ -26,6 +35,10 @@ public class Music {
 			gainControl.setValue(vol);
 		}
 
+		/**
+		 * Sets current volume using given percentage
+		 * @param f given percentage of max volume
+		 */
 		public void setVol(float v) {
 			vol = (v * 86.0206f) - 80;
 			if (clip != null) {
@@ -34,30 +47,41 @@ public class Music {
 			}
 		}
 		
+		/**
+		 * Returns current volume in percentage of max volume
+		 * @return current volume as a percentage of max volume
+		 */
 		public float getVolP() {
 			float f = vol + 80;
 			return f/86.0206f;
 		}
+		
+		/**
+		 * Plays current clips from the beginning
+		 */
 		public void restart() {
 			frame = 0;
 			play();
 		}
 
+		/**
+		 * Plays clip from starting frame
+		 */
 		public void play() {
 			clip.setFramePosition(frame);
 			clip.start();
-			started = true;
 		}
 		
-//		public float progress() {
-//			if(clip.getFramePosition() <= 0 && clip.getFrameLength() !=0)  return (float)frame/clip.getFrameLength();
-//			else if(clip.getFrameLength() !=0) return (float)clip.getFramePosition()/clip.getFrameLength();
-//			else return 1;
-//		}
+		/**
+		 * Loops the current clip
+		 */
 		public void loop() {
 			clip.loop(Clip.LOOP_CONTINUOUSLY);
 		}
 
+		/** 
+		 * Stops playing and closes the current clip
+		 */
 		public void stop() {
 			frame = clip.getFramePosition();
 			clip.stop();
