@@ -220,9 +220,9 @@ public class DrawingMode extends Screen {
 			
 			
 			//eraser 
-			if((surface.mouseX <= (DRAWING_WIDTH - 35) && surface.mouseX >= (DRAWING_WIDTH - 65) && surface.mouseY <= 415 && surface.mouseY >= 385)
-			  && (x <= (DRAWING_WIDTH - 35) && x >= (DRAWING_WIDTH - 65) && y <= 415 && y >= 385)) {
-				surface.rect(150,  150,  100,  100);
+			if((surface.mouseX <= (1170) && surface.mouseX >= (1130) && surface.mouseY <= 550 && surface.mouseY >= 500)
+			  && (x <= (1170) && x >= (1130) && y <= 550 && y >= 500)) {
+				
 				surface.strokeWeight(10);
 				erase = true;
 				r = 255;
@@ -237,8 +237,8 @@ public class DrawingMode extends Screen {
 				reset();
 			}
 			
-			if((surface.mouseX <= (DRAWING_WIDTH - 35) && surface.mouseX >= (DRAWING_WIDTH - 65) && surface.mouseY <= 465 && surface.mouseY >= 435)
-			  && (x <= (DRAWING_WIDTH - 35) && x >= (DRAWING_WIDTH - 65) && y <= 465 && y >= 435)) {
+			if((surface.mouseX <= (DRAWING_WIDTH - 10) && surface.mouseX >= (DRAWING_WIDTH - 65) && surface.mouseY <= 492 && surface.mouseY >= 425)
+			  && (x <= (DRAWING_WIDTH - 10) && x >= (DRAWING_WIDTH - 65) && y <= 492 && y >= 425)) {
 				erase = false;
 				chooseColor = true;
 			}
@@ -304,8 +304,9 @@ public class DrawingMode extends Screen {
 		surface.fill(0); //black
 		surface.rect(1150, 350, 30, 30);
 		
-		surface.fill(150); //color wheel
-		surface.rect(1150, 450, 30, 30);
+		surface.fill(255); //color wheel
+		surface.rect(1150, 450, 60, 60);
+		surface.image(surface.loadImage("fileData/wheel.png"), 1120, 420);
 		
 		surface.fill(220, 236, 245); //reset
 		surface.rect(1150, 400, 30, 30);
@@ -314,10 +315,11 @@ public class DrawingMode extends Screen {
 		surface.text("Reset", 1150, 405);
 		
 		surface.fill(220, 236, 245); //eraser
-		surface.rect(1150, 500, 30, 30);
+		surface.rect(1150, 520, 30, 30);
 		surface.fill(0);
+		surface.image(surface.loadImage("fileData/trashcan.png"), 1130, 500);
 		surface.textSize(10);
-		surface.text("Eraser", 1150, 505);
+//		surface.text("Eraser", 1150, 525);
 	}
 	
 	/**
