@@ -171,6 +171,7 @@ public class QuizMode extends Screen{
 					draw.rect(draw.width/2, draw.height/2 - 100, 350, 50, 5);
 					draw.fill(0);
 					draw.textSize(15);
+					foo = true;
 				}
 			}
 			else if (qRandomizer == 2)
@@ -181,7 +182,6 @@ public class QuizMode extends Screen{
 					draw.rect(draw.width/2, draw.height/2 - 100, 350, 50, 5);
 					draw.fill(0);
 					draw.textSize(15);
-					
 					foo = true;
 					
 					
@@ -192,6 +192,7 @@ public class QuizMode extends Screen{
 					draw.rect(draw.width/2, draw.height/2 - 100, 350, 50, 5);
 					draw.fill(0);
 					draw.textSize(15);
+					foo = true;
 				}
 			}
 		}
@@ -208,7 +209,6 @@ public class QuizMode extends Screen{
 					draw.rect(draw.width/2, draw.height/2, 350, 50, 5);
 					draw.fill(0);
 					draw.textSize(15);
-					
 					foo = true;
 					
 					
@@ -219,6 +219,7 @@ public class QuizMode extends Screen{
 					draw.rect(draw.width/2, draw.height/2, 350, 50, 5);
 					draw.fill(0);
 					draw.textSize(15);
+					foo = true;
 				}
 			}
 			else if (qRandomizer == 2)
@@ -239,6 +240,7 @@ public class QuizMode extends Screen{
 					draw.rect(draw.width/2, draw.height/2, 350, 50, 5);
 					draw.fill(0);
 					draw.textSize(15);
+					foo = true;
 				}
 			}
 		}
@@ -265,6 +267,7 @@ public class QuizMode extends Screen{
 					draw.rect(draw.width/2, draw.height/2 + 100, 350, 50, 5);
 					draw.fill(0);
 					draw.textSize(15);
+					foo = true;
 				}
 			}
 			else if (qRandomizer == 2)
@@ -285,6 +288,7 @@ public class QuizMode extends Screen{
 					draw.rect(draw.width/2, draw.height/2 + 100, 350, 50, 5);
 					draw.fill(0);
 					draw.textSize(15);
+					foo = true;
 				}
 			}
 		}
@@ -311,6 +315,7 @@ public class QuizMode extends Screen{
 					draw.rect(draw.width/2, draw.height/2 + 200, 350, 50, 5);
 					draw.fill(0);
 					draw.textSize(15);
+					foo = true;
 				}
 			}
 			else if (qRandomizer == 2)
@@ -331,6 +336,7 @@ public class QuizMode extends Screen{
 					draw.rect(draw.width/2, draw.height/2 + 200, 350, 50, 5);
 					draw.fill(0);
 					draw.textSize(15);
+					foo = true;
 				}
 			}
 		}
@@ -356,6 +362,7 @@ public class QuizMode extends Screen{
 						draw.rect(draw.width/2, draw.height/2 - 200, 350, 50, 5);
 						draw.fill(0);
 						draw.textSize(15);
+						foo = true;
 					}
 				}
 			}
@@ -398,6 +405,7 @@ public class QuizMode extends Screen{
 				draw.fill(255, 51, 51);
 				draw.stroke(0);
 				draw.circle(draw.mouseX, draw.mouseY, 20);
+				foo = true;
 			}
 		}
 		

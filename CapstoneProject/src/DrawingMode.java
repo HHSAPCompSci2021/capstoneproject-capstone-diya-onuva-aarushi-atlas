@@ -218,7 +218,6 @@ public class DrawingMode extends Screen {
 				b = 0;
 			}
 			
-			
 			//eraser 
 			if((surface.mouseX <= (1170) && surface.mouseX >= (1130) && surface.mouseY <= 550 && surface.mouseY >= 500)
 			  && (x <= (1170) && x >= (1130) && y <= 550 && y >= 500)) {
