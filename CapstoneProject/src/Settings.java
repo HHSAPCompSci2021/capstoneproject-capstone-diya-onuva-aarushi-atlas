@@ -92,6 +92,10 @@ public class Settings extends Screen {
 		
 	}
 	
+	/**
+	 * It updates the progress bar depending on where the user moves it or how the user interacts with it. 
+	 * @post the strokCap is set to ROUND, meaning all strokes drawn on this screenw ill be round. 
+	 */
 	public void updateProgress() {
 		if(!hoverScroll)draw.stroke(255);
 		else draw.stroke(170);
