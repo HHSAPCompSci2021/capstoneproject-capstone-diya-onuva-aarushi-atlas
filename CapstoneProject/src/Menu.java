@@ -78,6 +78,9 @@ public class Menu extends Screen {
 				|| (draw.mouseX <= draw.width/2 + bW/2 && draw.mouseX >= draw.width/2 - bW/2
 				&& draw.mouseY <= draw.height*0.77f + bH/2 && draw.mouseY >= draw.height*0.77f - bH/2)
 				|| (draw.mouseX <= draw.width * 0.93f + draw.height * 0.05f && draw.mouseX >= draw.width * 0.93f - draw.height * 0.05f 
+				&& draw.mouseY <= draw.height * 0.13f && draw.mouseY >= draw.height * 0.03f)
+				|| (draw.mouseX <= draw.width * 0.93f + draw.height * 0.05f - draw.height * 0.1f * factor - 30
+				&& draw.mouseX >= draw.width * 0.93f - draw.height * 0.05f  - draw.height * 0.1f * factor - 30
 				&& draw.mouseY <= draw.height * 0.13f && draw.mouseY >= draw.height * 0.03f)) 
 			draw.cursor(PConstants.HAND);
 		
@@ -134,16 +137,32 @@ public class Menu extends Screen {
 				&& y <= draw.height * 0.13f && y >= draw.height * 0.03f) {
 			draw.fill(120, 130, 140);
 			draw.ellipse(draw.width * 0.93f, draw.height * 0.08f, draw.height * 0.1f * (2f/3f), draw.height * 0.1f * (2f/3f));
-			draw.fill(0);
+			draw.fill(255);
 			draw.textSize(normT*1.4f * factor);
 			draw.text("?", draw.width * 0.93f, draw.height * 0.08f + normT/3 * 1.4f * factor);
 		}
 		else {
 			draw.fill(145, 155, 165);
 			draw.ellipse(draw.width * 0.93f, draw.height * 0.08f, draw.height * 0.1f * factor, draw.height * 0.1f * factor);
-			draw.fill(0);
+			draw.fill(255);
 			draw.textSize(normT*1.4f);
 			draw.text("?", draw.width * 0.93f, draw.height * 0.08f + normT/3 * 1.4f);
+		}
+		
+		if (draw.mousePressed && x <= draw.width * 0.93f + draw.height * 0.05f - draw.height * 0.1f * factor - 30 && x >= draw.width * 0.93f - draw.height * 0.05f - draw.height * 0.1f * factor - 30 
+				&& y <= draw.height * 0.13f && y >= draw.height * 0.03f) {
+			draw.fill(120, 130, 140);
+			draw.ellipse(draw.width * 0.93f - draw.height * 0.1f * factor - 30, draw.height * 0.08f, draw.height * 0.1f * (2f/3f), draw.height * 0.1f * (2f/3f));
+			draw.fill(0);
+			draw.textSize(normT*1.4f * factor);
+			draw.image(draw.loadImage("fileData/smallSet.png"), draw.width * 0.93f - draw.height * 0.1f * factor - 30 - 16, draw.height * 0.08f - 17);
+		}
+		else {
+			draw.fill(145, 155, 165);
+			draw.ellipse(draw.width * 0.93f - draw.height * 0.1f * factor - 30, draw.height * 0.08f, draw.height * 0.1f * factor, draw.height * 0.1f * factor);
+			draw.fill(0);
+			draw.textSize(normT*1.4f);
+			draw.image(draw.loadImage("fileData/set.png"), draw.width * 0.93f - draw.height * 0.1f * factor - 30 - 23, draw.height * 0.08f - 24);
 		}
 		
 		
@@ -185,6 +204,15 @@ public class Menu extends Screen {
 				&& y <= draw.height * 0.13f && y >= draw.height * 0.03f) {
 			draw();
 			draw.switchScreen(ScreenSwitcher.INSTRUCTIONS_SCREEN);
+		}
+		else if(draw.mouseX <= draw.width * 0.93f + draw.height * 0.05f - draw.height * 0.1f * factor - 30
+				&& draw.mouseX >= draw.width * 0.93f - draw.height * 0.05f  - draw.height * 0.1f * factor - 30
+				&& draw.mouseY <= draw.height * 0.13f && draw.mouseY >= draw.height * 0.03f
+				&& x <= draw.width * 0.93f + draw.height * 0.05f - draw.height * 0.1f * factor - 30 
+				&& x >= draw.width * 0.93f - draw.height * 0.05f  - draw.height * 0.1f * factor - 30
+				&& y <= draw.height * 0.13f && y >= draw.height * 0.03f){
+			draw();
+			draw.switchScreen(ScreenSwitcher.SETTINGS_SCREEN);
 		}
 	}
 }

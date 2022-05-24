@@ -12,6 +12,7 @@ public interface ScreenSwitcher {
 	public static final int QUIZ_SCREEN = 3;
 	public static final int DRAW_SCREEN = 4;
 	public static final int INSTRUCTIONS_SCREEN = 5;
+	public static final int SETTINGS_SCREEN = 6;
 	
 	/**
 	 * Purpose is to switch between screens

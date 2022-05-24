@@ -28,6 +28,7 @@ public class DrawingSurface extends PApplet implements ScreenSwitcher {
 	private static QuizMode quiz;
 	private static DrawingMode drawing;
 	private static Instructions instruct;
+	private static Settings set;
 	private static String track;
 	
 	private Screen activeScreen;
@@ -58,6 +59,9 @@ public class DrawingSurface extends PApplet implements ScreenSwitcher {
 		
 		instruct = new Instructions(this);
 		screens.add(instruct);
+		
+		set = new Settings(this);
+		screens.add(set);
 		
 		activeScreen = screens.get(0);
 		frame = 0;
@@ -162,21 +166,39 @@ public class DrawingSurface extends PApplet implements ScreenSwitcher {
 	public void switchScreen(int i) {
 		boolean onMenu = activeScreen.equals(screens.get(5));
 		boolean onInstruc = activeScreen.equals(screens.get(0));
-		if (!onInstruc && i != 5 && !(onMenu && i == 1)) m.stop();
+		boolean onSet = activeScreen.equals(screens.get(6));
+		if (!onInstruc && i != 5 && i != 6 && !(onMenu && i == 1) && !(onSet && i == 1)) m.stop();
 		activeScreen = screens.get(i);
 		if (i == MENU_SCREEN) track = "fileData/reflections.wav";
 		else if (i == QUIZ_SCREEN) track = "fileData/elevator.wav";
 		else if (i == STUDY_SCREEN) track = "fileData/beats.wav";
 		else if (i == DRAW_SCREEN) track = "fileData/relax.wav";
-		if (i != 5 && !(onMenu && i == 1)) {
+		else track = "fileData/relax.wav";
+		if (i != 5 && !(onMenu && i == 1) && i != 6 && !(onSet && i == 1)) {
 			m.setFile(track);
 			m.restart();
 		}
 	}
 	
+	/**
+	 * Returns current volume in percentage of max volume
+	 * @return current volume as a percentage of max volume
+	 */
+	public float getVolP() {
+		return m.getVolP();
+	}
+	
+	/**
+	 * Sets current volume using given percentage
+	 * @param f given percentage of max volume
+	 */
+	public void setVol(float f) {
+		m.setVol(f);
+	}
+	
 	public static class Music {
 		static Clip clip;
-		static float vol = -10;
+		static float vol = -25;
 		boolean started = false;
 
 		public void setFile(String soundFileName) {
@@ -194,12 +216,16 @@ public class DrawingSurface extends PApplet implements ScreenSwitcher {
 		}
 
 		public void setVol(float v) {
-			if (vol + v <= 6.0206 && vol + v >= -80) {
-				vol += v;
+			vol = (v * 86.0206f) - 80;
+			if (clip != null) {
 				FloatControl gainControl = (FloatControl) clip.getControl(FloatControl.Type.MASTER_GAIN);
 				gainControl.setValue(vol);
 			}
-			System.out.println("Volume is at " + (int)((vol+80)/86.0206 * 100) + "%");
+		}
+		
+		public float getVolP() {
+			float f = vol + 80;
+			return f/86.0206f;
 		}
 		public void restart() {
 			frame = 0;
