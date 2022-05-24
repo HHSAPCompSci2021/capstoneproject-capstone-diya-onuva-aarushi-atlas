@@ -16,9 +16,8 @@ import javax.swing.JLabel;
 import processing.core.PApplet;
 
 /**
- * Creates a pop out window with instructions on the game.
+ * Creates a pop out window with instructions.
  * @author Diya Bengani
- * Has an String for the image 
  *
  */
 public class Instructions extends Screen{
@@ -26,8 +25,8 @@ public class Instructions extends Screen{
 	private DrawingSurface draw;
 	
 	/**
-	 * Sets default settings, initializes fields
-	 * @param draw of type DrawingSurface
+	 * Sets default settings on given <code>DrawingSurface</code>
+	 * @param draw given PApplet
 	 */
 	public Instructions(DrawingSurface draw)
 	{
@@ -38,7 +37,6 @@ public class Instructions extends Screen{
 	/**
 	 * Draws the text and button on the new window
 	 * @post draw (screen) is modified and buttons are added
-	 * @post buttons are drawn with center alignment
 	 */
 	public void draw ()
 	{
@@ -102,7 +100,5 @@ public class Instructions extends Screen{
         jd.add(drawing);
         jd.add(enjoy);
         jd.setVisible(true);
-		
-//        draw.background(draw.loadImage(image));
 	}
 }

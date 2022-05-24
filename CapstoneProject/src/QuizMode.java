@@ -491,11 +491,7 @@ public class QuizMode extends Screen{
 	{
 		clicked = true;
 		
-//		if (x <= draw.width * 0.93f + draw.height * 0.05f && x >= draw.width * 0.93f - draw.height * 0.05f && y <= draw.height * 0.13f + 620 && y >= draw.height * 0.03f + 620) 
-//		{
-//			resetRandomize();
-//		}
-//		
+
 		if (draw.mouseX <= draw.width * 0.05f + draw.height * 0.05f 
 				&& draw.mouseX >= draw.width * 0.05f - draw.height * 0.05f 
 				&& draw.mouseY <= draw.height * 0.13f && draw.mouseY >= draw.height * 0.03f

@@ -7,10 +7,9 @@ import processing.core.PImage;
 
 /**
  * 
- * Serves to act as a menu where the user can navigate to different Screens within the game
- * Screens include Instructions, Quiz Mode, Study Mode, and Drawing Mode
- * @author Aarushi Gupta
- * Has a PImage (for background), a drawing surface, animation controls, and custom font
+ * Serves to act as a menu where the user can navigate to different <code>Screen</code> within the game
+ * <code>Screens</code> include <code>Instructions</code>, <code>QuizMode</code>, <code>StudyMode</code>, and <code>DrawingMode</code>
+ * @author Aarushi Gupta, Onuva Ekram
  * 
  */
 
@@ -48,8 +47,8 @@ public class Menu extends Screen {
 	}
 	
 	/**
-	 * Draws the Menu screen and its corresponding animation controls
-	 * @post modifies draw (the drawing surface) by adding buttons, colors, etc.
+	 * Draws the <code>Menu</code> and its corresponding animation controls
+	 * @post modifies current PApplet (the <code>DrawingSurface</code>) by adding buttons, colors, etc.
 	 */
 	public void draw() 
 	{
@@ -174,7 +173,7 @@ public class Menu extends Screen {
 	
 	/**
 	 * Detects when mouse is released
-	 * @post if mouse hits one of the indicated buttons, screen switches to corresponding screen
+	 * @post if mouse hits one of the indicated buttons, screen switches to corresponding <code>Screen</code>
 	 */
 	public void mouseReleased() {
 		if (draw.mouseX <= draw.width/2 + bW/2 && draw.mouseX >= draw.width/2 - bW/2

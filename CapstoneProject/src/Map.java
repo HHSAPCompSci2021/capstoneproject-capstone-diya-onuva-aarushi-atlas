@@ -59,28 +59,6 @@ public class Map {
 	}
 	
 	/**
-	 * Creates a new <code>Map</code> with a sensitivity of 5 pixels and sets map settings with
-	 * given information
-	 * @param x top-left x-coordinate of map
-	 * @param y top-left y-coordinate of map
-	 * @param w width of map (pixels)
-	 * @param h height of map (pixels)
-	 * @param sense sensitivity of mouse (pixels)
-	 */
-	public Map(double x, double y, double w, double h, int sense) {
-		coords = new int[sense][2];
-		curr = 0;
-		r = 0;
-		g = 0;
-		b = 0;
-		
-		xStart = x;
-		yStart = y;
-		width = w;
-		height = h;
-	}
-	
-	/**
 	 * Returns the name of the country located at (x,y) in PApplet draw; returns null otherwise
 	 * @param draw given PApplet
 	 * @param x given x-coordinate
@@ -235,11 +213,11 @@ public class Map {
 	}
 	
 	/**
-	 * Returns general location of the given country; if given country 
+	 * Returns general region of the given country; if given country 
 	 * is not in Africa or in the list of countries recorded in this <code>Map</code>, returns
 	 * null
 	 * @param s given country
-	 * @return general location of given country, if country does not exist in <code>Map</code>,
+	 * @return general region of given country, if country does not exist in <code>Map</code>,
 	 * returns null
 	 */
 	public String getRegion(String s) {
@@ -421,15 +399,18 @@ public class Map {
 		return false;
 	}
 	
-	// This method takes a file name as an argument. 
-		// It then returns the data contained in the file as a String.
+	/**
+	 * Takes in a file name and returns data in the file as a String
+	 * @param inputFile given file name
+	 * @return data contained in the file as a String
+	 * @throws IOException
+	 */
 	public String readFile(String inputFile) throws IOException {
 		StringBuffer fileData = new StringBuffer();
 		
 		Scanner scan = null;
 		if(!(new File(inputFile).exists())) {
-			System.out.println(inputFile + " does not exist. Quitting.");
-			//System.exit(1);
+			System.out.println(inputFile + " does not exist.");
 		}
 		try {
 			FileReader fr = new FileReader(inputFile);
@@ -450,7 +431,7 @@ public class Map {
 	}
 		
 	/**
-	 * Edit <code>Map</code> to have a sensitivity of 5 pixels and resets map settings with
+	 * Edit <code>Map</code> settings to have a sensitivity of 5 pixels and resets map settings with
 	 * given information
 	 * @param x top-left x-coordinate of map
 	 * @param y top-left y-coordinate of map

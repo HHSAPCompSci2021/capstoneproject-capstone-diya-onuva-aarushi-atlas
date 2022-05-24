@@ -17,8 +17,8 @@ public class DrawingMode extends Screen {
 	private boolean erase;
 
 	/**
-	 * @param draw of type DrawingSurface
-	 * Constructor and initializes fields 
+	 * Initializes DrawingMode in given DrawingSurface
+	 * @param draw given PApplet
 	 */
 	public DrawingMode(DrawingSurface draw) {
 		super(1200, 750);
@@ -44,11 +44,6 @@ public class DrawingMode extends Screen {
 	 */
 	public void draw() {
 	
-		//if(draw.mousePressed && draw.mouseX <= 60 && draw.mouseX >= 30 && draw.mouseY <= 60 && draw.mouseY >= 30) {
-		//setBackground = true;
-		//curColor = 0;
-		//draw.switchScreen(ScreenSwitcher.MENU_SCREEN);
-		//}
 		surface.strokeWeight(2);
 		
 		if (erase) 
@@ -82,14 +77,7 @@ public class DrawingMode extends Screen {
 			surface.stroke(r, g, b);
 			surface.line(surface.pmouseX, surface.pmouseY, surface.mouseX, surface.mouseY);
 		}
-		
-//		if (rectDrag) {
-//			surface.fill(r, g, b);
-//			surface.rectMode(PConstants.CORNER);
-//			surface.rect(rectX, rectY, Math.abs(surface.mouseX - rectX), Math.abs(surface.mouseY - rectY));
-//			surface.rectMode(PConstants.CENTER);
-//		}
-		
+			
 		if (chooseColor) 
 			surface.image(surface.loadImage("fileData/ColorWheel.png"), DRAWING_WIDTH - 220, DRAWING_HEIGHT - 220); //285, 350
 		
@@ -104,7 +92,7 @@ public class DrawingMode extends Screen {
 	
 	/**
 	 * Serves to detect and interpret when a user drags their mouse
-	 * @post sets isDragged to true; allows draw to be changed
+	 * @post allows draw to be changed
 	 */
 	public void mouseDragged() {
 		if (!chooseColor && surface.mouseButton == PConstants.LEFT) 
@@ -119,7 +107,6 @@ public class DrawingMode extends Screen {
 	
 	/** 
 	 * Serves to detect and interpret when a user released their mouse
-	 * @post sets isDragged to true
 	 */
 	public void mouseReleased() {
 	
@@ -134,9 +121,6 @@ public class DrawingMode extends Screen {
 					 && (!(r2 == g2 && g2 == b2 && r2 == b2 && b2 == 255))) 
 			{
 			
-//			if (surface.mouseX >= DRAWING_WIDTH - 285 && surface.mouseX <= DRAWING_WIDTH - 65
-//			  && surface.mouseY >= 350 && surface.mouseY <= 570
-//			  && (!(r2 == g2 && g2 == b2 && r2 == b2 && b2 == 255))) {
 				r = r2;
 				g = g2;
 				b = b2;
@@ -246,11 +230,6 @@ public class DrawingMode extends Screen {
 			}
 			
 			
-//			if((surface.mouseX <= (DRAWING_WIDTH - 10) && surface.mouseX >= (DRAWING_WIDTH - 65) && surface.mouseY <= 492 && surface.mouseY >= 425)
-//			  && (x <= (DRAWING_WIDTH - 10) && x >= (DRAWING_WIDTH - 65) && y <= 492 && y >= 425)) {
-//				erase = false;
-//				chooseColor = true;
-//			}
 		}
 	}
 	
@@ -262,18 +241,8 @@ public class DrawingMode extends Screen {
 		
 		surface.rectMode(PConstants.CORNER);
 		surface.fill(255);
-//		surface.rect(1130, 0, surface.width - 1140, surface.height);
-//		surface.stroke(0);
 		surface.rect(1130, 0, surface.width, surface.height); //1140
 		surface.stroke(0);
-//		surface.line(1130, 0, 1130, surface.height);
-//		surface.line(911, surface.height - 225, 1130, surface.height - 225);
-//		surface.line(911, surface.height, 1130, surface.height);
-//		surface.line(911, surface.height - 225, 911, surface.height);
-		
-//		surface.line(911, 349, 1130, 349);
-//		surface.line(911, 571, 1130, 571);
-//		surface.line(911, 349, 911, 571);
 		surface.stroke(0);
 		surface.rectMode(PConstants.CENTER);
 		surface.noStroke();
