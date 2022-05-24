@@ -83,12 +83,12 @@ public class DrawingMode extends Screen {
 			surface.line(surface.pmouseX, surface.pmouseY, surface.mouseX, surface.mouseY);
 		}
 		
-		if (rectDrag) {
-			surface.fill(r, g, b);
-			surface.rectMode(PConstants.CORNER);
-			surface.rect(rectX, rectY, Math.abs(surface.mouseX - rectX), Math.abs(surface.mouseY - rectY));
-			surface.rectMode(PConstants.CENTER);
-		}
+//		if (rectDrag) {
+//			surface.fill(r, g, b);
+//			surface.rectMode(PConstants.CORNER);
+//			surface.rect(rectX, rectY, Math.abs(surface.mouseX - rectX), Math.abs(surface.mouseY - rectY));
+//			surface.rectMode(PConstants.CENTER);
+//		}
 		
 		if (chooseColor) 
 			surface.image(surface.loadImage("fileData/ColorWheel.png"), DRAWING_WIDTH - 285, 350); //285, 350
@@ -303,22 +303,55 @@ public class DrawingMode extends Screen {
 		surface.fill(0); //black
 		surface.rect(1150, 350, 30, 30);
 		
-		surface.fill(255); //color wheel
-		surface.rect(1150, 450, 60, 60);
-		surface.image(surface.loadImage("fileData/wheel.png"), 1120, 420);
+		//color wheel
+		if (surface.mousePressed && x <= surface.width * 0.05f + surface.height * 0.05f && x >= surface.width * 0.05f - surface.height * 0.05f && y <= surface.height * 0.13f && y >= surface.height * 0.03f) 
+		{
+			surface.fill(255);
+			surface.rect(surface.width * 0.21f, surface.height * 0.92f, surface.height * 0.1f, surface.height * 0.1f);
+			surface.fill(32, 42, 68);
+			surface.ellipse(surface.width * 0.21f, surface.height * 0.92f, surface.height * 0.1f * (2f / 3f), surface.height * 0.1f * (2f / 3f)); // Back button
+			surface.image(surface.loadImage("fileData/smallWheel.png"), surface.width * 0.15f, surface.height * 0.0575f);
+		} 
+		else 
+		{
+			surface.fill(32, 42, 68);
+			surface.ellipse(surface.width * 0.21f, surface.height * 0.92f, surface.height * 0.1f,
+					surface.height * 0.1f); // Back button
+			surface.image(surface.loadImage("fileData/wheel.png"), surface.width * 0.19f, surface.height * 0.89f);
+		}
 		
-		surface.fill(220, 236, 245); //reset
-		surface.rect(1150, 400, 30, 30);
-		surface.fill(0);
-		surface.textSize(10);
-		surface.text("Reset", 1150, 405);
+		//Clear screen button
+		if (surface.mousePressed && x <= surface.width * 0.05f + surface.height * 0.05f && x >= surface.width * 0.05f - surface.height * 0.05f && y <= surface.height * 0.13f && y >= surface.height * 0.03f) 
+		{
+			surface.fill(255);
+			surface.rect(surface.width * 0.05f, surface.height * 0.92f, surface.height * 0.1f, surface.height * 0.1f);
+			surface.fill(32, 42, 68);
+			surface.ellipse(surface.width * 0.05f, surface.height * 0.92f, surface.height * 0.1f * (2f/3f), surface.height * 0.1f * (2f/3f)); //Back button
+			surface.image(surface.loadImage("fileData/smallCan.png"), surface.width * 0.035f, surface.height * 0.0575f);
+		}
+		else 
+		{
+			surface.fill(32, 42, 68);
+			surface.ellipse(surface.width * 0.05f, surface.height * 0.92f, surface.height * 0.1f, surface.height * 0.1f); //Back button
+			surface.image(surface.loadImage("fileData/can.png"), surface.width * 0.03f, surface.height * 0.89f);
+		}
 		
-		surface.fill(220, 236, 245); //eraser
-		surface.rect(1150, 520, 30, 30);
-		surface.fill(0);
-		surface.image(surface.loadImage("fileData/trashcan.png"), 1130, 500);
-		surface.textSize(10);
-//		surface.text("Eraser", 1150, 525);
+		//eraser
+		if (surface.mousePressed && x <= surface.width * 0.05f + surface.height * 0.05f && x >= surface.width * 0.05f - surface.height * 0.05f && y <= surface.height * 0.13f && y >= surface.height * 0.03f) 
+		{
+			surface.fill(255);
+			surface.rect(surface.width * 0.13f, surface.height * 0.92f, surface.height * 0.1f, surface.height * 0.1f);
+			surface.fill(32, 42, 68);
+			surface.ellipse(surface.width * 0.13f, surface.height * 0.92f, surface.height * 0.1f * (2f/3f), surface.height * 0.1f * (2f/3f)); //Back button
+			surface.image(surface.loadImage("fileData/smallEraser.png"), surface.width * 0.12f, surface.height * 0.0575f);
+		}
+		else 
+		{
+			surface.fill(32, 42, 68);
+			surface.ellipse(surface.width * 0.13f, surface.height * 0.92f, surface.height * 0.1f, surface.height * 0.1f); //Back button
+			surface.image(surface.loadImage("fileData/eraser.png"), surface.width * 0.11f, surface.height * 0.89f);
+		}
+		
 	}
 	
 	/**
