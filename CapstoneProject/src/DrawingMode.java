@@ -14,6 +14,7 @@ public class DrawingMode extends Screen {
 	private DrawingSurface surface;
 	private int r, g, b;
 	private float x, y, rectX, rectY;
+	private boolean erase;
 
 	/**
 	 * @param draw of type DrawingSurface
@@ -49,6 +50,9 @@ public class DrawingMode extends Screen {
 		//draw.switchScreen(ScreenSwitcher.MENU_SCREEN);
 		//}
 		surface.strokeWeight(2);
+		
+		if (erase) 
+			surface.strokeWeight(40);
 		
 		if (surface.mousePressed && x < 0 && y < 0) {
 			x = surface.mouseX;
@@ -87,7 +91,7 @@ public class DrawingMode extends Screen {
 		}
 		
 		if (chooseColor) 
-			surface.image(surface.loadImage("fileData/ColorWheel.png"), DRAWING_WIDTH - 285, 350);
+			surface.image(surface.loadImage("fileData/ColorWheel.png"), DRAWING_WIDTH - 285, 350); //285, 350
 		
 		else {
 			surface.rectMode(PConstants.CORNER);
@@ -120,6 +124,7 @@ public class DrawingMode extends Screen {
 	public void mouseReleased() {
 	
 		if (chooseColor) {
+			erase = false;
 			int r2 = PApplet.round(surface.red(surface.color(surface.get(DrawingSurface.round(x), DrawingSurface.round(y)))));
 			int g2 = PApplet.round(surface.green(surface.color(surface.get(DrawingSurface.round(x), DrawingSurface.round(y)))));
 			int b2 = PApplet.round(surface.blue(surface.color(surface.get(DrawingSurface.round(x), DrawingSurface.round(y)))));
@@ -149,6 +154,7 @@ public class DrawingMode extends Screen {
 			  && x >= surface.width * 0.05f - surface.height * 0.05f 
 			  && y <= surface.height * 0.13f && y >= surface.height * 0.03f) {
 				setBackground = true;
+				erase = false;
 				r = 0;
 				g = 0;
 				b = 0;
@@ -158,6 +164,7 @@ public class DrawingMode extends Screen {
 			//switches to red stroke
 			if((surface.mouseX <= (DRAWING_WIDTH - 35) && surface.mouseX >= (DRAWING_WIDTH - 65) && surface.mouseY <= 65 && surface.mouseY >= 35)
 			  && (x <= (DRAWING_WIDTH - 35) && x >= (DRAWING_WIDTH - 65) && y <= 65 && y >= 35)) {
+				erase = false;
 				r = 205;
 				g = 30;
 				b = 40;
@@ -165,6 +172,7 @@ public class DrawingMode extends Screen {
 			
 			if((surface.mouseX <= (DRAWING_WIDTH - 35) && surface.mouseX >= (DRAWING_WIDTH - 65) && surface.mouseY <= 115 && surface.mouseY >= 85)
 			  && (x <= (DRAWING_WIDTH - 35) && x >= (DRAWING_WIDTH - 65) && y <= 115 && y >= 85)) {
+				erase = false;
 				r = 205;
 				g = 100;
 				b = 40;
@@ -175,10 +183,12 @@ public class DrawingMode extends Screen {
 				r = 203;
 				g = 160;
 				b = 40;
+				erase = false;
 			}
 			
 			if((surface.mouseX <= (DRAWING_WIDTH - 35) && surface.mouseX >= (DRAWING_WIDTH - 65) && surface.mouseY <= 215 && surface.mouseY >=185)
 			  && (x <= (DRAWING_WIDTH - 35) && x >= (DRAWING_WIDTH - 65) && y <= 215 && y >=185)) {
+				erase = false;
 				r = 20;
 				g = 215;
 				b = 5;
@@ -186,6 +196,7 @@ public class DrawingMode extends Screen {
 			
 			if((surface.mouseX <= (DRAWING_WIDTH - 35) && surface.mouseX >= (DRAWING_WIDTH - 65) && surface.mouseY <= 265 && surface.mouseY >= 235)
 			  && (x <= (DRAWING_WIDTH - 35) && x >= (DRAWING_WIDTH - 65) && y <= 265 && y >= 235)) {
+				erase = false;
 				r = 10;
 				g = 75;
 				b = 140;
@@ -193,6 +204,7 @@ public class DrawingMode extends Screen {
 			
 			if((surface.mouseX <= (DRAWING_WIDTH - 35) && surface.mouseX >= (DRAWING_WIDTH - 65) && surface.mouseY <= 315 && surface.mouseY >= 285)
 			  && (x <= (DRAWING_WIDTH - 35) && x >= (DRAWING_WIDTH - 65) && y <= 315 && y >= 285)) {
+				erase = false;
 				r = 80;
 				g = 40;
 				b = 120;
@@ -200,18 +212,34 @@ public class DrawingMode extends Screen {
 			
 			if((surface.mouseX <= (DRAWING_WIDTH - 35) && surface.mouseX >= (DRAWING_WIDTH - 65) && surface.mouseY <= 365 && surface.mouseY >= 335)
 			  && (x <= (DRAWING_WIDTH - 35) && x >= (DRAWING_WIDTH - 65) && y <= 365 && y >= 335)) {
+				erase = false;
 				r = 0;
 				g = 0;
 				b = 0;
 			}
 			
+			
+			//eraser 
+			if((surface.mouseX <= (1170) && surface.mouseX >= (1130) && surface.mouseY <= 550 && surface.mouseY >= 500)
+			  && (x <= (1170) && x >= (1130) && y <= 550 && y >= 500)) {
+				
+				surface.strokeWeight(10);
+				erase = true;
+				r = 255;
+				g = 255;
+				b = 255;
+				surface.strokeWeight(2);
+			}
+			
 			if((surface.mouseX <= (DRAWING_WIDTH - 35) && surface.mouseX >= (DRAWING_WIDTH - 65) && surface.mouseY <= 415 && surface.mouseY >= 385)
 			  && (x <= (DRAWING_WIDTH - 35) && x >= (DRAWING_WIDTH - 65) && y <= 415 && y >= 385)) {
+				erase = false;
 				reset();
 			}
 			
-			if((surface.mouseX <= (DRAWING_WIDTH - 35) && surface.mouseX >= (DRAWING_WIDTH - 65) && surface.mouseY <= 465 && surface.mouseY >= 435)
-			  && (x <= (DRAWING_WIDTH - 35) && x >= (DRAWING_WIDTH - 65) && y <= 465 && y >= 435)) {
+			if((surface.mouseX <= (DRAWING_WIDTH - 10) && surface.mouseX >= (DRAWING_WIDTH - 65) && surface.mouseY <= 492 && surface.mouseY >= 425)
+			  && (x <= (DRAWING_WIDTH - 10) && x >= (DRAWING_WIDTH - 65) && y <= 492 && y >= 425)) {
+				erase = false;
 				chooseColor = true;
 			}
 		}
@@ -225,15 +253,22 @@ public class DrawingMode extends Screen {
 		
 		surface.rectMode(PConstants.CORNER);
 		surface.fill(255);
+//		surface.rect(1130, 0, surface.width - 1140, surface.height);
+//		surface.stroke(0);
 		surface.rect(1130, 0, surface.width - 1140, surface.height);
 		surface.stroke(255);
 		surface.line(1130, 0, 1130, surface.height);
-		surface.line(911, 349, 1130, 349);
-		surface.line(911, 571, 1130, 571);
-		surface.line(911, 349, 910, 571);
+		surface.line(911, surface.height - 225, 1130, surface.height - 225);
+		surface.line(911, surface.height, 1130, surface.height);
+		surface.line(911, surface.height - 225, 911, surface.height);
+		
+//		surface.line(911, 349, 1130, 349);
+//		surface.line(911, 571, 1130, 571);
+//		surface.line(911, 349, 911, 571);
 		surface.stroke(0);
 		surface.rectMode(PConstants.CENTER);
 		surface.noStroke();
+		
 		if (surface.mousePressed && x <= surface.width * 0.05f + surface.height * 0.05f && x >= surface.width * 0.05f - surface.height * 0.05f && y <= surface.height * 0.13f && y >= surface.height * 0.03f) 
 		{
 			surface.fill(255);
@@ -269,14 +304,22 @@ public class DrawingMode extends Screen {
 		surface.fill(0); //black
 		surface.rect(1150, 350, 30, 30);
 		
-		surface.fill(150); //black
-		surface.rect(1150, 450, 30, 30);
+		surface.fill(255); //color wheel
+		surface.rect(1150, 450, 60, 60);
+		surface.image(surface.loadImage("fileData/wheel.png"), 1120, 420);
 		
 		surface.fill(220, 236, 245); //reset
 		surface.rect(1150, 400, 30, 30);
 		surface.fill(0);
 		surface.textSize(10);
 		surface.text("Reset", 1150, 405);
+		
+		surface.fill(220, 236, 245); //eraser
+		surface.rect(1150, 520, 30, 30);
+		surface.fill(0);
+		surface.image(surface.loadImage("fileData/trashcan.png"), 1130, 500);
+		surface.textSize(10);
+//		surface.text("Eraser", 1150, 525);
 	}
 	
 	/**

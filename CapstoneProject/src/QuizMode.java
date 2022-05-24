@@ -589,7 +589,6 @@ public class QuizMode extends Screen{
 		countries.add("Gabon");
 		countries.add("South Africa");
 		countries.add("Eritrea");
-		countries.add("The Comoros");
 		countries.add("Sengal");
 		countries.add("Burkina Faso");
 		countries.add("Somalia");
