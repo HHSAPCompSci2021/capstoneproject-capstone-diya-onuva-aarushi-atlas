@@ -7,6 +7,9 @@
  */
 public abstract class Screen {
 
+	/**
+	 * Fixed width and height of the screen
+	 */
 	public final int DRAWING_WIDTH, DRAWING_HEIGHT;
 	
 	/**

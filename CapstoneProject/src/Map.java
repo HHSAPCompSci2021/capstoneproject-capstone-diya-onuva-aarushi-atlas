@@ -403,7 +403,7 @@ public class Map {
 	 * Takes in a file name and returns data in the file as a String
 	 * @param inputFile given file name
 	 * @return data contained in the file as a String
-	 * @throws IOException
+	 * @throws IOException throws exception if error with FileReader
 	 */
 	public String readFile(String inputFile) throws IOException {
 		StringBuffer fileData = new StringBuffer();

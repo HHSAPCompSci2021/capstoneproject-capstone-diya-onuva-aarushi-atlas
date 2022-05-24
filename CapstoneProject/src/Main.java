@@ -11,6 +11,10 @@ import processing.core.PApplet;
  */
 public class Main {
 
+	/**
+	 * Main method to start running the program
+	 * @param args Arguments for Main method
+	 */
 	public static void main(String[] args) 
 	{
 		DrawingSurface drawing = new DrawingSurface();

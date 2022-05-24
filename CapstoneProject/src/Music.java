@@ -37,7 +37,7 @@ public class Music {
 
 		/**
 		 * Sets current volume using given percentage
-		 * @param f given percentage of max volume
+		 * @param v given percentage of max volume
 		 */
 		public void setVol(float v) {
 			vol = (v * 86.0206f) - 80;
