@@ -23,7 +23,7 @@ public class QuizMode extends Screen{
 	private static Map map;
 	private PFont myFont;
 	private int correct;
-	private boolean foo;
+	private boolean foo, foo2;
 	private int r;
 	private int rand1;
 	private int rand2;
@@ -65,6 +65,7 @@ public class QuizMode extends Screen{
 		
 		r = 1;
 		foo = false;
+		foo2 = false;
 	}
 	
 	/**
@@ -162,6 +163,7 @@ public class QuizMode extends Screen{
 					draw.fill(0);
 					draw.textSize(15);
 					foo = true;
+					foo2 = true;
 					
 					
 				}
@@ -183,7 +185,8 @@ public class QuizMode extends Screen{
 					draw.fill(0);
 					draw.textSize(15);
 					foo = true;
-					
+
+					foo2 = true;
 					
 				}
 				else
@@ -210,6 +213,7 @@ public class QuizMode extends Screen{
 					draw.fill(0);
 					draw.textSize(15);
 					foo = true;
+					foo2 = true;
 					
 					
 				}
@@ -231,6 +235,7 @@ public class QuizMode extends Screen{
 					draw.fill(0);
 					draw.textSize(15);
 					foo = true;
+					foo2 = true;
 					
 					
 				}
@@ -258,6 +263,7 @@ public class QuizMode extends Screen{
 					draw.fill(0);
 					draw.textSize(15);
 					foo = true;
+					foo2 = true;
 					
 					
 				}
@@ -279,6 +285,7 @@ public class QuizMode extends Screen{
 					draw.fill(0);
 					draw.textSize(15);
 					foo = true;
+					foo2 = true;
 					
 					
 				}
@@ -306,6 +313,7 @@ public class QuizMode extends Screen{
 					draw.fill(0);
 					draw.textSize(15);
 					foo = true;
+					foo2 = true;
 					
 					
 				}
@@ -327,6 +335,7 @@ public class QuizMode extends Screen{
 					draw.fill(0);
 					draw.textSize(15);
 					foo = true;
+					foo2 = true;
 					
 					
 				}
@@ -353,6 +362,7 @@ public class QuizMode extends Screen{
 						draw.fill(0);
 						draw.textSize(15);
 						foo = true;
+						foo2 = true;
 						
 						
 					}
@@ -397,6 +407,7 @@ public class QuizMode extends Screen{
 				draw.stroke(0);
 				draw.circle(draw.mouseX, draw.mouseY, 20);
 				foo = true;
+				foo2 = true;
 				
 				
 			}
@@ -455,7 +466,7 @@ public class QuizMode extends Screen{
 		
 		if (n >= 1) 
 		{
-			score++;
+			if(foo2)score++;
 			resetRandomize();
 		}
 		
@@ -501,6 +512,7 @@ public class QuizMode extends Screen{
 	public void resetRandomize()
 	{
 		foo = false;
+		foo2 = false;
 		n = 0;
 		
 		int newRandomizer = (int) (Math.random() * 4 + 1);
