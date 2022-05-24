@@ -264,12 +264,12 @@ public class DrawingMode extends Screen {
 		surface.fill(255);
 //		surface.rect(1130, 0, surface.width - 1140, surface.height);
 //		surface.stroke(0);
-		surface.rect(1130, 0, surface.width - 1140, surface.height);
-		surface.stroke(255);
-		surface.line(1130, 0, 1130, surface.height);
-		surface.line(911, surface.height - 225, 1130, surface.height - 225);
-		surface.line(911, surface.height, 1130, surface.height);
-		surface.line(911, surface.height - 225, 911, surface.height);
+		surface.rect(1130, 0, surface.width, surface.height); //1140
+		surface.stroke(0);
+//		surface.line(1130, 0, 1130, surface.height);
+//		surface.line(911, surface.height - 225, 1130, surface.height - 225);
+//		surface.line(911, surface.height, 1130, surface.height);
+//		surface.line(911, surface.height - 225, 911, surface.height);
 		
 //		surface.line(911, 349, 1130, 349);
 //		surface.line(911, 571, 1130, 571);
