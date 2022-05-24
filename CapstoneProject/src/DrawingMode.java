@@ -91,13 +91,13 @@ public class DrawingMode extends Screen {
 //		}
 		
 		if (chooseColor) 
-			surface.image(surface.loadImage("fileData/ColorWheel.png"), (surface.width * 0.21f - surface.height * 0.05f), (surface.height * 0.92f - surface.height * 0.05f)); //285, 350
+			surface.image(surface.loadImage("fileData/ColorWheel.png"), DRAWING_WIDTH - 220, DRAWING_HEIGHT - 220); //285, 350
 		
 		else {
 			surface.rectMode(PConstants.CORNER);
 			surface.noStroke();
 			surface.fill(255);
-			surface.rect(DRAWING_WIDTH - 285, 350, 220, 220);
+			surface.rect(DRAWING_WIDTH - 220, DRAWING_HEIGHT - 220, 220, 220);
 			surface.rectMode(PConstants.CORNER);
 		}
 	}
@@ -130,7 +130,7 @@ public class DrawingMode extends Screen {
 			int b2 = PApplet.round(surface.blue(surface.color(surface.get(DrawingSurface.round(x), DrawingSurface.round(y)))));
 		
 			
-			if (x <= surface.width * 0.21f + surface.height * 0.05f && x >= surface.width * 0.21f - surface.height * 0.05f && y <= surface.height * 0.92f + surface.height * 0.05f && y >= surface.height * 0.92f - surface.height * 0.05f
+			if (x <= surface.width && x >= (surface.width - 220) && y <= surface.height && y >= (surface.height-220)
 					 && (!(r2 == g2 && g2 == b2 && r2 == b2 && b2 == 255))) 
 			{
 			
