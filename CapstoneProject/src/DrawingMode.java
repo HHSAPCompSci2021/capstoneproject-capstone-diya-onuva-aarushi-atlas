@@ -310,7 +310,7 @@ public class DrawingMode extends Screen {
 			surface.rect(surface.width * 0.21f, surface.height * 0.92f, surface.height * 0.1f, surface.height * 0.1f);
 			surface.fill(32, 42, 68);
 			surface.ellipse(surface.width * 0.21f, surface.height * 0.92f, surface.height * 0.1f * (2f / 3f), surface.height * 0.1f * (2f / 3f)); // Back button
-			surface.image(surface.loadImage("fileData/smallWheel.png"), surface.width * 0.15f, surface.height * 0.0575f);
+			surface.image(surface.loadImage("fileData/smallWheel.png"), surface.width * 0.19f + 7f, surface.height * 0.89f + 6f);
 		} 
 		else 
 		{
@@ -327,7 +327,7 @@ public class DrawingMode extends Screen {
 			surface.rect(surface.width * 0.05f, surface.height * 0.92f, surface.height * 0.1f, surface.height * 0.1f);
 			surface.fill(32, 42, 68);
 			surface.ellipse(surface.width * 0.05f, surface.height * 0.92f, surface.height * 0.1f * (2f/3f), surface.height * 0.1f * (2f/3f)); //Back button
-			surface.image(surface.loadImage("fileData/smallCan.png"), surface.width * 0.035f, surface.height * 0.0575f);
+			surface.image(surface.loadImage("fileData/smallCan.png"), surface.width * 0.03f + 7f, surface.height * 0.89f + 6f);
 		}
 		else 
 		{
@@ -343,7 +343,7 @@ public class DrawingMode extends Screen {
 			surface.rect(surface.width * 0.13f, surface.height * 0.92f, surface.height * 0.1f, surface.height * 0.1f);
 			surface.fill(32, 42, 68);
 			surface.ellipse(surface.width * 0.13f, surface.height * 0.92f, surface.height * 0.1f * (2f/3f), surface.height * 0.1f * (2f/3f)); //Back button
-			surface.image(surface.loadImage("fileData/smallEraser.png"), surface.width * 0.12f, surface.height * 0.0575f);
+			surface.image(surface.loadImage("fileData/smallEraser.png"), surface.width * 0.11f + 7f, surface.height * 0.89f + 6f);
 		}
 		else 
 		{
