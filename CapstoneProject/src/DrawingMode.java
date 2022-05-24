@@ -304,7 +304,7 @@ public class DrawingMode extends Screen {
 		surface.rect(1150, 350, 30, 30);
 		
 		//color wheel
-		if (surface.mousePressed && x <= surface.width * 0.05f + surface.height * 0.05f && x >= surface.width * 0.05f - surface.height * 0.05f && y <= surface.height * 0.13f && y >= surface.height * 0.03f) 
+		if (surface.mousePressed && x <= surface.width * 0.21f + surface.height * 0.05f && x >= surface.width * 0.21f - surface.height * 0.05f && y <= surface.height * 0.92f + surface.height * 0.05f && y >= surface.height * 0.92f - surface.height * 0.05f) 
 		{
 			surface.fill(255);
 			surface.rect(surface.width * 0.21f, surface.height * 0.92f, surface.height * 0.1f, surface.height * 0.1f);
@@ -321,7 +321,7 @@ public class DrawingMode extends Screen {
 		}
 		
 		//Clear screen button
-		if (surface.mousePressed && x <= surface.width * 0.05f + surface.height * 0.05f && x >= surface.width * 0.05f - surface.height * 0.05f && y <= surface.height * 0.13f && y >= surface.height * 0.03f) 
+		if (surface.mousePressed && x <= surface.width * 0.05f + surface.height * 0.05f && x >= surface.width * 0.05f - surface.height * 0.05f && y <= surface.height * 0.92f + surface.height * 0.05f && y >= surface.height * 0.92f - surface.height * 0.05f) 
 		{
 			surface.fill(255);
 			surface.rect(surface.width * 0.05f, surface.height * 0.92f, surface.height * 0.1f, surface.height * 0.1f);
@@ -337,7 +337,7 @@ public class DrawingMode extends Screen {
 		}
 		
 		//eraser
-		if (surface.mousePressed && x <= surface.width * 0.05f + surface.height * 0.05f && x >= surface.width * 0.05f - surface.height * 0.05f && y <= surface.height * 0.13f && y >= surface.height * 0.03f) 
+		if (surface.mousePressed && x <= surface.width * 0.13f + surface.height * 0.05f && x >= surface.width * 0.13f - surface.height * 0.05f && y <= surface.height * 0.92f + surface.height * 0.05f && y >= surface.height * 0.92f - surface.height * 0.05f) 
 		{
 			surface.fill(255);
 			surface.rect(surface.width * 0.13f, surface.height * 0.92f, surface.height * 0.1f, surface.height * 0.1f);
