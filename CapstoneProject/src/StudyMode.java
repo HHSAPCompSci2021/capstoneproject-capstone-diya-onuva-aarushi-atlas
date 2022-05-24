@@ -96,7 +96,6 @@ public class StudyMode extends Screen {
 				if (answer == JOptionPane.NO_OPTION || answer == JOptionPane.CLOSED_OPTION) facts = false;
 			}
 		}
-		
 	}
 	
 	/**
